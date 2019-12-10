@@ -1,0 +1,30 @@
+body {
+  background-image: url("https://craftersshaft.github.io/mario64background.png") !important;
+}
+
+* {
+  font-family: SM64;
+  color: #fff;
+  border-radius: 5px;
+}
+.boxInfo, .tableRight, .tableLeft, #header {
+  background-image: url("https://craftersshaft.github.io/mario64sign.png") !important;
+    background-size:100% 100%;
+}
+.blog {
+  background-image: url("https://craftersshaft.github.io/mario64sign.png") !important;
+    background-size:100% 100%;
+}
+#userWall {
+  background-image: url("https://craftersshaft.github.io/mario64sign.png") !important;
+    background-size:100% 100%;
+}
+html {
+	cursor: url(http://www.rw-designer.com/cursor-view/43372.png), auto;
+}
+a.logo::before { 
+  content: "Super Myspace 64";
+}
+.extended::before{
+ content:"Let\'s a go!"
+}
