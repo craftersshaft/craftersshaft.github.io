@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap");
+body {
+  background-color: #000;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+* {
+  font-family: "Ubuntu Mono", sans-serif !important;
+  color: #fff;
+  border-radius: 5px;
+}
+.boxInfo, .tableRight, .tableLeft, #header {
+  background: #ccc !important;
+    background-size:100% 100%;
+}
+.blog, .boxHead, #hsub {
+  background: #ccc !important;
+  background-attachment: fixed;
+    background-size:100% 100%;
+}
+#userWall, .rightHead, .friendRequests, .allfwiedsItem {
+  background: #ccc !important;
+    background-size:100% 100%;
+}
+html {
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=16058), auto;
+}
+a.logo::before { 
+  content: "who are you?";
+}
+/* incoming tutorial copy */
+#name {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 4.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+#avatar {
+  display: none;
+}
