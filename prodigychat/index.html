@@ -53,9 +53,25 @@ xhttp.open("GET", "https://api.prodigygame.com/game-api/v2/characters/"+User.use
   Appearance = JSON.parse(xhttp.responseText);
 document.getElementById("login_failed").innerHTML = "Loaded appearance!";
 	var ChatSocket = new WebSocket("wss://multiplayer-6.prodigygame.com/multiplayer-api/socket.io/?userId="+localStorage.getItem(User.userID)+"&worldId=61&serverId=6&jwt="+localStorage.getItem(User.token)+"&EIO=3&transport=websocket")
-
+LoadChat()
 }
   };
+
+// Send text to all users through the server
+function sendText() {
+  // Construct a msg object containing the data the server needs to process the message from the chat client.
+  var msg = ["message",{"action":"wizardcord","data":{"message":document.getElementById("text").value,"date":Date.now(),"userID":53794692}}]
+
+  // Send the msg object as a JSON-formatted string.
+  exampleSocket.send(JSON.stringify(msg));
+  
+  // Blank the text input element, ready to receive the next line of text from the user.
+  document.getElementById("text").value = "";
+} 
+
+exampleSocket.onmessage = function(event) {
+
+}
 </script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 </body>
