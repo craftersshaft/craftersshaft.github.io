@@ -9,12 +9,14 @@
   <input type="text" id="username" name="username" value=""><br>
   <label for="lname">Password:</label><br>
   <input type="text" id="password" name="password" value=""><br><br>
-<input type="button" onclick="loadAccount()" value="Login">
+<input type="button" id="clickem" onclick="loadAccount()" value="Login">
 </form> 
 
 <p id="login_failed"></p>
 <script>
 function loadAccount() {
+document.getElementById('clickem').remove()
+document.getElementById("login_failed").innerHTML = "Logging in...";
 var login_success = false;
 username = document.getElementById("username").value;
 password = document.getElementById("password").value;
