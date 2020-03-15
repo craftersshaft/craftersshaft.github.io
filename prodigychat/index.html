@@ -2,8 +2,8 @@
 <html>
 <body>
 
-<h2>ProdigyGame Chat Room Test</h2>
-<p>note that this doesnt work yet! at all! this is just for future testing of the system</p>
+<h2 id="bla1">ProdigyGame Chat Room Test</h2>
+<p id="bla2">note that this doesnt work yet! at all! this is just for future testing of the system</p>
 <form id="login">
   <label for="fname">Username:</label><br>
   <input type="text" id="username" name="username" value=""><br>
@@ -16,6 +16,8 @@
 <script>
 function loadAccount() {
 document.getElementById('clickem').remove()
+document.getElementById('bla1').remove()
+document.getElementById('bla2').remove()
 document.getElementById("login_failed").innerHTML = "Logging in...";
 var login_success = false;
 username = document.getElementById("username").value;
@@ -70,9 +72,14 @@ function sendText() {
 } 
 
 exampleSocket.onmessage = function(event) {
-
+var msg = JSON.parse(event.data);
 }
 </script>
+<style>
+#chatty_input {
+  width: 100%;
+}
+	</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 </body>
 </html>
