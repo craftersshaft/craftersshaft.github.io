@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>ProdigyGame Chat Room Test</h2>
+
+<form id="login">
+  <label for="fname">Username:</label><br>
+  <input type="text" id="username" name="username" value=""><br>
+  <label for="lname">Password:</label><br>
+  <input type="text" id="password" name="password" value=""><br><br>
+<input type="button" onclick="loadAccount()" value="Login">
+</form> 
+
+<p id="login_failed"></p>
+<script>
+function loadAccount() {
+var login_success = false;
+username = document.getElementById("username").value;
+password = document.getElementById("password").value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "https://api.prodigygame.com/game-api/status", false);
+  xhttp.send();
+  ServerData = JSON.parse(xhttp.responseText);
+localStorage.setItem("ServerData",JSON.parse(ServerData));
+xhttp.open("GET", "https://cdn.prodigygame.com/game/data/dev/data.json", false);
+  xhttp.send();
+  GameData = JSON.parse(xhttp.responseText);
+localStorage.setItem("GameData",JSON.parse(GameData));
+
+xhttp.open("POST", "https://api.prodigygame.com/game-auth-api/v1/login", false);
+ xhttp.setRequestHeader("Content-type", "application/json"); xhttp.send(JSON.stringify({"username":username,"password":password,"clientVersion":ServerData.data.gameClientVersion}));
+ User = JSON.parse(xhttp.responseText);
+localStorage.setItem("User",JSON.parse(User));
+if (User.statusCode == 401)
+{
+login_success=false
+}
+else
+{
+login_success=true
+}
+if(login_success == false)
+{
+    document.getElementById("login_failed").innerHTML = "Login Failed.";
+}
+else
+{
+xhttp.open("GET", "https://api.prodigygame.com/game-api/v2/characters/"+User.userID, false);
+  xhttp.send();
+  Appearance = JSON.parse(xhttp.responseText);
+localStorage.setItem("Appearance",Appearance);
+	var ChatSocket = new WebSocket("wss://multiplayer-6.prodigygame.com/multiplayer-api/socket.io/?userId="+localStorage.getItem(User.userID)+"&worldId=61&serverId=6&jwt="+localStorage.getItem(User.token)+"&EIO=3&transport=websocket")
+
+}
+  };
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+</body>
+</html>
