@@ -24,9 +24,11 @@ password = document.getElementById("password").value;
   xhttp.open("GET", "https://api.prodigygame.com/game-api/status", false);
   xhttp.send();
   ServerData = JSON.parse(xhttp.responseText);
+document.getElementById("login_failed").innerHTML = "Loaded server status!";
 xhttp.open("GET", "https://cdn.prodigygame.com/game/data/dev/data.json", false);
   xhttp.send();
   GameData = JSON.parse(xhttp.responseText);
+document.getElementById("login_failed").innerHTML = "Loaded game data!";
 
 xhttp.open("POST", "https://api.prodigygame.com/game-auth-api/v1/login", false);
  xhttp.setRequestHeader("Content-type", "application/json"); xhttp.send(JSON.stringify({"username":username,"password":password,"clientVersion":ServerData.data.gameClientVersion}));
@@ -45,9 +47,11 @@ if(login_success == false)
 }
 else
 {
+document.getElementById("login_failed").innerHTML = "Loaded account!";
 xhttp.open("GET", "https://api.prodigygame.com/game-api/v2/characters/"+User.userID, false);
   xhttp.send();
   Appearance = JSON.parse(xhttp.responseText);
+document.getElementById("login_failed").innerHTML = "Loaded appearance!";
 	var ChatSocket = new WebSocket("wss://multiplayer-6.prodigygame.com/multiplayer-api/socket.io/?userId="+localStorage.getItem(User.userID)+"&worldId=61&serverId=6&jwt="+localStorage.getItem(User.token)+"&EIO=3&transport=websocket")
 
 }
