@@ -64,10 +64,11 @@ xhttp.send();
 Leaderboard = JSON.parse(xhttp.responseText);
  document.getElementById("login_failed").innerHTML = "Loaded Leaderboard! Time to get loopy!";
 StartLeaderHax()
-for (i = 0; i < 6000; i++) {
-setTimeout(function(){ StartLeaderHax(); }, 65000);
-}
-document.getElementById("login_failed").innerHTML = "The loop ran out, so try refreshing."
+setTimeout(function(){ 
+for (i = 0; i < 6000; i++) {StartLeaderHax();
+} }, 65000);
+
+document.getElementById("login_failed").innerHTML = "The loop reactivates every minute and 5 seconds, and should work if you open a new tab."
 }
   };
 
