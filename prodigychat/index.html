@@ -100,14 +100,8 @@ document.getElementById("login_failed").innerHTML = "Leaderboard sending failed.
 LeaderboardLose = LeaderboardLose + 1
  document.getElementById("leadylose").innerHTML = "Failed Attempts = "+LeaderboardLose;
 }
-else 
-{if (JSON.parse(xhttp.responseText).code != undefined))
-{
-document.getElementById("login_failed").innerHTML = "Leaderboard sending failed.";
-LeaderboardLose = LeaderboardLose + 1
- document.getElementById("leadylose").innerHTML = "Failed Attempts = "+LeaderboardLose;
-}
 else
+{
 document.getElementById("login_failed").innerHTML = "Leaderboard sending success!";
 LeaderboardWin = LeaderboardWin + 1
 document.getElementById("leadywin").innerHTML = "Successful Attempts = "+LeaderboardWin;
