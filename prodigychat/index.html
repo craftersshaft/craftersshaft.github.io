@@ -59,7 +59,7 @@ xhttp.open("GET", "https://api.prodigygame.com/game-api/v2/characters/"+User.use
   Appearance = JSON.parse(xhttp.responseText);
 document.getElementById("login_failed").innerHTML = "Loaded appearance!";
 xhttp.open("GET", "https://api.prodigygame.com/leaderboard-api/user/"+User.userID+"/init?userID="+User.userID, false);
- xhttp.setRequestHeader("authorization", "Bearer "+User.authtoken)
+ xhttp.setRequestHeader("authorization", "Bearer "+User.token)
 xhttp.send();
 Leaderboard = JSON.parse(xhttp.responseText);
  document.getElementById("login_failed").innerHTML = "Loaded Leaderboard! Time to get loopy!";
@@ -90,7 +90,7 @@ var msg = JSON.parse(event.data);
 function StartLeaderHax() {
 xhttp.open("POST", "https://api.prodigygame.com/leaderboard-api/season/null/user/53794692/pvp?userID"+User.userID, true);
 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
- xhttp.setRequestHeader("authorization", "Bearer "+User.authtoken)
+ xhttp.setRequestHeader("authorization", "Bearer "+User.token)
 xhttp.send("seasonID="+Leaderboard.seasonID+"&action=win");
 
 if (JSON.parse(xhttp.responseText).seasonID !== Leaderboard.seasonID)
