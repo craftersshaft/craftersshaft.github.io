@@ -16,6 +16,13 @@
 <p id="leadywin"></p>
 <p id="leadylose"></p>
 <script>
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 LeaderboardLose = 0
 LeaderboardWin = 0
 var xhttp = new XMLHttpRequest();
@@ -106,13 +113,7 @@ wait(65000);
 StartLeaderHax();
 }
 
-function wait(ms){
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) {
-     end = new Date().getTime();
-  }
-}
+
 </script>
 <style>
 #chatty_input {
