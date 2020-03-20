@@ -18,6 +18,7 @@
 <script>
 LeaderboardLose = 0
 LeaderboardWin = 0
+var xhttp = new XMLHttpRequest();
 function loadAccount() {
 document.getElementById('clickem').remove()
 document.getElementById('bla1').remove()
@@ -26,7 +27,6 @@ document.getElementById("login_failed").innerHTML = "Logging in...";
 var login_success = false;
 username = document.getElementById("username").value;
 password = document.getElementById("password").value;
-  var xhttp = new XMLHttpRequest();
   xhttp.open("GET", "https://api.prodigygame.com/game-api/status", false);
   xhttp.send();
   ServerData = JSON.parse(xhttp.responseText);
