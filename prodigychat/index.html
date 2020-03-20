@@ -2,8 +2,8 @@
 <html>
 <body>
 
-<h2 id="bla1">ProdigyGame Chat Room Test</h2>
-<p id="bla2">note that this doesnt work yet! at all! this is just for future testing of the system</p>
+<h2 id="bla1">ProdigyGame Leaderboard Test</h2>
+<p id="bla2">shhh dont tell anyone</p>
 <form id="login">
   <label for="fname">Username:</label><br>
   <input type="text" id="username" name="username" value=""><br>
@@ -13,7 +13,11 @@
 </form> 
 
 <p id="login_failed"></p>
+<p id="leadywin"></p>
+<p id="leadylose"></p>
 <script>
+LeaderboardLose = 0
+LeaderboardWin = 0
 function loadAccount() {
 document.getElementById('clickem').remove()
 document.getElementById('bla1').remove()
@@ -54,8 +58,15 @@ xhttp.open("GET", "https://api.prodigygame.com/game-api/v2/characters/"+User.use
   xhttp.send();
   Appearance = JSON.parse(xhttp.responseText);
 document.getElementById("login_failed").innerHTML = "Loaded appearance!";
-	var ChatSocket = new WebSocket("wss://multiplayer-6.prodigygame.com/multiplayer-api/socket.io/?userId="+localStorage.getItem(User.userID)+"&worldId=61&serverId=6&jwt="+localStorage.getItem(User.token)+"&EIO=3&transport=websocket")
-LoadChat()
+xhttp.open("GET", "https://api.prodigygame.com/leaderboard-api/user/"+User.userID+"/init?userID="+User.userID, false);
+xhttp.send();
+Leaderboard = JSON.parse(xhttp.responseText);
+ document.getElementById("login_failed").innerHTML = "Loaded Leaderboard! Time to get loopy!";
+StartLeaderHax()
+for (i = 0; i < 6000; i++) {
+setTimeout(function(){ StartLeaderHax(); }, 65000);
+}
+document.getElementById("login_failed").innerHTML = "The loop ran out, so try refreshing."
 }
   };
 
@@ -73,6 +84,26 @@ function sendText() {
 
 exampleSocket.onmessage = function(event) {
 var msg = JSON.parse(event.data);
+}
+
+function StartLeaderHax() {
+xhttp.open("POST", "https://api.prodigygame.com/leaderboard-api/season/null/user/53794692/pvp?userID"+User.userID, true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("seasonID="+Leaderboard.seasonID+"&action=win");
+
+if (JSON.parse(xhttp.responseText).seasonID !== Leaderboard.seasonID)
+{
+document.getElementById("login_failed").innerHTML = "Leaderboard sending failed.";
+LeaderboardLose = LeaderboardLose + 1
+ document.getElementById("leadylose").innerHTML = "Failed Attempts = "+LeaderboardLose;
+}
+else
+{
+document.getElementById("login_failed").innerHTML = "Leaderboard sending success!";
+LeaderboardWin = LeaderboardWin + 1
+document.getElementById("leadywin").innerHTML = "Successful Attempts = "+LeaderboardWin;
+}
+
 }
 </script>
 <style>
