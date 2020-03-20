@@ -92,7 +92,7 @@ var msg = JSON.parse(event.data);
 }
 
 function StartLeaderHax() {
-xhttp.open("POST", "https://api.prodigygame.com/leaderboard-api/season/"+Leaderboard.seasonID+"/user/53794692/pvp?userID="+User.userID, true);
+xhttp.open("POST", "https://api.prodigygame.com/leaderboard-api/season/"+Leaderboard.seasonID+"/user/"+User.userID+"/pvp?userID="+User.userID, true);
 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
  xhttp.setRequestHeader("authorization", "Bearer "+User.token)
 xhttp.send("seasonID="+Leaderboard.seasonID+"&action=win");
