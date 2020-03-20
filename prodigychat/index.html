@@ -93,7 +93,7 @@ xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
  xhttp.setRequestHeader("authorization", "Bearer "+User.token)
 xhttp.send("seasonID="+Leaderboard.seasonID+"&action=win");
 
-if (JSON.parse(xhttp.responseText).seasonID != Leaderboard.seasonID)
+if (xhttp.responseText = undefined)
 {
 document.getElementById("login_failed").innerHTML = "Leaderboard sending failed.";
 LeaderboardLose = LeaderboardLose + 1
