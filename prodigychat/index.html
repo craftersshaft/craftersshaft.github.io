@@ -109,8 +109,7 @@ document.getElementById("login_failed").innerHTML = "Leaderboard sending success
 LeaderboardWin = LeaderboardWin + 1
 document.getElementById("leadywin").innerHTML = "Successful Attempts = "+LeaderboardWin;
 }
-wait(65000);
-StartLeaderHax();
+setTimeout(function(){ StartLeaderHax(); }, 65000)
 }
 
 
