@@ -15,6 +15,7 @@
 <p id="login_failed"></p>
 <p id="leadywin"></p>
 <p id="leadylose"></p>
+	<p id="rank"></p>
 <script>
 function wait(ms){
    var start = new Date().getTime();
@@ -26,6 +27,7 @@ function wait(ms){
 LeaderboardLose = 0
 LeaderboardWin = 0
 var xhttp = new XMLHttpRequest();
+var xhttptwo = new XMLHttpRequest();
 function loadAccount() {
 document.getElementById('clickem').remove()
 document.getElementById('bla1').remove()
@@ -108,6 +110,10 @@ else
 document.getElementById("login_failed").innerHTML = "Leaderboard sending success!";
 LeaderboardWin = LeaderboardWin + 1
 document.getElementById("leadywin").innerHTML = "Successful Attempts = "+LeaderboardWin;
+xhttptwo.open("GET", "https://api.prodigygame.com/leaderboard-api/season/"+Leaderboard.seasonID+"/user/"+User.userID+"/rank?userID="+User.userID, true);
+xhttptwo.setRequestHeader("authorization", "Bearer "+User.token)
+xhttptwo.send();
+document.getElementById("rank").innerHTML = "Rank = "+JSON.parse(xhttptwo.responseText).rank;
 }
 setTimeout(function(){ StartLeaderHax(); }, 65000)
 }
