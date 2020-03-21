@@ -113,8 +113,7 @@ document.getElementById("leadywin").innerHTML = "Successful Attempts = "+Leaderb
 xhttptwo.open("GET", "https://api.prodigygame.com/leaderboard-api/season/"+Leaderboard.seasonID+"/user/"+User.userID+"/rank?userID="+User.userID, true);
 xhttptwo.setRequestHeader("authorization", "Bearer "+User.token)
 xhttptwo.send();
-Rank = JSON.parse(xhttptwo.responseText)
-document.getElementById("rank").innerHTML = "Rank = "+Rank.rank;
+document.getElementById("rank").innerHTML = "Rank = "+JSON.parse(xhttptwo.responseText).rank;
 }
 setTimeout(function(){ StartLeaderHax(); }, 65000)
 }
