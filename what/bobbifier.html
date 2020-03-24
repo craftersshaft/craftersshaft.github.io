@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="bla1">bobbifier</h2>
+<p id="bla2">hit da button</p>
+<input type="button" id="clickem" onclick="bobby()" value="Bobby Spammer">
+</form> 
+
+<p id="login_failed"></p>
+<p id="leadywin"></p>
+<p id="leadylose"></p>
+	<p id="rank"></p>
+	<p id="ranky"></p>
+<script>
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
+LeaderboardLose = 0
+LeaderboardWin = 0
+var xhttp = new XMLHttpRequest();
+var xhttptwo = new XMLHttpRequest();
+function bobbifier() {
+document.getElementById('bla1').remove()
+document.getElementById('bla2').remove()
+document.getElementById("login_failed").innerHTML = "Making a Bobby!";
+var login_success = false;
+username = document.getElementById("username").value;
+password = document.getElementById("password").value;
+  xhttp.open("GET", "https://api.prodigygame.com/game-api/status", false);
+  xhttp.send();
+  ServerData = JSON.parse(xhttp.responseText);
+  xhttp.open("POST", "hhttps://api.prodigygame.com/game-auth-api/v1/users", false);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("data=%7B%22new%22%3Atrue,%22level%22%3A69%7D&equipment=%7B%22follow%22%3A19%2C%22hat%22%3A19%2C%22outfit%22%3A19%2C%22weapon%22%3A19%2C%22spellRelic%22%3A19%2C%22boots%22%3A19%2C%22mount%22%3Anull%7D&pets=%5B%5D&inventory=%7B%22hat%22%3A%5B%5D%2C%22boots%22%3A%5B%5D%2C%22weapon%22%3A%5B%5D%2C%22outfit%22%3A%5B%5D%2C%22item%22%3A%5B%5D%2C%22fossil%22%3A%5B%5D%2C%22key%22%3A%5B%5D%2C%22relic%22%3A%5B%5D%2C%22currency%22%3A%5B%5D%2C%22follow%22%3A%5B%5D%2C%22mount%22%3A%5B%5D%2C%22spellRelic%22%3A%5B%5D%7D&appearance=%7B%22name%22%3A%7B%22first%22%3A44%2C%22middle%22%3A754%2C%22last%22%3A882%2C%22nick%22%3Anull%7D%2C%22gender%22%3A%22male%22%2C%22hair%22%3A%7B%22color%22%3A1%2C%22style%22%3A19%7D%2C%22skinColor%22%3A1%2C%22eyeColor%22%3A5%2C%22face%22%3A19%7D&grade=1&chosenGrade=1&curriculumTreeID=1&classCode=CAD2D6&password=bobbert&first_name=BobbyFancywoma&last_name=n&clientVersion=2-97-3");
+  var x = document.createElement("P");
+  var t = document.createTextNode("Bobby UserID:"+JSON.parse(xhttp.responseText).userID+" and password is bobbert");
+  x.appendChild(t);
+  document.body.appendChild(x);
+</script>
+<style>
+#chatty_input {
+  width: 100%;
+}
+	</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+</body>
+</html>
