@@ -28,9 +28,6 @@ function bobby() {
 document.getElementById('bla1').remove()
 document.getElementById('bla2').remove()
 document.getElementById("login_failed").innerHTML = "Making a Bobby!";
-var login_success = false;
-username = document.getElementById("username").value;
-password = document.getElementById("password").value;
   xhttp.open("GET", "https://api.prodigygame.com/game-api/status", false);
   xhttp.send();
   ServerData = JSON.parse(xhttp.responseText);
