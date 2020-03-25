@@ -1,0 +1,954 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Prodigy</title>
+        <meta charset="UTF-8" />
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <link rel="icon" type="image/png" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/Includes/Images/favicon.gif">
+        <link rel="stylesheet" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/Includes/Styles/Fonts/Font-Awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/assets/styles/main.css?v=cubone-1-2-3">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,500,600,700' rel='stylesheet' type='text/css'>  
+        <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/hndgjbjghbnahgfhcmhkkoibbgdemlia">  
+        <style>
+        	html{
+        		height:100%;
+        		overflow:hidden;
+        	}
+
+            body{
+                margin:0;
+                background-color:#55B9A7;
+                height:100%;
+                padding:0 !important;
+            }
+
+            #game-container {
+            	height:100%;
+            }
+
+            #game-wrapper {
+                height:100%;
+            }
+
+            input.game-input{
+                margin:0;
+                position:absolute;
+                top:0;
+                left:0;
+                padding:0px 10px;
+                border-radius:10px;
+                border: 1px solid #363636;
+                background-color:#fff5eb;
+                color:#363636;
+                text-align:left;
+                
+            }
+            .head-bar{
+                height:45px;
+                width:100%;
+                position:fixed;
+            }
+
+            .head-content{
+                width:100%;
+                position:relative;
+                height:100%;
+            }
+
+           
+
+            .full-nav-button{
+                border:1px solid #596ED9;
+                border-top:none;
+
+                font-weight:bold;
+                color:#f89825;
+                margin-top:0;
+                font-size:1.3em;
+                padding:10px 10px;
+                height:100%;
+                width:100%;
+                background-color: #6579DC;
+                color:white;
+
+            }
+
+
+            .full-nav-button:hover {
+                background:none;
+                background-color:#596ED9;
+                border:none;
+                color:#f2f2f2;
+                box-shadow: none;
+            }
+
+            .announcement {
+                margin-bottom: 0;
+                position: absolute;
+                width: 100%;
+            }
+
+            .announcement-close {
+                position:absolute;
+                right:20px;
+                top:10px;
+                color:#a94442;
+            }
+            .announcement-close:hover {
+                color:#c94442;
+                cursor:pointer;
+            }
+
+            .announcement .alert {
+                padding-right:50px;
+            }
+
+            iframe {
+            	display:none;
+            }
+
+            .game-page-overlay {
+                display: none;
+                position: static;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: white;                
+            }
+
+            .iframe-ios-fix {
+               /*iOS fix for scrolling issues with iframe*/
+                -webkit-overflow-scrolling: touch;
+                overflow-y: scroll; 
+            }
+
+            .game-page-overlay iframe {
+                display: block;
+                height: 100%;
+                width: 100%;
+                border: none;                
+            }
+
+            .gone {
+                display:none;
+            }
+
+            #first-loading-screen {
+                height:100%;
+                width:100%;
+                background-color:#55B9A7;
+            }
+
+            .alert{
+                margin-top:0;
+                border-radius:0;
+                text-align:center;
+            }
+
+            .alert-warning {
+                background-color:#FCF8E3;
+                color: #8A6D3B;
+            }
+
+
+            /* IOS PROMPT STYLES */
+            .ios-install-prompt {
+                background-color:#F2F2F2;
+                width:100%;
+                height:70px;
+                position:absolute;
+                z-index:10;
+                padding:5px 10px;
+            }
+
+            .ios-install-prompt__wrapper {
+                margin: 0 auto;
+                height:100%;
+                width:50%;
+            }
+
+            .ios-install-prompt__close {
+                display:block;
+                position:relative;
+                float:left;
+                height:100%;
+                top:35%;
+                color:#848484;
+                padding-right:20px;
+                cursor:pointer;
+            }
+
+            .ios-install-prompt__icon {
+                display:block;
+                float:left;
+                height:63px;
+                margin-right:5px;
+            }
+
+            .ios-install-prompt__data {
+                display:block;
+                float:left;
+                line-height:1.3;
+                margin-top:3px;
+            }
+
+            .ios-install-prompt__title {
+                color:#444;
+                display:block;
+                font-size:12px;
+                font-weight:bold;
+            }
+
+            .ios-install-prompt__label {
+                color:#5e5e5e;
+                display:block;
+                font-size:10px;
+            }
+
+            .ios-install-prompt__star {
+                color:#FF9300;
+            }
+
+            .ios-install-prompt__link {
+                display:block;
+                position:relative;
+                float:right;
+                height:100%;
+                top:30%;
+                color:#1481FE;
+                padding-right:5px;
+                cursor:pointer;
+            }
+            /** END IOS STYLES **/
+
+        </style>
+	    <script>
+		     var _gaq = _gaq || [];
+		     _gaq.push(['_setAccount', 'UA-40390561-1']);
+		     _gaq.push(['_trackPageview']);
+
+		     (function() {
+		       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		     })();
+	    </script>
+
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 1008327338;
+			var google_conversion_label = "rgONCLa1jgQQqrXn4AM";
+			var google_custom_params = window.google_tag_params;
+			var google_remarketing_only = true;
+			/* ]]> */
+		</script>
+		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+    </head>
+    <script id="advanced-modal-base-template" type="text/x-handlebars-template">
+
+	<div class="modal--advanced__container">
+		<div class="modal--advanced__controls"></div>
+		<div class="modal--advanced__content"></div>
+		<div class="modal--advanced__spinner"></div>
+	</div>
+	
+</script>
+
+<script id="modal-base-template" type="text/x-handlebars-template">
+	<div class="slide-modal-heading"></div>
+	<div class="modal-container">
+		<div class="modal-btn-container"></div>
+	</div>
+</script>
+<script id="alert-dialog-template" type="text/x-handlebars-template">
+	<div class="dialog__wrapper">
+		{{#if title}}
+			<div class="dialog__title dialog__title--small">{{{title}}}</div>
+		{{/if}}
+
+		{{#if imageSrc}}
+			<img class="dialog__image" src="{{imageSrc}}" alt="{{imageAlt}}">
+		{{/if}}
+
+		<div class="dialog__main">{{{main}}}</div>
+
+		{{#if loader}}
+			<div class="js-loader-container"></div>
+		{{/if}}
+	</div>
+
+	{{#if buttons}}
+		<div class="dialog__button-container text-right">
+			{{#each buttons}}
+				{{#if href}}
+					<a class="js-dialog-button-{{@index}} btn-flat btn-flat--md {{className}}" href="{{href}}" {{#if target}}target="{{target}}"{{/if}}>{{text}}</a>
+				{{else}}
+					<button class="js-dialog-button-{{@index}} btn-flat btn-flat--md {{className}}">{{text}}</button>
+				{{/if}}
+			{{/each}}
+		</div>
+	{{/if}}
+</script>
+
+<script id="confirmation-dialog-template" type="text/x-handlebars-template">
+	<div class="dialog__wrapper">
+		{{#if title}}
+			<div class="dialog__title">{{{title}}}</div>
+		{{/if}}
+
+		{{#if imageSrc}}
+			<img class="dialog__image" src="{{imageSrc}}" alt="{{imageAlt}}">
+		{{/if}}
+
+		<div class="dialog__main">{{{main}}}</div>
+
+		{{#if loader}}
+			<div class="js-loader-container"></div>
+		{{/if}}
+	</div>
+
+	{{#if buttons}}
+		<div class="dialog__button-container text-right">
+			{{#each buttons}}
+				{{#if href}}
+					<a class="js-dialog-button-{{@index}} btn-flat btn-flat--md {{className}}" href="{{href}}" {{#if target}}target={{target}}{{/if}}>{{text}}</a>
+				{{else}}
+					<button class="js-dialog-button-{{@index}} btn-flat btn-flat--md {{className}}">{{text}}</button>
+				{{/if}}
+			{{/each}}
+		</div>
+	{{/if}}
+</script>
+
+<script id="shell-dialog-template" type="text/x-handlebars-template">
+	<div class="dialog__header {{#if headerClassName}}{{headerClassName}}{{/if}}">
+		{{#if title}}
+			<div class="dialog__title text-m-none">{{{title}}}</div>
+			{{#if $img}}{{{$img}}}{{/if}}
+		{{/if}}
+
+		<i class="js-dialog-close dialog__close-icon fa fa-times {{#if iconClassName}}{{iconClassName}}{{/if}}"></i>
+	</div>
+
+	<div class="dialog__wrapper">
+		<div class="dialog__main">{{{main}}}</div>
+	</div>
+</script>
+<!-- These templates are deprecated, but may still be in use by older parts of the web app. -->
+<script id="simple-dialog-template" type="text/x-handlebars-template">
+	<div class="dialog__wrapper">
+		{{#if title}}
+			<div class="dialog__title">{{{title}}}</div>
+		{{/if}}
+
+		{{#if imageSrc}}
+			<img class="dialog__image" src="{{imageSrc}}" alt="{{imageAlt}}">
+		{{/if}}
+
+		<div class="dialog__container">
+			{{#if main}}
+				<div class="dialog__main">{{{main}}}</div>
+			{{/if}}
+
+			{{#if loader}}
+				<div class="js-loader-container"></div>
+			{{/if}}
+
+			{{#if buttons}}
+				<div class="dialog__button-container">
+					{{#each buttons}}
+						<{{tag}} class="js-button dialog__btn {{className}}" {{#if href}}href="{{href}}"{{/if}} data-callback-index="{{callbackIndex}}">{{text}}</{{tag}}>
+					{{/each}}
+				</div>
+			{{/if}}
+		</div>
+	</div>
+</script>
+
+
+<script id="figure-dialog-template" type="text/x-handlebars-template">
+	<div class="dialog-figure__wrapper clearfix">
+
+		{{#if figure}}
+			<div class="dialog-figure__image-wrapper">
+				<img class="dialog-figure__image" src="{{figure.src}}" alt="{{figure.alt}}">
+			</div>
+		{{/if}}
+
+
+		<div class="dialog-figure__content-wrapper">
+			{{#if title}}
+				<div class="dialog-figure__title">{{{title}}}</div>
+			{{/if}}
+
+			{{#if main}}
+				<div class="dialog-figure__main">{{{main}}}</div>
+			{{/if}}
+
+			{{#if loader}}
+				<div class="js-loader-container"></div>
+			{{/if}}
+		</div>
+	</div>
+
+	{{#if buttons}}
+		<div class="dialog__button-container text-right">
+			{{#each buttons}}
+				<{{#if href}}a{{else}}button{{/if}} class="js-dialog-button-{{@index}} btn-flat btn-flat--md {{className}}" {{#if href}}href="{{href}}"{{/if}}>{{text}}</{{#if href}}a{{else}}button{{/if}}>
+			{{/each}}
+		</div>
+	{{/if}}
+</script>
+
+
+<script id="sign-up-form-dialog-template" type="text/x-handlebars-template">
+	<div class="dialog__wrapper dialog__wrapper--tall dialog__wrapper--blue">
+		{{#if title}}
+			<div class="dialog__title text-white">{{{title}}}</div>
+			<img class="dialog__title-ed-img" width="140px" src="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/assets/images/svg/ed/ed-balloon.svg" alt="Ed holding a heart-shaped balloon.">
+		{{/if}}
+
+		<i class="js-dialog-close dialog__close-icon fa fa-times text-white"></i>
+	</div>
+
+	<div class="dialog__wrapper">
+		<div class="dialog__main">{{{main}}}</div>
+	</div>
+
+	<div class="dialog__button-container text-center">
+		<p class="text-m-none">Already have an account? <a id="dialog-sign-in-link" class="js-login-link text-bold" href="#">Sign&nbsp;In</a></p>		
+	</div>
+</script>
+
+<script id="header-dialog-template" type="text/x-handlebars-template">
+	<div class="dialog__header dialog__wrapper--tall dialog__wrapper--blue">
+		{{#if title}}
+			<div class="dialog__title text-white text-m-none">{{{title}}}</div>
+			{{#if $img}}{{{$img}}}{{/if}}
+		{{/if}}
+
+		<i class="js-dialog-close dialog__close-icon fa fa-times text-white"></i>
+	</div>
+
+	<div class="dialog__wrapper">
+		<div class="dialog__main">{{{main}}}</div>
+	</div>
+</script>
+<script id="register-form-template" type="text/x-handlebars-template">	
+	<input type="hidden" name="method" value="register">
+
+	<div class="row-xs row-collapse-t radio-ghost-group radio-ghost-group--3">
+		<label>What type of user are you?</label>
+		<div class="radio-ghost">
+			<input id="register-teacher-radio" name="usertype" type="radio" value="teacher">
+			<label class="radio-ghost__label radio-ghost__label--grey" for="register-teacher-radio">Teacher</label>
+		</div>
+
+		<div class="radio-ghost">
+			<input id="register-parent-radio" name="usertype" type="radio" value="parent">
+			<label class="radio-ghost__label radio-ghost__label--grey" for="register-parent-radio">Parent</label>
+		</div>
+
+		<div class="radio-ghost">
+			<input id="register-student-radio" name="usertype" type="radio" value="student">
+			<label class="radio-ghost__label radio-ghost__label--grey" for="register-student-radio">Student</label>
+		</div>
+	</div>
+
+	<div class="js-teacher-inputs">
+		<label id="register-name-label" for="register-name">Full name</label>
+		<input id="register-name" name="name" type="text" sw-input sw-type="name" sw-label="#register-name-label" sw-error="Full name should be at least 2 characters long.">
+
+		<label id="register-email-label" for="register-email">Email</label>
+		<input id="register-email" name="email" type="text" sw-input sw-type="email" sw-label="#register-email-label" sw-error="Email address appears to be invalid.">
+
+		<label id="register-password-label" for="register-password">Password</label>
+		<input id="register-password" name="password" type="password" sw-input sw-type="password" sw-label="#register-password-label" sw-error="Password needs to be at least 4 characters long.">
+
+		<label id="marketing-consent-label" class="label--small " for="marketing-consent"><input id="marketing-consent" name="marketingConsent" value="true" type="checkbox"> Receive emails about Prodigy news and promotions</label>
+
+		<label class="label--small"><input checked="checked" disabled="true" type="checkbox"> By registering, you agree to the <a class="text-static" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/terms-conditions/" target="_blank">Terms of Service</a> and <a class="text-static" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/privacy-policy/" target="_blank">Privacy Policy</a></label>
+
+		<button class="btn btn--md btn--block home-hero__btn-cta">Create Account</button>
+	</div>
+
+	<div style="display: none;" class="js-student-inputs">
+		<div>
+			<a class="btn btn--lg btn--block btn--no-margin home-hero__btn-cta" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/play">Play Prodigy!</a>
+		</div>
+	</div>
+</script>
+
+
+
+
+
+
+
+
+<script id="register-form-dialog-template" type="text/x-handlebars-template">
+	<input type="hidden" name="method" value="register">
+
+	<label class="text-center text-normal">What type of user are you?</label>
+	<div class="register-form__user-type-container radio-ghost-group radio-ghost-group--3">
+		<div class="radio-ghost">
+			<input id="register-teacher-radio" name="usertype" type="radio" value="teacher">
+			<label class="radio-ghost__label radio-ghost__label--grey" for="register-teacher-radio">Teacher</label>
+		</div>
+
+		<div class="radio-ghost">
+			<input id="register-parent-radio" name="usertype" type="radio" value="parent">
+			<label class="radio-ghost__label radio-ghost__label--grey" for="register-parent-radio">Parent</label>
+		</div>
+
+		<div class="radio-ghost">
+			<input id="register-student-radio" name="usertype" type="radio" value="student">
+			<label class="radio-ghost__label radio-ghost__label--grey" for="register-student-radio">Student</label>
+		</div>
+	</div>
+
+	<div class="js-dialog-error-container form__error-container text-warning text-center"></div>
+
+	<div class="js-teacher-inputs">
+		<div class="form-table">
+			<table>
+				<tr class="form-table__input-row">
+					<td class="form-table__label-cell">
+						<label id="register-name-label" class="form-table__label" for="register-name">Full name</label>
+					</td>
+					<td class="form-table__input-cell">
+						<input id="register-name" class="form-table__input" name="name" type="text" sw-input sw-type="name" sw-label="#register-name-label" sw-error="Full name should be at least 2 characters long.">
+					</td>
+				</tr>
+				<tr class="form-table__input-row">
+					<td class="form-table__label-cell">
+						<label id="register-email-label" class="form-table__label" for="register-email">Email</label>
+					</td>
+					<td class="form-table__input-cell">
+						<input id="register-email" class="form-table__input" name="email" type="text" sw-input sw-type="email" sw-label="#register-email-label" sw-error="Email address appears to be invalid.">
+					</td>
+				</tr>
+				<tr class="form-table__input-row">
+					<td class="form-table__label-cell">
+						<label id="register-password-label" class="form-table__label" for="register-password">Password</label>
+					</td>
+					<td class="form-table__input-cell">
+						<input id="register-password" class="form-table__input" name="password" type="password" sw-input sw-type="password" sw-label="#register-password-label" sw-error="Password needs to be at least 4 characters long.">
+					</td>
+				</tr>
+			</table>	
+		</div>
+
+		
+
+		<div class="row-xs text-center"> 
+			<label id="marketing-consent-label" class="label--small " for="marketing-consent"><input id="marketing-consent" name="marketingConsent" value="true" type="checkbox"> Receive emails about Prodigy news and promotions</label>
+			<label class="label--small"><input checked="checked" disabled="true" type="checkbox"> By registering, you agree to the <a class="text-static" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/terms-conditions/" target="_blank">Terms of Service</a> and <a class="text-static" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/privacy-policy/" target="_blank">Privacy Policy</a></label>
+		</div>
+
+		<button class="btn btn--no-margin btn--block btn--blue text-normal">Create account</button>
+	</div>
+
+	<div style="display: none;" class="js-student-inputs">
+		<div class="text-center">
+			<p>Students create their accounts in-game.</p>
+			<a class="btn btn--no-margin btn--block btn--blue text-normal" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/play">Play Prodigy Now!</a>
+		</div>
+	</div>
+
+	<div class="register-form__existing-account-container text-center">
+		<p class="text-m-none">Already have an account? <a id="dialog-sign-in-link" class="js-login-link text-bold" href="#">Sign&nbsp;In</a></p>		
+	</div>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Does NOT include a submit button because the dialog is expected to supply it. -->
+<script id="OLD-register-form-dialog-template" type="text/x-handlebars-template">
+	<form>
+		<input type="hidden" name="method" value="register">
+
+		<div class="row-xs row-collapse-t radio-ghost-group radio-ghost-group--3">
+			<label>What type of user are you?</label>
+			<div class="radio-ghost">
+				<input id="register-teacher-radio" name="usertype" type="radio" value="teacher">
+				<label class="radio-ghost__label radio-ghost__label--grey" for="register-teacher-radio">Teacher</label>
+			</div>
+
+			<div class="radio-ghost">
+				<input id="register-parent-radio" name="usertype" type="radio" value="parent">
+				<label class="radio-ghost__label radio-ghost__label--grey" for="register-parent-radio">Parent</label>
+			</div>
+
+			<div class="radio-ghost">
+				<input id="register-student-radio" name="usertype" type="radio" value="student">
+				<label class="radio-ghost__label radio-ghost__label--grey" for="register-student-radio">Student</label>
+			</div>
+		</div>
+
+		<div class="js-teacher-inputs">
+			<label id="register-name-label" for="register-name">Full name</label>
+			<input id="register-name" name="name" type="text" sw-input sw-type="name" sw-label="#register-name-label" sw-error="Full name should be at least 2 characters long.">
+
+			<label id="register-email-label" for="register-email">Email</label>
+			<input id="register-email" name="email" type="text" sw-input sw-type="email" sw-label="#register-email-label" sw-error="Email address appears to be invalid.">
+
+			<label id="register-password-label" for="register-password">Password</label>
+			<input id="register-password" name="password" type="password" sw-input sw-type="password" sw-label="#register-password-label" sw-error="Password needs to be at least 4 characters long.">
+
+			<label id="marketing-consent-label" class="label--small " for="marketing-consent"><input id="marketing-consent" name="marketingConsent" value="true" type="checkbox"> Receive emails about Prodigy news and promotions</label>
+
+			<label class="label--small"><input checked="checked" disabled="true" type="checkbox"> By registering, you agree to the <a class="text-static" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/terms-conditions/" target="_blank">Terms of Service</a> and <a class="text-static" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/privacy-policy/" target="_blank">Privacy Policy</a></label>
+		</div>
+
+		<div style="display: none;" class="js-student-inputs">
+			<div>
+				<a class="btn btn--lg btn--block btn--no-margin home-hero__btn-cta" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/play">Play Prodigy!</a>
+			</div>
+		</div>
+	</form>
+</script>
+<script id="login-modal-template" type="text/x-handlebars-template">
+	<div class="modal--advanced__heading">Login To Prodigy</div>
+	<form id="login-form">
+		<div class="modal-section text-left">
+			<label id="login-form-label--error" class="label--error gone"></label>
+			<label id="login-username-label" for="login-username">Email</label>
+			<label id="login-username-label--error" for="login-username" class="label--error gone"></label>
+			<input id="login-username" type="text" value="{{defaultEmail}}">			
+
+			<label id="login-password-label" for="login-password">Password</label>
+			<label id="login-password-label--error" for="login-password" class="label--error gone"></label>
+			<input id="login-password" type="password">
+		</div>
+
+		<div class="modal-section">
+			<button class="btn btn--md btn--block btn--primary">Login</button>
+		</div>
+	</form>
+
+	<p class="text-left modal-section"><a class="js-forgot-pass login-modal__forgot-pass">I forgot my password</a></p>
+</script>
+
+<script id="forgot-password-modal-template" type="text/x-handlebars-template">
+	<div class="modal--advanced__heading">Reset Password</div>
+
+	<p class="js-hide-on-form-error text-left">Enter your email address and we’ll send you instructions to reset your password.</p>
+
+	<form id="reset-pass-form">
+		<div class="modal-section text-left">
+			<label id="reset-pass-form-label--error" class="label--error gone"></label>
+			<label id="reset-pass-email-label" for="reset-pass-email">Email</label>			
+			<input id="reset-pass-email" type="text">
+			<label id="reset-pass-email-label--error" for="reset-pass-email" class="label--error gone"></label>
+		</div>
+
+		<div class="modal-section">
+			<button class="btn btn--md btn--block btn--primary">Submit Email</button>
+		</div>
+	</form>
+</script>
+
+<script id="forgot-password-success-modal-template" type="text/x-handlebars-template">
+	<div class="modal--advanced__heading">Success!</div>
+
+	<div class="modal-section text-left">
+		<p>Instructions to reset your password have been emailed to you. Please check your email.</p>
+	</div>
+
+	<div class="modal-section">
+		<button class="js-back-btn btn btn--md btn--block btn--primary">Ok</button>
+	</div>
+</script>
+<script id="class-code-username-template" type="text/x-handlebars-template">
+	<div class="modal-section-container">
+		<div class="modal--advanced__heading">Get Your Class Code</div>
+		<div class="modal-section">
+			<form id="class-code-username-form" type="submit">
+				<label id="class-code-username__label" for="class-code-username" class="text-left">Teacher Email</label>
+				<label id="class-code-username__label--error" for="class-code-username" class="label--error gone"></label>
+				<input id="class-code-username" type="text" value="{{username}}">
+				<button id="class-code-username-submit" class="btn btn-md btn-primary">Continue</button>
+			</form>
+		</div>
+	</div>
+</script>
+
+<script id="class-code-login-template" type="text/x-handlebars-template">
+	<div class="modal-section-container">
+		<div class="modal--advanced__heading">Verify your identity</div>
+		<div class="modal-section">
+			<form id="class-code-login-form" type="submit">
+				<label id="class-code-login-password-label" for="class-code-login-password" class="text-left">Password for {{username}}</label>
+				<label id="class-code-login-password-label--error" for="class-code-login-password" class="label--error gone"></label>
+				<input id="class-code-login-password" type="password">
+				<button id="class-code-login-submit" class="btn btn-md btn-primary">Get Your Class Code</button>
+			</form>
+		</div>
+	</div>
+	<!--<div class="modal-section--sub seam-top">
+		<a>Forgot your password? Click here</a>
+	</div>-->
+</script>
+
+<script id="class-code-register-template" type="text/x-handlebars-template">
+	<div class="modal-section-container">
+		<div class="modal--advanced__heading">Teacher email not found</div>
+		<div class="modal-section">
+			<p class="text-left"><strong>Students:</strong> To play without a class code, select <a class="clickable js-close-advanced-modal">Playing at Home</a> on the game screen.</p>
+
+			<p class="text-left"><strong>Teachers:</strong> If you need a class code, please <a href="https://prodigygame.com" target="_blank">register for an account</a>.</p>
+			<!--<form id="class-code-register-form" type="submit">
+				<label for="class-code-register-name" class="text-left">Full Name</label><input id="class-code-register-name" type="text">
+				<label for="class-code-register-password" class="text-left">Password</label><input id="class-code-register-password" type="password">
+				<input id="class-code-register-email-consent" type="checkbox" name="emailConsent" value="true"><label for="class-code-register-email-consent" class="label--inline text-left">I consent to receive Prodigy emails and updates</label>
+				<button id="class-code-register-submit" class="btn btn-md btn-primary" type="submit">Get Your Class Code</button>
+				<p class='text-light small'>By registering you agree to our <a class='text-light' target="_blank" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/terms-conditions">Terms</a> and <a class='text-light' target="_blank" href="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/privacy-policy">Privacy Policy</a></p>
+			</form> -->
+		</div>
+	</div>
+</script>
+
+<script id="class-code-display-template" type="text/x-handlebars-template">
+	<div class="modal-section-container">
+		{{#if classes}}
+			<div class="modal--advanced__heading">Choose a class</div>
+			<div class="modal-section">
+				<div id="class-code-display-form">
+					<div class="class-code-lookup__list">				
+						{{#each classes}}
+							<a class="js-class-code class-code-lookup__code" data-class-code="{{class_code}}">{{class_code}} - {{name}}</a>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		{{/if}}
+
+		{{#unless classes}}
+			<div class="modal--advanced__heading">No classes found</div>
+			<div class="modal-section">
+				<p class="text-left">We couldn't find any classes attached to this teacher.</p>
+			</div>
+		{{/unless}}
+	</div>
+</script>
+
+
+<body>
+
+<!-- Chrome App Install Prompt -->
+<div id='add-to-chrome-bar' class="js-notice-bar notice-bar notice-bar--md notice-bar--game notice-bar--chrome gone">
+    <div class="notice-bar__wrapper">
+        Play Prodigy faster with our new Chrome app
+        <button id='add-to-chrome-button' class='btn btn--sm notice-bar__button'><i class="icon fa fa-plus"></i> <strong>Add to Chrome</strong></button>
+        <i class="js-notice-bar-close notice-bar__close fa fa-times"></i>
+    </div>
+</div>
+<!-- End Chrome App Install Prompt -->
+
+
+<!-- iOS App Install Prompt -->
+<div id='ios-install-prompt' class='ios-install-prompt gone'>
+    <div class='ios-install-prompt__wrapper'>
+        <i class='fa fa-times js-ios-install-prompt-close ios-install-prompt__close'></i>
+        <a class='js-ios-install-prompt-link'>
+            <img class='ios-install-prompt__icon' src="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/assets/images/app/icon-rounded.png" />
+            <div class='ios-install-prompt__data'>
+                <span class='ios-install-prompt__title'>Prodigy Math Game</span>
+                <span class='ios-install-prompt__label'>Prodigy</span>
+                <span class='ios-install-prompt__label'>
+                    <i class='fa fa-star ios-install-prompt__star'></i>
+                    <i class='fa fa-star ios-install-prompt__star'></i>
+                    <i class='fa fa-star ios-install-prompt__star'></i>
+                    <i class='fa fa-star ios-install-prompt__star'></i>
+                    <i class='fa fa-star ios-install-prompt__star'></i>
+                </span>
+                <span class='ios-install-prompt__label'>GET - On the App Store</span>
+
+            </div>
+        </a>
+        
+        <a class='ios-install-prompt__link js-ios-install-prompt-link'>View</a>
+    </div>
+</div>
+<!-- End Chrome App Install Prompt -->
+
+     <!-- <div id='service-announcement' class='announcement'>
+        <h5 class="alert alert-warning alert-top">We are updating Prodigy and will be offline until 8AM EST. See you then!</h5>
+        <div class='announcement-close'><i class="fa fa-2x fa-times"></i></div>
+    </div> -->
+
+
+    <div id='modals'>
+        <div id='overlay-mask' class='overlay-mask' style='display:none;'></div>
+    </div>
+    <div id='first-loading-screen'></div>
+
+    <div id="game-wrapper">
+        <div id='game-container'>
+
+        </div>
+
+        <div id='external-content'>
+
+        </div>
+            
+        <div id='external-ui'>
+            
+        </div>
+        
+        <div id='notices'>
+        </div>
+
+        <div id='popups'>
+            <div id='dynamic-popups'></div>
+        </div>
+    </div>
+
+
+    <div id="membership-flow" class="game-page-overlay"></div>
+    <div id="game-page-overlay" class="game-page-overlay"></div>
+
+    <script src='https://prodigy.blob.core.windows.net/prodigy-1-37-0/socket.io-1.3.5.js'></script><script src='https://prodigy.blob.core.windows.net/prodigy-1-37-0/easystar-0.2.0.min.js'></script>	<script src="https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/assets/scripts/app/build/public.min.js"></script>
+    <script src="https://www.prodigygame.com/assets/scripts/app/build/game-helpers.min.js"></script>
+    <script src="https://www.prodigygame.com/assets/scripts/app/entry/game.js"></script>
+    <script src="https://prodigy.blob.core.windows.net/edu-controls-2-2-9/controls.min.js"></script>
+    <script src="https://prodigy.blob.core.windows.net/edu-question-interface-2-2-6/question.min.js"></script>
+    <script src="https://prodigy.blob.core.windows.net/prodigy-1-37-0/phaser.min.js"></script>
+	<script src="https://prodigy.blob.core.windows.net/prodigy-1-37-0/game.min.js"></script>
+    <script type="text/javascript">
+	    var prodigyWeb = {};
+	    prodigyWeb.country = 2;prodigyWeb.gameVersion = '1-37-0';prodigyWeb.isCanada = false;
+	    window.onload = function() {
+	        document.addEventListener("contextmenu", function(e){
+	            e.preventDefault();
+	        }, false);
+	        Boot.init();
+	    };
+	    
+	    window.onresize = function() {
+	        scroll(0,0);
+	    };
+    </script>
+
+    
+    <script>
+    	$('.announcement-close').click(function(){
+            $('#service-announcement').remove();
+        });
+        
+
+        //TODO: refactor this to just work in the abstracted version below
+        prodigyWeb.membershipFlow = {
+            $el: $("#membership-flow"),
+            $game: $("#game-wrapper"),
+            student: {name: undefined, userID: undefined},
+            closeCallback: undefined,
+            open: function(username, userID, callback, tag){
+                this.student.name = username;
+                this.student.userID = userID;
+                this.closeCallback = callback;
+                var flowURL     = SW.Utility.getBaseUrl() + "https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/membership/index.php?game=1&tag="+tag,
+                    $iframeFlow = $("<iframe src='" + flowURL + "'>");
+                
+                this.$el.show()
+                        .append($iframeFlow);
+                this.$game.hide();
+            },
+
+            close: function(success){
+                this.$el.hide().html("");
+                this.$game.show();
+                if(!_.isUndefined(this.closeCallback)) {
+                    this.closeCallback(success);
+                }
+            }
+        };
+
+        prodigyWeb.page = {
+            $el: $("#game-page-overlay"),
+            $game: $("#game-wrapper"),
+            closeCallback: undefined,
+
+            getUrlForPage: function(page) {
+                switch(page) {
+                    case "buy-toy":
+                        return "https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/toys/hex.php?referrer=game";
+                        break;
+                    case "unlock-toy":
+                        return "https://web.archive.org/web/20161023170621im_/https://www.prodigygame.com/Play/toys/unlock.php?referrer=game";
+                        break;
+                }
+
+                return "";
+            },
+
+            open: function(page, data, closeCallback){
+                this.data = data;
+                this.closeCallback = closeCallback;
+
+
+                var flowURL     = SW.Utility.getBaseUrl() + this.getUrlForPage(page),
+                    $iframeFlow = $("<iframe src='" + flowURL + "'>");
+                
+                this.$el.show()
+                        .append($iframeFlow);
+                this.$game.hide();
+
+                this.$el.find("iframe").focus();
+            },
+
+            close: function(success){
+                this.$el.hide().html("");
+                this.$game.show();
+                this.$game.focus();
+                if(!_.isUndefined(this.closeCallback)) {
+                    this.closeCallback(success);
+                }
+            }
+        }
+
+        if(SW.Device.isIOS()){
+            prodigyWeb.membershipFlow.$el.addClass("iframe-ios-fix");
+            prodigyWeb.page.$el.addClass("iframe-ios-fix");
+        }
+
+        prodigyWeb.getClassCode = {
+            open: function(callback) {
+                var classCodeModal = new SW.GetClassCodeModalView({
+                    model: new SW.GetClassCodeModal()
+                });
+                classCodeModal.callback = callback;
+                classCodeModal.render();
+            }
+        };
+
+        $(document).ready(function() {
+            var chromeInstallPrompt = new SW.ChromeInstallPromptView();
+            var appleInstallPrompt = new SW.AppleInstallPromptView();
+            prodigyWeb.gameDialogManager = new SW.GameDialogManager();
+
+            if(SW.Device.isDeprecatedIpad() || SW.Device.isDeprecatedIphone()) {
+                prodigyWeb.gameDialogManager.openDeviceDeprecatedWarning();
+            }
+        });
+
+
+    </script>
+
+    </body>
+</html>
