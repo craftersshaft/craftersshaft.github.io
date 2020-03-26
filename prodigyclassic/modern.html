@@ -1,0 +1,548 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Prodigy</title>
+            <script>var prodigyServiceUrl = 'https://api.prodigygame.com/';</script>
+        <script>var prodigyWebUrl = 'https://www.prodigygame.com/';</script>
+        
+        
+         
+        <script>var prodigyGoogleClientId = '523759519115-63c0h2vhev83mq90pq4c746ncnnpeh1o.apps.googleusercontent.com';</script>
+        
+        <script src="https://raw.githubusercontent.com/craftersshaft/craftersshaft.github.io/master/prodigyclassic/load.min.js"></script>
+        <script>
+            SW.Load.sendLoadStart();
+            SW.Load.setupGoogleEnvironment();
+            SW.Load.getGameStatus();
+        </script>
+
+        <meta charset="UTF-8" />
+<meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+        <script src="https://www.prodigygame.com/public/lib/lodash.min.js"></script>
+        <script src="https://www.prodigygame.com/public/lib/jquery.min.js"></script>
+        <script src="https://www.prodigygame.com/public/lib/phaser.min.js"></script>
+
+        <!-- TODO: backbone is required by education lib only, async is required by prodigy-play-->
+        <script src="https://www.prodigygame.com/public/lib/backbone-async.min.js"></script>
+
+        <!-- TODO: try async load these with javascript and when they complete (listen for onLoad), then load public-game -->
+
+        <script src="https://www.prodigygame.com/public/js/public-game.min.js"></script>
+
+        <script>
+            SW.Load.getEducationStatus();
+        </script>
+
+        <script src="https://www.prodigygame.com/public/lib/deviceatlas.min.js"></script>
+        <script>
+            SW.Load.getDeviceInformationFromAPI();
+        </script>
+
+        <!-- TODO: multiple icons being loaded with this setup -->
+        <meta name="msapplication-tileimage" content="https://www.prodigygame.com/public/assets/favicon/ms-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.prodigygame.com/public/assets/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="https://www.prodigygame.com/public/assets/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.prodigygame.com/public/assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://www.prodigygame.com/public/assets/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.prodigygame.com/public/assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="public/assets/favicon/manifest.json">
+
+        <!-- TODO: make sure these prodigygame urls don't get wiped out when building for staging/production-->
+        <!-- TODO: the wrong icons are being used for question renderer (rectangles instead of question mark and lightbulb)
+        Education Quesiton Renderer use font-awesome for some icons -->
+        <link rel="stylesheet" href="https://www.prodigygame.com/public/assets/Font-Awesome/css/font-awesome.min.css">
+        
+        <!-- Education Quesiton Renderer and Prodigy-Game require main.css for proper positioning of html on screen -->
+        <link rel="stylesheet" type="text/css" href="https://www.prodigygame.com/public/assets/styles/main.css">
+
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,500,600,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Luckiest+Guy|Paytone+One|ABeeZee" rel="stylesheet" async>
+
+        <!-- TODO: this was deprecated in 2018: https://developer.chrome.com/webstore/inline_installation -->
+        <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/hndgjbjghbnahgfhcmhkkoibbgdemlia">
+
+        <!-- TODO: move some of this css to a file -->
+        <style>
+        	html{
+        		height:100%;
+        		overflow:hidden;
+        	}
+
+            body{
+                margin:0;
+                background-color:#55B9A7;
+                height:100%;
+                padding:0 !important;
+            }
+
+            #game-container {
+            	height:100%;
+                min-height: 100px;
+            }
+
+            @media screen and ( min-height: 320px )
+            {
+                #game-container {
+                    min-height: 200px;
+                }
+            }
+            @media screen and ( min-height: 720px )
+            {
+                #game-container {
+                    min-height: 500px;
+                }
+            }
+
+            #game-wrapper {
+                height:100%;
+                position:relative;
+            }
+
+            input.game-input{
+                margin:0;
+                position:absolute;
+                top:0;
+                left:0;
+                padding:0px 10px;
+                border-radius:10px;
+                border: 1px solid #363636;
+                background-color:#fff5eb;
+                color:#363636;
+                text-align:left;
+
+            }
+            .head-bar{
+                height:45px;
+                width:100%;
+                position:fixed;
+            }
+
+            .head-content{
+                width:100%;
+                position:relative;
+                height:100%;
+            }
+
+            .full-nav-button{
+                border:1px solid #596ED9;
+                border-top:none;
+
+                font-weight:bold;
+                color:#f89825;
+                margin-top:0;
+                font-size:1.3em;
+                padding:10px 10px;
+                height:100%;
+                width:100%;
+                background-color: #6579DC;
+                color:white;
+
+            }
+
+            .full-nav-button:hover {
+                background:none;
+                background-color:#596ED9;
+                border:none;
+                color:#f2f2f2;
+                box-shadow: none;
+            }
+
+            .announcement {
+                margin-bottom: 0;
+                position: absolute;
+                width: 100%;
+            }
+
+            .announcement-close {
+                position:absolute;
+                right:20px;
+                top:10px;
+                color:#a94442;
+            }
+            .announcement-close:hover {
+                color:#c94442;
+                cursor:pointer;
+            }
+
+            .announcement .alert {
+                padding-right:50px;
+            }
+
+            iframe {
+            	display:none;
+            }
+
+            .game-page-overlay {
+                display: none;
+                position: static;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: white;
+            }
+
+            .iframe-ios-fix {
+               /*iOS fix for scrolling issues with iframe*/
+                -webkit-overflow-scrolling: touch;
+                overflow-y: scroll;
+            }
+
+            #membership-flow.iframe-ios-fix iframe {
+                /*
+                    iOS 11/12 fix for scrolling issue
+                    Normally we can change the size of the iframe's width/height to be the same as
+                    the viewport, but with this issue, the size will match the content and prevent the
+                    user from scrolling down and sometimes create horizontal scrolling when it shouldn't.
+                    This was the only way found to make the iframe width/height match the viewport.
+                 */
+                width: 0;
+                height: 0;
+                min-width: 100%;
+                min-height: 100%;
+            }
+
+            .game-page-overlay iframe {
+                display: block;
+                height: 100%;
+                width: 100%;
+                border: none;
+            }
+
+            .gone {
+                display:none;
+            }
+
+            #first-loading-screen {
+                height:100%;
+                width:100%;
+                background-color:#55B9A7;
+            }
+
+            .alert{
+                margin-top:0;
+                border-radius:0;
+                text-align:center;
+            }
+
+            .alert-warning {
+                background-color:#FCF8E3;
+                color: #8A6D3B;
+            }
+
+            /* IOS PROMPT STYLES */
+            .ios-install-prompt {
+                background-color:#F2F2F2;
+                width:100%;
+                height:70px;
+                position:absolute;
+                z-index:10;
+                padding:5px 10px;
+            }
+
+            .ios-install-prompt__wrapper {
+                margin: 0 auto;
+                height:100%;
+                width:50%;
+            }
+
+            .ios-install-prompt__close {
+                display:block;
+                position:relative;
+                float:left;
+                height:100%;
+                top:35%;
+                color:#848484;
+                padding-right:20px;
+                cursor:pointer;
+            }
+
+            .ios-install-prompt__icon {
+                display:block;
+                float:left;
+                height:63px;
+                margin-right:5px;
+            }
+
+            .ios-install-prompt__data {
+                display:block;
+                float:left;
+                line-height:1.3;
+                margin-top:3px;
+            }
+
+            .ios-install-prompt__title {
+                color:#444;
+                display:block;
+                font-size:12px;
+                font-weight:bold;
+            }
+
+            .ios-install-prompt__label {
+                color:#5e5e5e;
+                display:block;
+                font-size:10px;
+            }
+
+            .ios-install-prompt__star {
+                color:#FF9300;
+            }
+
+            .ios-install-prompt__link {
+                display:block;
+                position:relative;
+                float:right;
+                height:100%;
+                top:30%;
+                color:#1481FE;
+                padding-right:5px;
+                cursor:pointer;
+            }
+            /** END IOS STYLES **/
+
+            /** TODO: remove login-progress CSS once login screen is deprecated **/
+            .login-progress-outline {
+                position:absolute;
+                background-color:#000000;
+                border-radius:4px;
+            }
+
+            .login-progress-container {
+                position:absolute;
+                background-color:#FFFFFF;
+                border-radius:4px;
+            }
+
+            .login-progress-bar {
+                position:absolute;
+                background-color:#1CE59D;
+                background-image: linear-gradient(#6DFE7A, #0AC3A2);
+                border-radius:4px;
+                -webkit-transition: width 1.25s cubic-bezier(.23,1,.32,1);
+                -moz-transition: width 1.25s cubic-bezier(.23,1,.32,1);
+                transition: width 1.25s cubic-bezier(.23,1,.32,1);
+            }
+
+/** TODO: check what game-menu code is used **/
+            %game-menu {
+                z-index: 3;
+                position: fixed;
+                left: 10%;
+                width: 80%;
+                top: 10%;
+                height: 80%;
+                padding: 5% 5% 0 5%;
+                background-color:white;
+                border-radius:15px;
+            }
+
+            .game-menu--hex {
+                @extend %game-menu;
+
+                background: no-repeat right url("../images/game/hex/splash.jpg");
+                background-size: 100%;
+            }
+
+            .game-menu__close {
+                position:absolute;
+                top:0;
+                right:0;
+                top: -25px;
+                right: -25px;
+                height: 50px;
+                width: 50px;
+            }
+
+            .unlock-menu__form-container {
+                width:100%;
+
+                @include media($medium) {
+                    width: 55%;
+                }
+            }
+
+            .unlock-menu__title {
+                margin: 5px 0px 15px;
+                font-weight: 900;
+                color: #dbbe95;
+                // text-shadow: #b39b79;
+            }
+
+            %game-menu__container {
+                background-color:rgba(255,255,255,0.9);
+                padding: 10px;
+                border-radius:15px;
+            }
+
+            .unlock-menu__wrapper {
+                height:100%;
+                overflow-y:auto;
+            }
+
+            .game-menu__container {
+                @extend %game-menu__container;
+            }
+
+            .game-menu__container--unlock {
+                @extend %game-menu__container;
+                @extend %game-border;
+
+                margin:10px 10px 25px 10px;
+            }
+
+            %game-border {
+                box-shadow: 0 0 0 1px #595959, 0 0 0 5px #f6d6ab, 0 0 0 8px #d2aa71;
+            }
+
+            .game-border {
+                @extend %game-border;
+            }
+
+            #game-loading-container {
+                position:absolute;
+                width:100%;
+                height:100%;
+                z-index:0;
+                background-color:#55B9A7;
+            }
+
+            .game-loading {
+                width:80%;
+                height:100%;
+                padding-top: 5%;
+            }
+
+            .game-loading__ed {
+                display: block;
+                height: 150px;
+                margin-bottom: 22px;
+                margin: 0 auto;
+            }
+
+            .game-loading__font {
+                color: #fff;
+                text-align: center;
+                margin-top: 22 !important;
+            }
+
+            .ed-progress-outline {
+                height: 24px;
+                width: 100%;
+                background-color:#000000;
+                border-radius:4px;
+                display: flex;
+                align-items: center;
+                padding: 0px 1px;
+            }
+
+            .ed-progress-container {
+                height: 22px;
+                width: 100%;
+                background-color:#FFFFFF;
+                border-radius:4px;
+            }
+
+            .ed-progress-bar {
+                height: 22px;
+                width: 0%;
+                background-color:#1CE59D;
+                background-image: linear-gradient(#6DFE7A, #0AC3A2);
+                border-radius:4px;
+                -webkit-transition: width 1.25s cubic-bezier(.23,1,.32,1);
+                -moz-transition: width 1.25s cubic-bezier(.23,1,.32,1);
+                transition: width 1.25s cubic-bezier(.23,1,.32,1);
+            }
+
+            <!-- TODO: inherit from body (from main.css)
+                -webkit-font-smoothing: antialiased;
+                background-color: #fff;
+                color: #555;
+                font-family: "Open Sans",sans-serif;
+                font-size: 1em;
+                line-height: 1.5;
+            -->
+
+            .game-announcement {
+                position:absolute;
+                z-index:10;
+            }
+
+        </style>
+        <!-- TODO: this google code is deprecated -->
+	    <script>
+		     var _gaq = _gaq || [];
+		     _gaq.push(['_setAccount', 'UA-40390561-1']);
+		     _gaq.push(['_trackPageview']);
+
+		     (function() {
+		       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		     })();
+	    </script>
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 1008327338;
+			var google_conversion_label = "rgONCLa1jgQQqrXn4AM";
+			var google_custom_params = window.google_tag_params;
+			var google_remarketing_only = true;
+			/* ]]> */
+ 		</script>
+		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+    </head>
+
+
+<body>
+    <!-- TODO: all these comments are bloating the download size -->
+    <!-- TODO: cleanup div tags and CSS-->
+    <!-- TODO: hardcode main.css values that everything is inheriting and remove main.css -->
+    <div id="game-loading-container-div" class="game-loading container">
+        <div id="loading-div">
+            <img class="game-loading__ed" src="public/assets/images/ed/@2x/ed-stars@2x.png" />
+            <!-- TODO: localize -->
+            <p class="game-loading__font">Loading Prodigy Game Files...</p>
+            <div id="ed-progress-outline" class="ed-progress-outline">
+                <div id="ed-progress-container" class="ed-progress-container">
+                    <div id="ed-progress-bar" class="ed-progress-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div id="error-div" style="display: none;">
+            <img class="game-loading__ed" src="public/assets/images/ed/@2x/ed-sad@2x.png">
+            <h4 id="error-div-title" class="text-white text-center text-mt-md"></h4>
+            <p id="error-div-description" class="text-white text-center text-mt-md"></p>
+        </div>
+    </div>
+<!-- TODO: move other stuff down into body so we can show div's sooner?
+     make sure this doesn't effect the download priority seeting for bundles -->
+</div>
+    </div>
+<!--    <div id='first-loading-screen'></div> -->
+    <div id="game-wrapper">
+        <div id='game-container'></div>
+        <div id='external-content'></div>
+        <div id='external-ui'></div>
+        <div id='notices'></div>
+        <div id='popups'>
+            <div id='dynamic-popups'></div>
+        </div>
+    </div>
+    <div id="membership-flow" class="game-page-overlay"></div>
+    <div id="game-page-overlay" class="game-page-overlay"></div>
+
+    <script type="text/javascript">
+        SW.Load.loadGame();
+    </script>
+
+    </body>
+</html>
