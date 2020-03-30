@@ -32795,32 +32795,12 @@ Ad.iosMembershipSuccess = function () {
 			size: Prodigy.Control.TextButton.MED
 		}, this.game.prodigy.graphics.setResolutionLarge.bind(this))
 	},
-	function downloadForCharacter(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-	},
-	saveCharacter: function () {
-		var character = {
-      appearance: this.game.prodigy.player.appearance
-      kennel: this.game.prodigy.player.kennel
-      data: this.game.prodigy.player.data
-      backpack: this.game.prodigy.player.backpack
-    }
-	var characterdata = JSON.stringify(character);
-	downloadForCharacter(characterdata, 'character.txt', 'text/plain');
-	},
 	openNetwork: function () {
 		var e = Util.isDefined(this.game.prodigy.player.world) ? "Your world is: " + Prodigy.Menu.Server.getServerName(this.game.prodigy.player.world) : "You are playing in Offline Mode.";
 		this.game.prodigy.create.font(this.content, 0, 50, e, {
 			width: 600,
 			align: "center"
-		}), this.game.prodigy.create.textButton(this.content, 150, 200, {
-			text: "Save Character",
-			size: Prodigy.Control.TextButton.MED
-		}, this.saveCharacter.bind(this))		 
+		})
 	},
 	walkspeedNew: function () {
 	this.game.prodigy.player.walkSpeed=3
@@ -42751,36 +42731,6 @@ var Screen = function () {
 		Prodigy.Hex.isUnlockActive(this.game) && (t = t.concat(["attacks", "monster-small-125"])),
 		Screen.prototype.create.call(this, t)
 	},
-	e.prototype.loadCharacter: function () {
-	var finisheddata = JSON.parse(contents),
-	this.game.prodigy.player.appearance = finisheddata.appearance,
-	this.game.prodigy.player.kennel = finisheddata.kennel,
-	this.game.prodigy.player.data = finisheddata.data,
-	this.game.prodigy.player.backpack = finisheddata.backpack,	
-	this.offlineMode()
-	},
-	e.prototype.openFileForCharacter: function (func) {
-	readFile = function(e) {
-		var file = e.target.files[0];
-		if (!file) {
-			return;
-		}
-		var reader = new FileReader();
-		reader.onload = function(e) {
-			var contents = e.target.result;
-			fileInput.func(contents)
-			document.body.removeChild(fileInput)
-		}
-		reader.readAsText(file)
-	}
-	fileInput = document.createElement("input")
-	fileInput.type='file'
-	fileInput.style.display='none'
-	fileInput.onchange=readFile
-	fileInput.func=loadCharacter
-	document.body.appendChild(fileInput)
-	clickElem(fileInput)
-	},
 	e.prototype.screenSetup = function () {
 		this.background.add(this.game.prodigy.create.sprite(0, 0, "login", "bg"));
 		var e = this.background.add(this.game.prodigy.create.sprite(this.game.world.centerX, this.game.world.centerY, "login", "login-panel"));
@@ -42841,10 +42791,6 @@ var Screen = function () {
 			size: Prodigy.Control.TextButton.MED,
 			text: "offline mode"
 		}, this.offlineMode),
-		this.game.prodigy.create.textButton(i, 50, 40, {
-			size: Prodigy.Control.TextButton.MED,
-			text: "load character"
-		}, this.loadCharacter),		
 		this.showLogin(!0),
 		this.checkForAdmin()
 	},
