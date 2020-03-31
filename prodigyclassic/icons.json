@@ -2423,7 +2423,7 @@
 },
 "hat/66":
 {
-	"frame": {"x":172,"y":1866,"w":131,"h":89},
+	"frame": {"x":197,"y":1866,"w":106,"h":89},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":17,"w":80,"h":54},
