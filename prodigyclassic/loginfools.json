@@ -1,0 +1,39 @@
+{"frames": {
+
+"bg":
+{
+	"frame": {"x":2,"y":2,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"login-panel":
+{
+	"frame": {"x":1284,"y":2,"w":500,"h":500},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":500,"h":500},
+	"sourceSize": {"w":500,"h":500},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"prodigy-game-logo":
+{
+	"frame": {"x":1284,"y":504,"w":437,"h":170},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":3,"w":437,"h":170},
+	"sourceSize": {"w":444,"h":180},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "bighexreborn.png",
+	"format": "RGBA8888",
+	"size": {"w":1786,"h":724},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a58a6f48159460655d33e960fe8e690e:d0b07f033e8cb17eb79629284274b4ad:ffb62af756263e4644c882ff552ab6d3$"
+}
+}
