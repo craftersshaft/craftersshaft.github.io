@@ -325,13 +325,6 @@
         prodigyWeb.country = undefined;
         prodigyWeb.gameVersion = '1-30-0';
 
-        window.onload = function() {
-            document.addEventListener("contextmenu", function(e) {
-                e.preventDefault();
-            }, false);
-            Boot.init();
-        };
-
         window.onresize = function() {
             scroll(0, 0);
         };
