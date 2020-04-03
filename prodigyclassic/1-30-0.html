@@ -4,11 +4,13 @@
 <head>
     <title>Prodigy Reborn 1.0</title>
     <meta charset="UTF-8" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <link rel="icon" type="image/png" href="https://web.archive.org/web/20150910093225im_/https://www.prodigygame.com/Includes/Images/favicon.gif">
-    <link rel="stylesheet" href="https://web.archive.org/web/20150910093225im_/https://www.prodigygame.com//Includes/Styles/Fonts/Font-Awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://web.archive.org/web/20150910093225im_/https://www.prodigygame.com/assets/styles/main.css?v=1-17-0">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/craftersshaft/craftersshaft.github.io/master/prodigyclassic/favicon.ico">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/craftersshaft/craftersshaft.github.io/master/prodigyclassic/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/craftersshaft/craftersshaft.github.io/master/prodigyclassic/css/main.css">
+	
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,500,600,700' rel='stylesheet' type='text/css'>
     <style>
@@ -337,35 +339,6 @@
         var ua = navigator.userAgent,
             isiOS = /iPad/i.test(ua) || /iPhone/i.test(ua);
 
-        prodigyWeb.membershipFlow = {
-            $el: $("#membership-flow"),
-            $game: $("#game-wrapper"),
-            student: {
-                name: undefined,
-                userID: undefined
-            },
-            closeCallback: undefined,
-            open: function(username, userID, callback, tag) {
-                this.student.name = username;
-                this.student.userID = userID;
-                this.closeCallback = callback;
-                var flowURL = window.location.origin + "/membership/index.php?tag=" + tag,
-                    $iframeFlow = $("<iframe src='" + flowURL + "'>");
-
-                this.$el.show()
-                    .append($iframeFlow);
-                this.$game.hide();
-            },
-
-            close: function(success) {
-                this.$el.hide().html("");
-                this.$game.show();
-                if (!_.isUndefined(this.closeCallback)) {
-                    this.closeCallback(success);
-                }
-            }
-        };
-
         if (isiOS) {
             prodigyWeb.membershipFlow.$el.addClass("iframe-ios-fix");
         }
@@ -378,7 +351,7 @@
                 classCodeModal.callback = callback;
                 classCodeModal.render();
             }
-        };
+      };
     </script>
 
 </body>
