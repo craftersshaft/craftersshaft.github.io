@@ -368,9 +368,14 @@ not needed as multiplayer is currently non-functional. add this back once multip
                 });
                 classCodeModal.callback = callback;
                 classCodeModal.render();
-      }
-		
+      	}	
       };
+	
+      window.onload = function() {
+	$("#username")[0].disabled = true;
+	$("#password")[0].disabled = true;
+     };
+
     </script>
 
 </body>
