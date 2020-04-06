@@ -1,1 +1,0 @@
-{"appearancedata":{"name":"ERIC WAS ROBBED","gender":"male","hairStyle":4,"hairColor":5,"skinColor":4,"eyeColor":1,"x":323,"y":412},"kenneldata":[],"data":{"zone":"lamplight-B1","team":0},"questdata":{},"tutorialdata":{"zones":{},"menus":{"1":[null,1,1,1],"14":[1]}},"backpackdata":{"hat":[],"boots":[],"weapon":[],"outfit":[],"item":[],"fossil":[],"key":[],"relic":[]}}
