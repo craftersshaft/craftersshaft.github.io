@@ -38,7 +38,7 @@ gdjs.VictoryCode.condition2IsTrue_1 = {val:false};
 gdjs.VictoryCode.condition3IsTrue_1 = {val:false};
 
 
-gdjs.VictoryCode.eventsList0x5b7a18 = function(runtimeScene) {
+gdjs.VictoryCode.eventsList0 = function(runtimeScene) {
 
 {
 
@@ -168,7 +168,7 @@ gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber
 }if ( gdjs.VictoryCode.condition1IsTrue_0.val ) {
 {
 {gdjs.VictoryCode.conditionTrue_1 = gdjs.VictoryCode.condition2IsTrue_0;
-gdjs.VictoryCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7080932);
+gdjs.VictoryCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8744916);
 }
 }}
 }
@@ -193,7 +193,7 @@ gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber
 }if ( gdjs.VictoryCode.condition1IsTrue_0.val ) {
 {
 {gdjs.VictoryCode.conditionTrue_1 = gdjs.VictoryCode.condition2IsTrue_0;
-gdjs.VictoryCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7168436);
+gdjs.VictoryCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8746132);
 }
 }}
 }
@@ -218,8 +218,7 @@ gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.input.anyKeyPressed(runt
 }
 
 
-}; //End of gdjs.VictoryCode.eventsList0x5b7a18
-
+};
 
 gdjs.VictoryCode.func = function(runtimeScene) {
 runtimeScene.getOnceTriggers().startNewFrame();
@@ -251,7 +250,7 @@ gdjs.VictoryCode.GDVictoryGridObjects2.length = 0;
 gdjs.VictoryCode.GDwinnerObjects1.length = 0;
 gdjs.VictoryCode.GDwinnerObjects2.length = 0;
 
-gdjs.VictoryCode.eventsList0x5b7a18(runtimeScene);
+gdjs.VictoryCode.eventsList0(runtimeScene);
 return;
 
 }

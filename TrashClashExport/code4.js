@@ -36,7 +36,7 @@ gdjs.MainMenuCode.condition1IsTrue_0 = {val:false};
 gdjs.MainMenuCode.condition2IsTrue_0 = {val:false};
 
 
-gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonTextObjects1Objects = Hashtable.newFrom({"ButtonText": gdjs.MainMenuCode.GDButtonTextObjects1});gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects = Hashtable.newFrom({"Button": gdjs.MainMenuCode.GDButtonObjects1});gdjs.MainMenuCode.eventsList0x5b7a18 = function(runtimeScene) {
+gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonTextObjects1Objects = Hashtable.newFrom({"ButtonText": gdjs.MainMenuCode.GDButtonTextObjects1});gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects = Hashtable.newFrom({"Button": gdjs.MainMenuCode.GDButtonObjects1});gdjs.MainMenuCode.eventsList0 = function(runtimeScene) {
 
 {
 
@@ -110,8 +110,7 @@ if (gdjs.MainMenuCode.condition1IsTrue_0.val) {
 }
 
 
-}; //End of gdjs.MainMenuCode.eventsList0x5b7a18
-
+};
 
 gdjs.MainMenuCode.func = function(runtimeScene) {
 runtimeScene.getOnceTriggers().startNewFrame();
@@ -147,7 +146,7 @@ gdjs.MainMenuCode.GDRegularButtonObjects2.length = 0;
 gdjs.MainMenuCode.GDButtonTextObjects1.length = 0;
 gdjs.MainMenuCode.GDButtonTextObjects2.length = 0;
 
-gdjs.MainMenuCode.eventsList0x5b7a18(runtimeScene);
+gdjs.MainMenuCode.eventsList0(runtimeScene);
 return;
 
 }
