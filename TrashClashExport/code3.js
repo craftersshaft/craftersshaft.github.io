@@ -153,11 +153,18 @@ gdjs.VictoryCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableNumber
 }}
 }
 if (gdjs.VictoryCode.condition2IsTrue_0.val) {
+gdjs.VictoryCode.GDStock2Objects1.createFrom(runtimeScene.getObjects("Stock2"));
 gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
 {for(var i = 0, len = gdjs.VictoryCode.GDwinnerObjects1.length ;i < len;++i) {
     gdjs.VictoryCode.GDwinnerObjects1[i].setString("PLAYER " + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("Winner")) + " WINS!");
 }
 }{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].hide();
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].deleteFromScene(runtimeScene);
+}
 }}
 
 }
@@ -180,11 +187,18 @@ gdjs.VictoryCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableNumber
 }}
 }
 if (gdjs.VictoryCode.condition2IsTrue_0.val) {
+gdjs.VictoryCode.GDStock1Objects1.createFrom(runtimeScene.getObjects("Stock1"));
 gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
 {for(var i = 0, len = gdjs.VictoryCode.GDwinnerObjects1.length ;i < len;++i) {
     gdjs.VictoryCode.GDwinnerObjects1[i].setString("PLAYER " + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("Winner")) + " WINS!");
 }
 }{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].hide();
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].deleteFromScene(runtimeScene);
+}
 }}
 
 }
@@ -208,6 +222,9 @@ gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
     gdjs.VictoryCode.GDwinnerObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) + " WINS!");
 }
 }{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].hide();
+}
 }{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
     gdjs.VictoryCode.GDStock2Objects1[i].deleteFromScene(runtimeScene);
 }
@@ -234,6 +251,9 @@ gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
     gdjs.VictoryCode.GDwinnerObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")) + " WINS!");
 }
 }{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].hide();
+}
 }{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
     gdjs.VictoryCode.GDStock1Objects1[i].deleteFromScene(runtimeScene);
 }
