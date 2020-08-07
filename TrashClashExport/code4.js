@@ -21,6 +21,10 @@ gdjs.MainMenuCode.GDFireball1Objects1= [];
 gdjs.MainMenuCode.GDFireball1Objects2= [];
 gdjs.MainMenuCode.GDGameTextObjects1= [];
 gdjs.MainMenuCode.GDGameTextObjects2= [];
+gdjs.MainMenuCode.GDStock2Objects1= [];
+gdjs.MainMenuCode.GDStock2Objects2= [];
+gdjs.MainMenuCode.GDStock1Objects1= [];
+gdjs.MainMenuCode.GDStock1Objects2= [];
 gdjs.MainMenuCode.GDPurpleGridObjects1= [];
 gdjs.MainMenuCode.GDPurpleGridObjects2= [];
 gdjs.MainMenuCode.GDButtonObjects1= [];
@@ -29,6 +33,12 @@ gdjs.MainMenuCode.GDRegularButtonObjects1= [];
 gdjs.MainMenuCode.GDRegularButtonObjects2= [];
 gdjs.MainMenuCode.GDButtonTextObjects1= [];
 gdjs.MainMenuCode.GDButtonTextObjects2= [];
+gdjs.MainMenuCode.GDopObjects1= [];
+gdjs.MainMenuCode.GDopObjects2= [];
+gdjs.MainMenuCode.GDtooltipObjects1= [];
+gdjs.MainMenuCode.GDtooltipObjects2= [];
+gdjs.MainMenuCode.GDdescriptionObjects1= [];
+gdjs.MainMenuCode.GDdescriptionObjects2= [];
 
 gdjs.MainMenuCode.conditionTrue_0 = {val:false};
 gdjs.MainMenuCode.condition0IsTrue_0 = {val:false};
@@ -36,7 +46,37 @@ gdjs.MainMenuCode.condition1IsTrue_0 = {val:false};
 gdjs.MainMenuCode.condition2IsTrue_0 = {val:false};
 
 
-gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonTextObjects1Objects = Hashtable.newFrom({"ButtonText": gdjs.MainMenuCode.GDButtonTextObjects1});gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects = Hashtable.newFrom({"Button": gdjs.MainMenuCode.GDButtonObjects1});gdjs.MainMenuCode.eventsList0 = function(runtimeScene) {
+gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDopObjects1Objects = Hashtable.newFrom({"op": gdjs.MainMenuCode.GDopObjects1});gdjs.MainMenuCode.eventsList0 = function(runtimeScene) {
+
+{
+
+
+gdjs.MainMenuCode.condition0IsTrue_0.val = false;
+{
+gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
+}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "KeyBindings", false);
+}}
+
+}
+
+
+};gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects = Hashtable.newFrom({"Button": gdjs.MainMenuCode.GDButtonObjects1});gdjs.MainMenuCode.eventsList1 = function(runtimeScene) {
+
+{
+
+
+gdjs.MainMenuCode.condition0IsTrue_0.val = false;
+{
+gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
+}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "CharacterSelect", false);
+}}
+
+}
+
+
+};gdjs.MainMenuCode.eventsList2 = function(runtimeScene) {
 
 {
 
@@ -74,19 +114,24 @@ if (gdjs.MainMenuCode.condition1IsTrue_0.val) {
 
 {
 
-gdjs.MainMenuCode.GDButtonTextObjects1.createFrom(runtimeScene.getObjects("ButtonText"));
+gdjs.MainMenuCode.GDopObjects1.createFrom(runtimeScene.getObjects("op"));
 
 gdjs.MainMenuCode.condition0IsTrue_0.val = false;
-gdjs.MainMenuCode.condition1IsTrue_0.val = false;
 {
-gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonTextObjects1Objects, runtimeScene, true, false);
-}if ( gdjs.MainMenuCode.condition0IsTrue_0.val ) {
-{
-gdjs.MainMenuCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
-}}
-if (gdjs.MainMenuCode.condition1IsTrue_0.val) {
-{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "KeyBindings", false);
-}}
+gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDopObjects1Objects, runtimeScene, true, false);
+}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
+gdjs.MainMenuCode.GDdescriptionObjects1.createFrom(runtimeScene.getObjects("description"));
+gdjs.MainMenuCode.GDtooltipObjects1.createFrom(runtimeScene.getObjects("tooltip"));
+{for(var i = 0, len = gdjs.MainMenuCode.GDtooltipObjects1.length ;i < len;++i) {
+    gdjs.MainMenuCode.GDtooltipObjects1[i].setAnimationName("op");
+}
+}{for(var i = 0, len = gdjs.MainMenuCode.GDdescriptionObjects1.length ;i < len;++i) {
+    gdjs.MainMenuCode.GDdescriptionObjects1[i].setBBText("dude change your keys they nasty");
+}
+}
+{ //Subevents
+gdjs.MainMenuCode.eventsList0(runtimeScene);} //End of subevents
+}
 
 }
 
@@ -96,16 +141,21 @@ if (gdjs.MainMenuCode.condition1IsTrue_0.val) {
 gdjs.MainMenuCode.GDButtonObjects1.createFrom(runtimeScene.getObjects("Button"));
 
 gdjs.MainMenuCode.condition0IsTrue_0.val = false;
-gdjs.MainMenuCode.condition1IsTrue_0.val = false;
 {
 gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects, runtimeScene, true, false);
-}if ( gdjs.MainMenuCode.condition0IsTrue_0.val ) {
-{
-gdjs.MainMenuCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
-}}
-if (gdjs.MainMenuCode.condition1IsTrue_0.val) {
-{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Stage_Betafield", false);
-}}
+}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
+gdjs.MainMenuCode.GDdescriptionObjects1.createFrom(runtimeScene.getObjects("description"));
+gdjs.MainMenuCode.GDtooltipObjects1.createFrom(runtimeScene.getObjects("tooltip"));
+{for(var i = 0, len = gdjs.MainMenuCode.GDtooltipObjects1.length ;i < len;++i) {
+    gdjs.MainMenuCode.GDtooltipObjects1[i].setAnimationName("clash");
+}
+}{for(var i = 0, len = gdjs.MainMenuCode.GDdescriptionObjects1.length ;i < len;++i) {
+    gdjs.MainMenuCode.GDdescriptionObjects1[i].setBBText("two player versus mayhem");
+}
+}
+{ //Subevents
+gdjs.MainMenuCode.eventsList1(runtimeScene);} //End of subevents
+}
 
 }
 
@@ -137,6 +187,10 @@ gdjs.MainMenuCode.GDFireball1Objects1.length = 0;
 gdjs.MainMenuCode.GDFireball1Objects2.length = 0;
 gdjs.MainMenuCode.GDGameTextObjects1.length = 0;
 gdjs.MainMenuCode.GDGameTextObjects2.length = 0;
+gdjs.MainMenuCode.GDStock2Objects1.length = 0;
+gdjs.MainMenuCode.GDStock2Objects2.length = 0;
+gdjs.MainMenuCode.GDStock1Objects1.length = 0;
+gdjs.MainMenuCode.GDStock1Objects2.length = 0;
 gdjs.MainMenuCode.GDPurpleGridObjects1.length = 0;
 gdjs.MainMenuCode.GDPurpleGridObjects2.length = 0;
 gdjs.MainMenuCode.GDButtonObjects1.length = 0;
@@ -145,8 +199,14 @@ gdjs.MainMenuCode.GDRegularButtonObjects1.length = 0;
 gdjs.MainMenuCode.GDRegularButtonObjects2.length = 0;
 gdjs.MainMenuCode.GDButtonTextObjects1.length = 0;
 gdjs.MainMenuCode.GDButtonTextObjects2.length = 0;
+gdjs.MainMenuCode.GDopObjects1.length = 0;
+gdjs.MainMenuCode.GDopObjects2.length = 0;
+gdjs.MainMenuCode.GDtooltipObjects1.length = 0;
+gdjs.MainMenuCode.GDtooltipObjects2.length = 0;
+gdjs.MainMenuCode.GDdescriptionObjects1.length = 0;
+gdjs.MainMenuCode.GDdescriptionObjects2.length = 0;
 
-gdjs.MainMenuCode.eventsList0(runtimeScene);
+gdjs.MainMenuCode.eventsList2(runtimeScene);
 return;
 
 }
