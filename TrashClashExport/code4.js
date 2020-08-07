@@ -39,6 +39,8 @@ gdjs.MainMenuCode.GDtooltipObjects1= [];
 gdjs.MainMenuCode.GDtooltipObjects2= [];
 gdjs.MainMenuCode.GDdescriptionObjects1= [];
 gdjs.MainMenuCode.GDdescriptionObjects2= [];
+gdjs.MainMenuCode.GDNewDescriptionObjects1= [];
+gdjs.MainMenuCode.GDNewDescriptionObjects2= [];
 
 gdjs.MainMenuCode.conditionTrue_0 = {val:false};
 gdjs.MainMenuCode.condition0IsTrue_0 = {val:false};
@@ -120,13 +122,13 @@ gdjs.MainMenuCode.condition0IsTrue_0.val = false;
 {
 gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDopObjects1Objects, runtimeScene, true, false);
 }if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
-gdjs.MainMenuCode.GDdescriptionObjects1.createFrom(runtimeScene.getObjects("description"));
+gdjs.MainMenuCode.GDNewDescriptionObjects1.createFrom(runtimeScene.getObjects("NewDescription"));
 gdjs.MainMenuCode.GDtooltipObjects1.createFrom(runtimeScene.getObjects("tooltip"));
 {for(var i = 0, len = gdjs.MainMenuCode.GDtooltipObjects1.length ;i < len;++i) {
     gdjs.MainMenuCode.GDtooltipObjects1[i].setAnimationName("op");
 }
-}{for(var i = 0, len = gdjs.MainMenuCode.GDdescriptionObjects1.length ;i < len;++i) {
-    gdjs.MainMenuCode.GDdescriptionObjects1[i].setBBText("dude change your keys they nasty");
+}{for(var i = 0, len = gdjs.MainMenuCode.GDNewDescriptionObjects1.length ;i < len;++i) {
+    gdjs.MainMenuCode.GDNewDescriptionObjects1[i].setString("dude change your keys they nasty");
 }
 }
 { //Subevents
@@ -144,13 +146,13 @@ gdjs.MainMenuCode.condition0IsTrue_0.val = false;
 {
 gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects, runtimeScene, true, false);
 }if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
-gdjs.MainMenuCode.GDdescriptionObjects1.createFrom(runtimeScene.getObjects("description"));
+gdjs.MainMenuCode.GDNewDescriptionObjects1.createFrom(runtimeScene.getObjects("NewDescription"));
 gdjs.MainMenuCode.GDtooltipObjects1.createFrom(runtimeScene.getObjects("tooltip"));
 {for(var i = 0, len = gdjs.MainMenuCode.GDtooltipObjects1.length ;i < len;++i) {
     gdjs.MainMenuCode.GDtooltipObjects1[i].setAnimationName("clash");
 }
-}{for(var i = 0, len = gdjs.MainMenuCode.GDdescriptionObjects1.length ;i < len;++i) {
-    gdjs.MainMenuCode.GDdescriptionObjects1[i].setBBText("two player versus mayhem");
+}{for(var i = 0, len = gdjs.MainMenuCode.GDNewDescriptionObjects1.length ;i < len;++i) {
+    gdjs.MainMenuCode.GDNewDescriptionObjects1[i].setString("two player versus mayhem");
 }
 }
 { //Subevents
@@ -205,6 +207,8 @@ gdjs.MainMenuCode.GDtooltipObjects1.length = 0;
 gdjs.MainMenuCode.GDtooltipObjects2.length = 0;
 gdjs.MainMenuCode.GDdescriptionObjects1.length = 0;
 gdjs.MainMenuCode.GDdescriptionObjects2.length = 0;
+gdjs.MainMenuCode.GDNewDescriptionObjects1.length = 0;
+gdjs.MainMenuCode.GDNewDescriptionObjects2.length = 0;
 
 gdjs.MainMenuCode.eventsList2(runtimeScene);
 return;
