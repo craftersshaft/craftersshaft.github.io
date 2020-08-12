@@ -1,96 +1,84 @@
-gdjs.MainMenuCode = {};
-gdjs.MainMenuCode.GDPlayerObjects1= [];
-gdjs.MainMenuCode.GDPlayerObjects2= [];
-gdjs.MainMenuCode.GDHitbox1Objects1= [];
-gdjs.MainMenuCode.GDHitbox1Objects2= [];
-gdjs.MainMenuCode.GDHitbox2Objects1= [];
-gdjs.MainMenuCode.GDHitbox2Objects2= [];
-gdjs.MainMenuCode.GDDeathBarrierObjects1= [];
-gdjs.MainMenuCode.GDDeathBarrierObjects2= [];
-gdjs.MainMenuCode.GDPlayer2DamageObjects1= [];
-gdjs.MainMenuCode.GDPlayer2DamageObjects2= [];
-gdjs.MainMenuCode.GDPlayer1DamageObjects1= [];
-gdjs.MainMenuCode.GDPlayer1DamageObjects2= [];
-gdjs.MainMenuCode.GDPlayer2NameObjects1= [];
-gdjs.MainMenuCode.GDPlayer2NameObjects2= [];
-gdjs.MainMenuCode.GDPlayer1NameObjects1= [];
-gdjs.MainMenuCode.GDPlayer1NameObjects2= [];
-gdjs.MainMenuCode.GDFireball2Objects1= [];
-gdjs.MainMenuCode.GDFireball2Objects2= [];
-gdjs.MainMenuCode.GDFireball1Objects1= [];
-gdjs.MainMenuCode.GDFireball1Objects2= [];
-gdjs.MainMenuCode.GDGameTextObjects1= [];
-gdjs.MainMenuCode.GDGameTextObjects2= [];
-gdjs.MainMenuCode.GDStock2Objects1= [];
-gdjs.MainMenuCode.GDStock2Objects2= [];
-gdjs.MainMenuCode.GDStock1Objects1= [];
-gdjs.MainMenuCode.GDStock1Objects2= [];
-gdjs.MainMenuCode.GDPurpleGridObjects1= [];
-gdjs.MainMenuCode.GDPurpleGridObjects2= [];
-gdjs.MainMenuCode.GDButtonObjects1= [];
-gdjs.MainMenuCode.GDButtonObjects2= [];
-gdjs.MainMenuCode.GDRegularButtonObjects1= [];
-gdjs.MainMenuCode.GDRegularButtonObjects2= [];
-gdjs.MainMenuCode.GDButtonTextObjects1= [];
-gdjs.MainMenuCode.GDButtonTextObjects2= [];
-gdjs.MainMenuCode.GDopObjects1= [];
-gdjs.MainMenuCode.GDopObjects2= [];
-gdjs.MainMenuCode.GDtooltipObjects1= [];
-gdjs.MainMenuCode.GDtooltipObjects2= [];
-gdjs.MainMenuCode.GDdescriptionObjects1= [];
-gdjs.MainMenuCode.GDdescriptionObjects2= [];
-gdjs.MainMenuCode.GDNewDescriptionObjects1= [];
-gdjs.MainMenuCode.GDNewDescriptionObjects2= [];
+gdjs.VictoryCode = {};
+gdjs.VictoryCode.GDPlayerObjects1= [];
+gdjs.VictoryCode.GDPlayerObjects2= [];
+gdjs.VictoryCode.GDPlayerObjects3= [];
+gdjs.VictoryCode.GDHitbox1Objects1= [];
+gdjs.VictoryCode.GDHitbox1Objects2= [];
+gdjs.VictoryCode.GDHitbox1Objects3= [];
+gdjs.VictoryCode.GDHitbox2Objects1= [];
+gdjs.VictoryCode.GDHitbox2Objects2= [];
+gdjs.VictoryCode.GDHitbox2Objects3= [];
+gdjs.VictoryCode.GDDeathBarrierObjects1= [];
+gdjs.VictoryCode.GDDeathBarrierObjects2= [];
+gdjs.VictoryCode.GDDeathBarrierObjects3= [];
+gdjs.VictoryCode.GDPlayer2DamageObjects1= [];
+gdjs.VictoryCode.GDPlayer2DamageObjects2= [];
+gdjs.VictoryCode.GDPlayer2DamageObjects3= [];
+gdjs.VictoryCode.GDPlayer1DamageObjects1= [];
+gdjs.VictoryCode.GDPlayer1DamageObjects2= [];
+gdjs.VictoryCode.GDPlayer1DamageObjects3= [];
+gdjs.VictoryCode.GDPlayer2NameObjects1= [];
+gdjs.VictoryCode.GDPlayer2NameObjects2= [];
+gdjs.VictoryCode.GDPlayer2NameObjects3= [];
+gdjs.VictoryCode.GDPlayer1NameObjects1= [];
+gdjs.VictoryCode.GDPlayer1NameObjects2= [];
+gdjs.VictoryCode.GDPlayer1NameObjects3= [];
+gdjs.VictoryCode.GDFireball2Objects1= [];
+gdjs.VictoryCode.GDFireball2Objects2= [];
+gdjs.VictoryCode.GDFireball2Objects3= [];
+gdjs.VictoryCode.GDFireball1Objects1= [];
+gdjs.VictoryCode.GDFireball1Objects2= [];
+gdjs.VictoryCode.GDFireball1Objects3= [];
+gdjs.VictoryCode.GDGameTextObjects1= [];
+gdjs.VictoryCode.GDGameTextObjects2= [];
+gdjs.VictoryCode.GDGameTextObjects3= [];
+gdjs.VictoryCode.GDStock2Objects1= [];
+gdjs.VictoryCode.GDStock2Objects2= [];
+gdjs.VictoryCode.GDStock2Objects3= [];
+gdjs.VictoryCode.GDStock1Objects1= [];
+gdjs.VictoryCode.GDStock1Objects2= [];
+gdjs.VictoryCode.GDStock1Objects3= [];
+gdjs.VictoryCode.GDVictoryGridObjects1= [];
+gdjs.VictoryCode.GDVictoryGridObjects2= [];
+gdjs.VictoryCode.GDVictoryGridObjects3= [];
+gdjs.VictoryCode.GDwinnerObjects1= [];
+gdjs.VictoryCode.GDwinnerObjects2= [];
+gdjs.VictoryCode.GDwinnerObjects3= [];
 
-gdjs.MainMenuCode.conditionTrue_0 = {val:false};
-gdjs.MainMenuCode.condition0IsTrue_0 = {val:false};
-gdjs.MainMenuCode.condition1IsTrue_0 = {val:false};
-gdjs.MainMenuCode.condition2IsTrue_0 = {val:false};
+gdjs.VictoryCode.conditionTrue_0 = {val:false};
+gdjs.VictoryCode.condition0IsTrue_0 = {val:false};
+gdjs.VictoryCode.condition1IsTrue_0 = {val:false};
+gdjs.VictoryCode.condition2IsTrue_0 = {val:false};
+gdjs.VictoryCode.condition3IsTrue_0 = {val:false};
+gdjs.VictoryCode.conditionTrue_1 = {val:false};
+gdjs.VictoryCode.condition0IsTrue_1 = {val:false};
+gdjs.VictoryCode.condition1IsTrue_1 = {val:false};
+gdjs.VictoryCode.condition2IsTrue_1 = {val:false};
+gdjs.VictoryCode.condition3IsTrue_1 = {val:false};
 
 
-gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDopObjects1Objects = Hashtable.newFrom({"op": gdjs.MainMenuCode.GDopObjects1});gdjs.MainMenuCode.eventsList0 = function(runtimeScene) {
+gdjs.VictoryCode.eventsList0 = function(runtimeScene) {
 
 {
 
 
-gdjs.MainMenuCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition1IsTrue_0.val = false;
+gdjs.VictoryCode.condition2IsTrue_0.val = false;
 {
-gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
-}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
-{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "KeyBindings", false);
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")) == "Mario";
+}if ( gdjs.VictoryCode.condition0IsTrue_0.val ) {
+{
+gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().get("Winner")) == 2;
+}if ( gdjs.VictoryCode.condition1IsTrue_0.val ) {
+{
+{gdjs.VictoryCode.conditionTrue_1 = gdjs.VictoryCode.condition2IsTrue_0;
+gdjs.VictoryCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9136980);
+}
 }}
-
 }
-
-
-};gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects = Hashtable.newFrom({"Button": gdjs.MainMenuCode.GDButtonObjects1});gdjs.MainMenuCode.eventsList1 = function(runtimeScene) {
-
-{
-
-
-gdjs.MainMenuCode.condition0IsTrue_0.val = false;
-{
-gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
-}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
-{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "CharacterSelect", false);
-}}
-
-}
-
-
-};gdjs.MainMenuCode.eventsList2 = function(runtimeScene) {
-
-{
-
-
-gdjs.MainMenuCode.condition0IsTrue_0.val = false;
-{
-gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.common.logicalNegation(false);
-}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
-gdjs.MainMenuCode.GDPurpleGridObjects1.createFrom(runtimeScene.getObjects("PurpleGrid"));
-{for(var i = 0, len = gdjs.MainMenuCode.GDPurpleGridObjects1.length ;i < len;++i) {
-    gdjs.MainMenuCode.GDPurpleGridObjects1[i].setXOffset(gdjs.MainMenuCode.GDPurpleGridObjects1[i].getXOffset() + (1));
-}
+if (gdjs.VictoryCode.condition2IsTrue_0.val) {
+{gdjs.evtTools.sound.playMusicOnChannel(runtimeScene, "MarioWins.mp3", 69, false, 100, 1);
 }}
 
 }
@@ -99,16 +87,50 @@ gdjs.MainMenuCode.GDPurpleGridObjects1.createFrom(runtimeScene.getObjects("Purpl
 {
 
 
-gdjs.MainMenuCode.condition0IsTrue_0.val = false;
-gdjs.MainMenuCode.condition1IsTrue_0.val = false;
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition1IsTrue_0.val = false;
+gdjs.VictoryCode.condition2IsTrue_0.val = false;
 {
-gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.sceneJustBegins(runtimeScene);
-}if ( gdjs.MainMenuCode.condition0IsTrue_0.val ) {
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) == "Mario";
+}if ( gdjs.VictoryCode.condition0IsTrue_0.val ) {
 {
-gdjs.MainMenuCode.condition1IsTrue_0.val = !(gdjs.evtTools.sound.isMusicOnChannelPlaying(runtimeScene, 69));
+gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().get("Winner")) == 1;
+}if ( gdjs.VictoryCode.condition1IsTrue_0.val ) {
+{
+{gdjs.VictoryCode.conditionTrue_1 = gdjs.VictoryCode.condition2IsTrue_0;
+gdjs.VictoryCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9138524);
+}
 }}
-if (gdjs.MainMenuCode.condition1IsTrue_0.val) {
-{gdjs.evtTools.sound.playMusicOnChannel(runtimeScene, "TrashClashMenu.mp3", 69, true, 100, 1);
+}
+if (gdjs.VictoryCode.condition2IsTrue_0.val) {
+{gdjs.evtTools.sound.playMusicOnChannel(runtimeScene, "MarioWins.mp3", 69, false, 100, 1);
+}}
+
+}
+
+
+};gdjs.VictoryCode.eventsList1 = function(runtimeScene) {
+
+{
+
+
+gdjs.VictoryCode.eventsList0(runtimeScene);
+}
+
+
+};gdjs.VictoryCode.eventsList2 = function(runtimeScene) {
+
+{
+
+
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+{
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.common.logicalNegation(false);
+}if (gdjs.VictoryCode.condition0IsTrue_0.val) {
+gdjs.VictoryCode.GDVictoryGridObjects1.createFrom(runtimeScene.getObjects("VictoryGrid"));
+{for(var i = 0, len = gdjs.VictoryCode.GDVictoryGridObjects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDVictoryGridObjects1[i].setXOffset(gdjs.VictoryCode.GDVictoryGridObjects1[i].getXOffset() - (1));
+}
 }}
 
 }
@@ -116,103 +138,258 @@ if (gdjs.MainMenuCode.condition1IsTrue_0.val) {
 
 {
 
-gdjs.MainMenuCode.GDopObjects1.createFrom(runtimeScene.getObjects("op"));
 
-gdjs.MainMenuCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition1IsTrue_0.val = false;
+gdjs.VictoryCode.condition2IsTrue_0.val = false;
 {
-gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDopObjects1Objects, runtimeScene, true, false);
-}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
-gdjs.MainMenuCode.GDNewDescriptionObjects1.createFrom(runtimeScene.getObjects("NewDescription"));
-gdjs.MainMenuCode.GDtooltipObjects1.createFrom(runtimeScene.getObjects("tooltip"));
-{for(var i = 0, len = gdjs.MainMenuCode.GDtooltipObjects1.length ;i < len;++i) {
-    gdjs.MainMenuCode.GDtooltipObjects1[i].setAnimationName("op");
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.sceneJustBegins(runtimeScene);
+}if ( gdjs.VictoryCode.condition0IsTrue_0.val ) {
+{
+gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().get("Winner")) == 1;
+}if ( gdjs.VictoryCode.condition1IsTrue_0.val ) {
+{
+gdjs.VictoryCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) == gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("Name"));
+}}
 }
-}{for(var i = 0, len = gdjs.MainMenuCode.GDNewDescriptionObjects1.length ;i < len;++i) {
-    gdjs.MainMenuCode.GDNewDescriptionObjects1[i].setString("dude change your keys they nasty");
+if (gdjs.VictoryCode.condition2IsTrue_0.val) {
+gdjs.VictoryCode.GDStock1Objects1.createFrom(runtimeScene.getObjects("Stock1"));
+gdjs.VictoryCode.GDStock2Objects1.createFrom(runtimeScene.getObjects("Stock2"));
+gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
+{for(var i = 0, len = gdjs.VictoryCode.GDwinnerObjects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDwinnerObjects1[i].setString("PLAYER " + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("Winner")) + " WINS!");
 }
+}{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].hide();
 }
-{ //Subevents
-gdjs.MainMenuCode.eventsList0(runtimeScene);} //End of subevents
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].deleteFromScene(runtimeScene);
 }
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].setAnimationName(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("skin")));
+}
+}}
 
 }
 
 
 {
 
-gdjs.MainMenuCode.GDButtonObjects1.createFrom(runtimeScene.getObjects("Button"));
 
-gdjs.MainMenuCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition1IsTrue_0.val = false;
+gdjs.VictoryCode.condition2IsTrue_0.val = false;
 {
-gdjs.MainMenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.MainMenuCode.mapOfGDgdjs_46MainMenuCode_46GDButtonObjects1Objects, runtimeScene, true, false);
-}if (gdjs.MainMenuCode.condition0IsTrue_0.val) {
-gdjs.MainMenuCode.GDNewDescriptionObjects1.createFrom(runtimeScene.getObjects("NewDescription"));
-gdjs.MainMenuCode.GDtooltipObjects1.createFrom(runtimeScene.getObjects("tooltip"));
-{for(var i = 0, len = gdjs.MainMenuCode.GDtooltipObjects1.length ;i < len;++i) {
-    gdjs.MainMenuCode.GDtooltipObjects1[i].setAnimationName("clash");
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.sceneJustBegins(runtimeScene);
+}if ( gdjs.VictoryCode.condition0IsTrue_0.val ) {
+{
+gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().get("Winner")) == 2;
+}if ( gdjs.VictoryCode.condition1IsTrue_0.val ) {
+{
+gdjs.VictoryCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) == gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("Name"));
+}}
 }
-}{for(var i = 0, len = gdjs.MainMenuCode.GDNewDescriptionObjects1.length ;i < len;++i) {
-    gdjs.MainMenuCode.GDNewDescriptionObjects1[i].setString("two player versus mayhem");
+if (gdjs.VictoryCode.condition2IsTrue_0.val) {
+gdjs.VictoryCode.GDStock1Objects1.createFrom(runtimeScene.getObjects("Stock1"));
+gdjs.VictoryCode.GDStock2Objects1.createFrom(runtimeScene.getObjects("Stock2"));
+gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
+{for(var i = 0, len = gdjs.VictoryCode.GDwinnerObjects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDwinnerObjects1[i].setString("PLAYER " + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("Winner")) + " WINS!");
+}
+}{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].hide();
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].deleteFromScene(runtimeScene);
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].setAnimationName(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("skin")));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition1IsTrue_0.val = false;
+{
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) != gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("Name"));
+}if ( gdjs.VictoryCode.condition0IsTrue_0.val ) {
+{
+gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().get("Winner")) == 1;
+}}
+if (gdjs.VictoryCode.condition1IsTrue_0.val) {
+gdjs.VictoryCode.GDStock1Objects1.createFrom(runtimeScene.getObjects("Stock1"));
+gdjs.VictoryCode.GDStock2Objects1.createFrom(runtimeScene.getObjects("Stock2"));
+gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
+{for(var i = 0, len = gdjs.VictoryCode.GDwinnerObjects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDwinnerObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) + " WINS!");
+}
+}{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].hide();
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].deleteFromScene(runtimeScene);
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].setAnimationName(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("skin")));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+gdjs.VictoryCode.condition1IsTrue_0.val = false;
+{
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) != gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("Name"));
+}if ( gdjs.VictoryCode.condition0IsTrue_0.val ) {
+{
+gdjs.VictoryCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().get("Winner")) == 2;
+}}
+if (gdjs.VictoryCode.condition1IsTrue_0.val) {
+gdjs.VictoryCode.GDStock1Objects1.createFrom(runtimeScene.getObjects("Stock1"));
+gdjs.VictoryCode.GDStock2Objects1.createFrom(runtimeScene.getObjects("Stock2"));
+gdjs.VictoryCode.GDwinnerObjects1.createFrom(runtimeScene.getObjects("winner"));
+{for(var i = 0, len = gdjs.VictoryCode.GDwinnerObjects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDwinnerObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")) + " WINS!");
+}
+}{runtimeScene.getGame().getVariables().get("WinnerName").setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")));
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].hide();
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].deleteFromScene(runtimeScene);
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].setAnimationName(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("skin")));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+{
+{gdjs.VictoryCode.conditionTrue_1 = gdjs.VictoryCode.condition0IsTrue_0;
+gdjs.VictoryCode.condition0IsTrue_1.val = false;
+gdjs.VictoryCode.condition1IsTrue_1.val = false;
+{
+gdjs.VictoryCode.condition0IsTrue_1.val = gdjs.evtTools.input.anyKeyPressed(runtimeScene);
+if( gdjs.VictoryCode.condition0IsTrue_1.val ) {
+    gdjs.VictoryCode.conditionTrue_1.val = true;
 }
 }
-{ //Subevents
-gdjs.MainMenuCode.eventsList1(runtimeScene);} //End of subevents
+{
+gdjs.VictoryCode.condition1IsTrue_1.val = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+if( gdjs.VictoryCode.condition1IsTrue_1.val ) {
+    gdjs.VictoryCode.conditionTrue_1.val = true;
 }
+}
+{
+}
+}
+}if (gdjs.VictoryCode.condition0IsTrue_0.val) {
+{gdjs.evtTools.sound.stopMusicOnChannel(runtimeScene, 69);
+}{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MainMenu", false);
+}}
+
+}
+
+
+{
+
+
+gdjs.VictoryCode.eventsList1(runtimeScene);
+}
+
+
+{
+
+
+gdjs.VictoryCode.condition0IsTrue_0.val = false;
+{
+gdjs.VictoryCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.sceneJustBegins(runtimeScene);
+}if (gdjs.VictoryCode.condition0IsTrue_0.val) {
+gdjs.VictoryCode.GDStock1Objects1.createFrom(runtimeScene.getObjects("Stock1"));
+gdjs.VictoryCode.GDStock2Objects1.createFrom(runtimeScene.getObjects("Stock2"));
+{for(var i = 0, len = gdjs.VictoryCode.GDStock1Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock1Objects1[i].setAnimationName(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name")) + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("skin")));
+}
+}{for(var i = 0, len = gdjs.VictoryCode.GDStock2Objects1.length ;i < len;++i) {
+    gdjs.VictoryCode.GDStock2Objects1[i].setAnimationName(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name")) + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("skin")));
+}
+}}
 
 }
 
 
 };
 
-gdjs.MainMenuCode.func = function(runtimeScene) {
+gdjs.VictoryCode.func = function(runtimeScene) {
 runtimeScene.getOnceTriggers().startNewFrame();
 
-gdjs.MainMenuCode.GDPlayerObjects1.length = 0;
-gdjs.MainMenuCode.GDPlayerObjects2.length = 0;
-gdjs.MainMenuCode.GDHitbox1Objects1.length = 0;
-gdjs.MainMenuCode.GDHitbox1Objects2.length = 0;
-gdjs.MainMenuCode.GDHitbox2Objects1.length = 0;
-gdjs.MainMenuCode.GDHitbox2Objects2.length = 0;
-gdjs.MainMenuCode.GDDeathBarrierObjects1.length = 0;
-gdjs.MainMenuCode.GDDeathBarrierObjects2.length = 0;
-gdjs.MainMenuCode.GDPlayer2DamageObjects1.length = 0;
-gdjs.MainMenuCode.GDPlayer2DamageObjects2.length = 0;
-gdjs.MainMenuCode.GDPlayer1DamageObjects1.length = 0;
-gdjs.MainMenuCode.GDPlayer1DamageObjects2.length = 0;
-gdjs.MainMenuCode.GDPlayer2NameObjects1.length = 0;
-gdjs.MainMenuCode.GDPlayer2NameObjects2.length = 0;
-gdjs.MainMenuCode.GDPlayer1NameObjects1.length = 0;
-gdjs.MainMenuCode.GDPlayer1NameObjects2.length = 0;
-gdjs.MainMenuCode.GDFireball2Objects1.length = 0;
-gdjs.MainMenuCode.GDFireball2Objects2.length = 0;
-gdjs.MainMenuCode.GDFireball1Objects1.length = 0;
-gdjs.MainMenuCode.GDFireball1Objects2.length = 0;
-gdjs.MainMenuCode.GDGameTextObjects1.length = 0;
-gdjs.MainMenuCode.GDGameTextObjects2.length = 0;
-gdjs.MainMenuCode.GDStock2Objects1.length = 0;
-gdjs.MainMenuCode.GDStock2Objects2.length = 0;
-gdjs.MainMenuCode.GDStock1Objects1.length = 0;
-gdjs.MainMenuCode.GDStock1Objects2.length = 0;
-gdjs.MainMenuCode.GDPurpleGridObjects1.length = 0;
-gdjs.MainMenuCode.GDPurpleGridObjects2.length = 0;
-gdjs.MainMenuCode.GDButtonObjects1.length = 0;
-gdjs.MainMenuCode.GDButtonObjects2.length = 0;
-gdjs.MainMenuCode.GDRegularButtonObjects1.length = 0;
-gdjs.MainMenuCode.GDRegularButtonObjects2.length = 0;
-gdjs.MainMenuCode.GDButtonTextObjects1.length = 0;
-gdjs.MainMenuCode.GDButtonTextObjects2.length = 0;
-gdjs.MainMenuCode.GDopObjects1.length = 0;
-gdjs.MainMenuCode.GDopObjects2.length = 0;
-gdjs.MainMenuCode.GDtooltipObjects1.length = 0;
-gdjs.MainMenuCode.GDtooltipObjects2.length = 0;
-gdjs.MainMenuCode.GDdescriptionObjects1.length = 0;
-gdjs.MainMenuCode.GDdescriptionObjects2.length = 0;
-gdjs.MainMenuCode.GDNewDescriptionObjects1.length = 0;
-gdjs.MainMenuCode.GDNewDescriptionObjects2.length = 0;
+gdjs.VictoryCode.GDPlayerObjects1.length = 0;
+gdjs.VictoryCode.GDPlayerObjects2.length = 0;
+gdjs.VictoryCode.GDPlayerObjects3.length = 0;
+gdjs.VictoryCode.GDHitbox1Objects1.length = 0;
+gdjs.VictoryCode.GDHitbox1Objects2.length = 0;
+gdjs.VictoryCode.GDHitbox1Objects3.length = 0;
+gdjs.VictoryCode.GDHitbox2Objects1.length = 0;
+gdjs.VictoryCode.GDHitbox2Objects2.length = 0;
+gdjs.VictoryCode.GDHitbox2Objects3.length = 0;
+gdjs.VictoryCode.GDDeathBarrierObjects1.length = 0;
+gdjs.VictoryCode.GDDeathBarrierObjects2.length = 0;
+gdjs.VictoryCode.GDDeathBarrierObjects3.length = 0;
+gdjs.VictoryCode.GDPlayer2DamageObjects1.length = 0;
+gdjs.VictoryCode.GDPlayer2DamageObjects2.length = 0;
+gdjs.VictoryCode.GDPlayer2DamageObjects3.length = 0;
+gdjs.VictoryCode.GDPlayer1DamageObjects1.length = 0;
+gdjs.VictoryCode.GDPlayer1DamageObjects2.length = 0;
+gdjs.VictoryCode.GDPlayer1DamageObjects3.length = 0;
+gdjs.VictoryCode.GDPlayer2NameObjects1.length = 0;
+gdjs.VictoryCode.GDPlayer2NameObjects2.length = 0;
+gdjs.VictoryCode.GDPlayer2NameObjects3.length = 0;
+gdjs.VictoryCode.GDPlayer1NameObjects1.length = 0;
+gdjs.VictoryCode.GDPlayer1NameObjects2.length = 0;
+gdjs.VictoryCode.GDPlayer1NameObjects3.length = 0;
+gdjs.VictoryCode.GDFireball2Objects1.length = 0;
+gdjs.VictoryCode.GDFireball2Objects2.length = 0;
+gdjs.VictoryCode.GDFireball2Objects3.length = 0;
+gdjs.VictoryCode.GDFireball1Objects1.length = 0;
+gdjs.VictoryCode.GDFireball1Objects2.length = 0;
+gdjs.VictoryCode.GDFireball1Objects3.length = 0;
+gdjs.VictoryCode.GDGameTextObjects1.length = 0;
+gdjs.VictoryCode.GDGameTextObjects2.length = 0;
+gdjs.VictoryCode.GDGameTextObjects3.length = 0;
+gdjs.VictoryCode.GDStock2Objects1.length = 0;
+gdjs.VictoryCode.GDStock2Objects2.length = 0;
+gdjs.VictoryCode.GDStock2Objects3.length = 0;
+gdjs.VictoryCode.GDStock1Objects1.length = 0;
+gdjs.VictoryCode.GDStock1Objects2.length = 0;
+gdjs.VictoryCode.GDStock1Objects3.length = 0;
+gdjs.VictoryCode.GDVictoryGridObjects1.length = 0;
+gdjs.VictoryCode.GDVictoryGridObjects2.length = 0;
+gdjs.VictoryCode.GDVictoryGridObjects3.length = 0;
+gdjs.VictoryCode.GDwinnerObjects1.length = 0;
+gdjs.VictoryCode.GDwinnerObjects2.length = 0;
+gdjs.VictoryCode.GDwinnerObjects3.length = 0;
 
-gdjs.MainMenuCode.eventsList2(runtimeScene);
+gdjs.VictoryCode.eventsList2(runtimeScene);
 return;
 
 }
 
-gdjs['MainMenuCode'] = gdjs.MainMenuCode;
+gdjs['VictoryCode'] = gdjs.VictoryCode;
