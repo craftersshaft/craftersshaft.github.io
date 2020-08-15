@@ -79,6 +79,10 @@ gdjs.KeyBindingsCode.GDButtonTextObjects1= [];
 gdjs.KeyBindingsCode.GDButtonTextObjects2= [];
 gdjs.KeyBindingsCode.GDButtonTextObjects3= [];
 gdjs.KeyBindingsCode.GDButtonTextObjects4= [];
+gdjs.KeyBindingsCode.GDsaveloadObjects1= [];
+gdjs.KeyBindingsCode.GDsaveloadObjects2= [];
+gdjs.KeyBindingsCode.GDsaveloadObjects3= [];
+gdjs.KeyBindingsCode.GDsaveloadObjects4= [];
 
 gdjs.KeyBindingsCode.conditionTrue_0 = {val:false};
 gdjs.KeyBindingsCode.condition0IsTrue_0 = {val:false};
@@ -201,20 +205,83 @@ gdjs.KeyBindingsCode.GDRegularButtonObjects3.length = k;}if (gdjs.KeyBindingsCod
 
 {
 
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.createFrom(gdjs.KeyBindingsCode.GDRegularButtonObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariables().get("bindy")) == "neutral1" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDRegularButtonObjects3[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("neutral1");
+}}
+
+}
+
+
+{
+
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.createFrom(gdjs.KeyBindingsCode.GDRegularButtonObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariables().get("bindy")) == "taunt1" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDRegularButtonObjects3[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("taunt1");
+}}
+
+}
+
+
+{
+
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.createFrom(gdjs.KeyBindingsCode.GDRegularButtonObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariables().get("bindy")) == "smash1" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDRegularButtonObjects3[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("smash1");
+}}
+
+}
+
+
+{
+
 gdjs.KeyBindingsCode.GDRegularButtonObjects2.createFrom(gdjs.KeyBindingsCode.GDRegularButtonObjects1);
 
 
 gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects2.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariables().get("bindy")) == "neutral1" ) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariables().get("bindy")) == "shield1" ) {
         gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDRegularButtonObjects2[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects2[i];
         ++k;
     }
 }
 gdjs.KeyBindingsCode.GDRegularButtonObjects2.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
-{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("neutral1");
+{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("shield1");
 }}
 
 }
@@ -329,19 +396,40 @@ gdjs.KeyBindingsCode.GDRegularButtonObjects2.length = k;}if (gdjs.KeyBindingsCod
 
 {
 
+gdjs.KeyBindingsCode.GDRegularButtonObjects2.createFrom(gdjs.KeyBindingsCode.GDRegularButtonObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects2.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariables().get("bindy")) == "neutral2" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDRegularButtonObjects2[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects2[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDRegularButtonObjects2.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("neutral2");
+}}
+
+}
+
+
+{
+
 /* Reuse gdjs.KeyBindingsCode.GDRegularButtonObjects1 */
 
 gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects1.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariables().get("bindy")) == "neutral2" ) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariables().get("bindy")) == "taunt2" ) {
         gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDRegularButtonObjects1[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects1[i];
         ++k;
     }
 }
 gdjs.KeyBindingsCode.GDRegularButtonObjects1.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
-{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("neutral2");
+{runtimeScene.getGame().getVariables().get("CurrentSelection").setString("taunt2");
 }}
 
 }
@@ -597,6 +685,52 @@ gdjs.KeyBindingsCode.GDKeyFinderObjects3.createFrom(gdjs.KeyBindingsCode.GDKeyFi
 
 {
 
+gdjs.KeyBindingsCode.GDButtonTextObjects3.createFrom(runtimeScene.getObjects("ButtonText"));
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.createFrom(runtimeScene.getObjects("RegularButton"));
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+gdjs.KeyBindingsCode.condition1IsTrue_0.val = false;
+gdjs.KeyBindingsCode.condition2IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects3[i].getVariables().get("bindy")) == "special1" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDRegularButtonObjects3[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDRegularButtonObjects3.length = k;}if ( gdjs.KeyBindingsCode.condition0IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariables().get("bindy")) == "special1" ) {
+        gdjs.KeyBindingsCode.condition1IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDButtonTextObjects3[k] = gdjs.KeyBindingsCode.GDButtonTextObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDButtonTextObjects3.length = k;}if ( gdjs.KeyBindingsCode.condition1IsTrue_0.val ) {
+{
+gdjs.KeyBindingsCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("CurrentSelection")) == "special1";
+}}
+}
+if (gdjs.KeyBindingsCode.condition2IsTrue_0.val) {
+/* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects3 */
+gdjs.KeyBindingsCode.GDKeyFinderObjects3.createFrom(gdjs.KeyBindingsCode.GDKeyFinderObjects1);
+
+{runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("special").setString((( gdjs.KeyBindingsCode.GDKeyFinderObjects3.length === 0 ) ? "" :gdjs.KeyBindingsCode.GDKeyFinderObjects3[0].getString()));
+}{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects3.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDButtonTextObjects3[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("special")));
+}
+}{for(var i = 0, len = gdjs.KeyBindingsCode.GDKeyFinderObjects3.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDKeyFinderObjects3[i].setString("");
+}
+}}
+
+}
+
+
+{
+
 gdjs.KeyBindingsCode.GDButtonTextObjects2.createFrom(runtimeScene.getObjects("ButtonText"));
 gdjs.KeyBindingsCode.GDRegularButtonObjects2.createFrom(runtimeScene.getObjects("RegularButton"));
 
@@ -605,7 +739,7 @@ gdjs.KeyBindingsCode.condition1IsTrue_0.val = false;
 gdjs.KeyBindingsCode.condition2IsTrue_0.val = false;
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects2.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariables().get("bindy")) == "special1" ) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariables().get("bindy")) == "taunt1" ) {
         gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDRegularButtonObjects2[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects2[i];
         ++k;
@@ -614,7 +748,7 @@ for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects2.length;i<
 gdjs.KeyBindingsCode.GDRegularButtonObjects2.length = k;}if ( gdjs.KeyBindingsCode.condition0IsTrue_0.val ) {
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects2.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariables().get("bindy")) == "special1" ) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariables().get("bindy")) == "taunt1" ) {
         gdjs.KeyBindingsCode.condition1IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDButtonTextObjects2[k] = gdjs.KeyBindingsCode.GDButtonTextObjects2[i];
         ++k;
@@ -622,16 +756,16 @@ for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects2.length;i<l;+
 }
 gdjs.KeyBindingsCode.GDButtonTextObjects2.length = k;}if ( gdjs.KeyBindingsCode.condition1IsTrue_0.val ) {
 {
-gdjs.KeyBindingsCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("CurrentSelection")) == "special1";
+gdjs.KeyBindingsCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("CurrentSelection")) == "taunt1";
 }}
 }
 if (gdjs.KeyBindingsCode.condition2IsTrue_0.val) {
 /* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects2 */
 gdjs.KeyBindingsCode.GDKeyFinderObjects2.createFrom(gdjs.KeyBindingsCode.GDKeyFinderObjects1);
 
-{runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("special").setString((( gdjs.KeyBindingsCode.GDKeyFinderObjects2.length === 0 ) ? "" :gdjs.KeyBindingsCode.GDKeyFinderObjects2[0].getString()));
+{runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("taunt").setString((( gdjs.KeyBindingsCode.GDKeyFinderObjects2.length === 0 ) ? "" :gdjs.KeyBindingsCode.GDKeyFinderObjects2[0].getString()));
 }{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects2.length ;i < len;++i) {
-    gdjs.KeyBindingsCode.GDButtonTextObjects2[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("special")));
+    gdjs.KeyBindingsCode.GDButtonTextObjects2[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("taunt")));
 }
 }{for(var i = 0, len = gdjs.KeyBindingsCode.GDKeyFinderObjects2.length ;i < len;++i) {
     gdjs.KeyBindingsCode.GDKeyFinderObjects2[i].setString("");
@@ -875,6 +1009,52 @@ gdjs.KeyBindingsCode.GDKeyFinderObjects2.createFrom(gdjs.KeyBindingsCode.GDKeyFi
 
 {
 
+gdjs.KeyBindingsCode.GDButtonTextObjects2.createFrom(runtimeScene.getObjects("ButtonText"));
+gdjs.KeyBindingsCode.GDRegularButtonObjects2.createFrom(runtimeScene.getObjects("RegularButton"));
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+gdjs.KeyBindingsCode.condition1IsTrue_0.val = false;
+gdjs.KeyBindingsCode.condition2IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects2.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects2[i].getVariables().get("bindy")) == "special2" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDRegularButtonObjects2[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects2[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDRegularButtonObjects2.length = k;}if ( gdjs.KeyBindingsCode.condition0IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects2.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariables().get("bindy")) == "special2" ) {
+        gdjs.KeyBindingsCode.condition1IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDButtonTextObjects2[k] = gdjs.KeyBindingsCode.GDButtonTextObjects2[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDButtonTextObjects2.length = k;}if ( gdjs.KeyBindingsCode.condition1IsTrue_0.val ) {
+{
+gdjs.KeyBindingsCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("CurrentSelection")) == "special2";
+}}
+}
+if (gdjs.KeyBindingsCode.condition2IsTrue_0.val) {
+/* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects2 */
+gdjs.KeyBindingsCode.GDKeyFinderObjects2.createFrom(gdjs.KeyBindingsCode.GDKeyFinderObjects1);
+
+{runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("special").setString((( gdjs.KeyBindingsCode.GDKeyFinderObjects2.length === 0 ) ? "" :gdjs.KeyBindingsCode.GDKeyFinderObjects2[0].getString()));
+}{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects2.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDButtonTextObjects2[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("special")));
+}
+}{for(var i = 0, len = gdjs.KeyBindingsCode.GDKeyFinderObjects2.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDKeyFinderObjects2[i].setString("");
+}
+}}
+
+}
+
+
+{
+
 gdjs.KeyBindingsCode.GDButtonTextObjects1.createFrom(runtimeScene.getObjects("ButtonText"));
 gdjs.KeyBindingsCode.GDRegularButtonObjects1.createFrom(runtimeScene.getObjects("RegularButton"));
 
@@ -883,7 +1063,7 @@ gdjs.KeyBindingsCode.condition1IsTrue_0.val = false;
 gdjs.KeyBindingsCode.condition2IsTrue_0.val = false;
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects1.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariables().get("bindy")) == "special2" ) {
+    if ( gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDRegularButtonObjects1[i].getVariables().get("bindy")) == "taunt2" ) {
         gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDRegularButtonObjects1[k] = gdjs.KeyBindingsCode.GDRegularButtonObjects1[i];
         ++k;
@@ -892,7 +1072,7 @@ for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDRegularButtonObjects1.length;i<
 gdjs.KeyBindingsCode.GDRegularButtonObjects1.length = k;}if ( gdjs.KeyBindingsCode.condition0IsTrue_0.val ) {
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects1.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariables().get("bindy")) == "special2" ) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariables().get("bindy")) == "taunt2" ) {
         gdjs.KeyBindingsCode.condition1IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDButtonTextObjects1[k] = gdjs.KeyBindingsCode.GDButtonTextObjects1[i];
         ++k;
@@ -900,15 +1080,15 @@ for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects1.length;i<l;+
 }
 gdjs.KeyBindingsCode.GDButtonTextObjects1.length = k;}if ( gdjs.KeyBindingsCode.condition1IsTrue_0.val ) {
 {
-gdjs.KeyBindingsCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("CurrentSelection")) == "special2";
+gdjs.KeyBindingsCode.condition2IsTrue_0.val = gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("CurrentSelection")) == "taunt2";
 }}
 }
 if (gdjs.KeyBindingsCode.condition2IsTrue_0.val) {
 /* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects1 */
 /* Reuse gdjs.KeyBindingsCode.GDKeyFinderObjects1 */
-{runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("special").setString((( gdjs.KeyBindingsCode.GDKeyFinderObjects1.length === 0 ) ? "" :gdjs.KeyBindingsCode.GDKeyFinderObjects1[0].getString()));
+{runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("taunt").setString((( gdjs.KeyBindingsCode.GDKeyFinderObjects1.length === 0 ) ? "" :gdjs.KeyBindingsCode.GDKeyFinderObjects1[0].getString()));
 }{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects1.length ;i < len;++i) {
-    gdjs.KeyBindingsCode.GDButtonTextObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("special")));
+    gdjs.KeyBindingsCode.GDButtonTextObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("taunt")));
 }
 }{for(var i = 0, len = gdjs.KeyBindingsCode.GDKeyFinderObjects1.length ;i < len;++i) {
     gdjs.KeyBindingsCode.GDKeyFinderObjects1[i].setString("");
@@ -1058,13 +1238,85 @@ gdjs.KeyBindingsCode.GDButtonTextObjects3.length = k;}if (gdjs.KeyBindingsCode.c
 
 {
 
+gdjs.KeyBindingsCode.GDButtonTextObjects3.createFrom(gdjs.KeyBindingsCode.GDButtonTextObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariables().get("bindy")) == "special1" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDButtonTextObjects3[k] = gdjs.KeyBindingsCode.GDButtonTextObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDButtonTextObjects3.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects3 */
+{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects3.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDButtonTextObjects3[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("special")));
+}
+}}
+
+}
+
+
+{
+
+gdjs.KeyBindingsCode.GDButtonTextObjects3.createFrom(gdjs.KeyBindingsCode.GDButtonTextObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariables().get("bindy")) == "taunt1" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDButtonTextObjects3[k] = gdjs.KeyBindingsCode.GDButtonTextObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDButtonTextObjects3.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects3 */
+{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects3.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDButtonTextObjects3[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("taunt")));
+}
+}}
+
+}
+
+
+{
+
+gdjs.KeyBindingsCode.GDButtonTextObjects3.createFrom(gdjs.KeyBindingsCode.GDButtonTextObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects3.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects3[i].getVariables().get("bindy")) == "smash1" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDButtonTextObjects3[k] = gdjs.KeyBindingsCode.GDButtonTextObjects3[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDButtonTextObjects3.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects3 */
+{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects3.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDButtonTextObjects3[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("smash")));
+}
+}}
+
+}
+
+
+{
+
 gdjs.KeyBindingsCode.GDButtonTextObjects2.createFrom(gdjs.KeyBindingsCode.GDButtonTextObjects1);
 
 
 gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects2.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariables().get("bindy")) == "special1" ) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariables().get("bindy")) == "shield1" ) {
         gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDButtonTextObjects2[k] = gdjs.KeyBindingsCode.GDButtonTextObjects2[i];
         ++k;
@@ -1073,7 +1325,7 @@ for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects2.length;i<l;+
 gdjs.KeyBindingsCode.GDButtonTextObjects2.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
 /* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects2 */
 {for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects2.length ;i < len;++i) {
-    gdjs.KeyBindingsCode.GDButtonTextObjects2[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("special")));
+    gdjs.KeyBindingsCode.GDButtonTextObjects2[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0).getChild("controls").getChild("shield")));
 }
 }}
 
@@ -1204,12 +1456,36 @@ gdjs.KeyBindingsCode.GDButtonTextObjects2.length = k;}if (gdjs.KeyBindingsCode.c
 
 {
 
+gdjs.KeyBindingsCode.GDButtonTextObjects2.createFrom(gdjs.KeyBindingsCode.GDButtonTextObjects1);
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects2.length;i<l;++i) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects2[i].getVariables().get("bindy")) == "special2" ) {
+        gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
+        gdjs.KeyBindingsCode.GDButtonTextObjects2[k] = gdjs.KeyBindingsCode.GDButtonTextObjects2[i];
+        ++k;
+    }
+}
+gdjs.KeyBindingsCode.GDButtonTextObjects2.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects2 */
+{for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects2.length ;i < len;++i) {
+    gdjs.KeyBindingsCode.GDButtonTextObjects2[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("special")));
+}
+}}
+
+}
+
+
+{
+
 /* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects1 */
 
 gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
 {
 for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects1.length;i<l;++i) {
-    if ( gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariables().get("bindy")) == "special2" ) {
+    if ( gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariableString(gdjs.KeyBindingsCode.GDButtonTextObjects1[i].getVariables().get("bindy")) == "taunt2" ) {
         gdjs.KeyBindingsCode.condition0IsTrue_0.val = true;
         gdjs.KeyBindingsCode.GDButtonTextObjects1[k] = gdjs.KeyBindingsCode.GDButtonTextObjects1[i];
         ++k;
@@ -1218,7 +1494,7 @@ for(var i = 0, k = 0, l = gdjs.KeyBindingsCode.GDButtonTextObjects1.length;i<l;+
 gdjs.KeyBindingsCode.GDButtonTextObjects1.length = k;}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
 /* Reuse gdjs.KeyBindingsCode.GDButtonTextObjects1 */
 {for(var i = 0, len = gdjs.KeyBindingsCode.GDButtonTextObjects1.length ;i < len;++i) {
-    gdjs.KeyBindingsCode.GDButtonTextObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("special")));
+    gdjs.KeyBindingsCode.GDButtonTextObjects1[i].setString(gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1).getChild("controls").getChild("taunt")));
 }
 }}
 
@@ -1241,7 +1517,36 @@ gdjs.KeyBindingsCode.eventsList7(runtimeScene);
 }
 
 
-};gdjs.KeyBindingsCode.eventsList9 = function(runtimeScene) {
+};gdjs.KeyBindingsCode.mapOfGDgdjs_46KeyBindingsCode_46GDsaveloadObjects1Objects = Hashtable.newFrom({"saveload": gdjs.KeyBindingsCode.GDsaveloadObjects1});gdjs.KeyBindingsCode.eventsList9 = function(runtimeScene) {
+
+{
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getVariables().get("Coins")) > 0;
+}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(5).setNumber(gdjs.evtTools.common.getVariableNumber(runtimeScene.getVariables().get("Coins")));
+}{gdjs.evtTools.sound.playSound(runtimeScene, "coin.wav", false, 100, 1);
+}}
+
+}
+
+
+{
+
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+{
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getVariables().get("gobavilleunlocked")) > 0;
+}if (gdjs.KeyBindingsCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(4).getChild("gobavillestage").setNumber(1);
+}}
+
+}
+
+
+};gdjs.KeyBindingsCode.eventsList10 = function(runtimeScene) {
 
 {
 
@@ -1375,6 +1680,29 @@ gdjs.KeyBindingsCode.eventsList8(runtimeScene);} //End of subevents
 }
 
 
+{
+
+gdjs.KeyBindingsCode.GDsaveloadObjects1.createFrom(runtimeScene.getObjects("saveload"));
+
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = false;
+gdjs.KeyBindingsCode.condition1IsTrue_0.val = false;
+{
+gdjs.KeyBindingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+}if ( gdjs.KeyBindingsCode.condition0IsTrue_0.val ) {
+{
+gdjs.KeyBindingsCode.condition1IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.KeyBindingsCode.mapOfGDgdjs_46KeyBindingsCode_46GDsaveloadObjects1Objects, runtimeScene, true, false);
+}}
+if (gdjs.KeyBindingsCode.condition1IsTrue_0.val) {
+{gdjs.evtTools.storage.readNumberFromJSONFile("Save", "Coins", runtimeScene, runtimeScene.getVariables().get("Coins"));
+}{gdjs.evtTools.storage.readNumberFromJSONFile("Save", "GobavilleUnlocked", runtimeScene, runtimeScene.getVariables().get("gobavilleunlocked"));
+}
+{ //Subevents
+gdjs.KeyBindingsCode.eventsList9(runtimeScene);} //End of subevents
+}
+
+}
+
+
 };
 
 gdjs.KeyBindingsCode.func = function(runtimeScene) {
@@ -1460,8 +1788,12 @@ gdjs.KeyBindingsCode.GDButtonTextObjects1.length = 0;
 gdjs.KeyBindingsCode.GDButtonTextObjects2.length = 0;
 gdjs.KeyBindingsCode.GDButtonTextObjects3.length = 0;
 gdjs.KeyBindingsCode.GDButtonTextObjects4.length = 0;
+gdjs.KeyBindingsCode.GDsaveloadObjects1.length = 0;
+gdjs.KeyBindingsCode.GDsaveloadObjects2.length = 0;
+gdjs.KeyBindingsCode.GDsaveloadObjects3.length = 0;
+gdjs.KeyBindingsCode.GDsaveloadObjects4.length = 0;
 
-gdjs.KeyBindingsCode.eventsList9(runtimeScene);
+gdjs.KeyBindingsCode.eventsList10(runtimeScene);
 return;
 
 }

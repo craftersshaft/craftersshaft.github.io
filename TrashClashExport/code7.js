@@ -53,6 +53,9 @@ gdjs.CharacterSelectCode.GDP1MarkerObjects3= [];
 gdjs.CharacterSelectCode.GDbigtimerushObjects1= [];
 gdjs.CharacterSelectCode.GDbigtimerushObjects2= [];
 gdjs.CharacterSelectCode.GDbigtimerushObjects3= [];
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1= [];
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2= [];
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects3= [];
 
 gdjs.CharacterSelectCode.conditionTrue_0 = {val:false};
 gdjs.CharacterSelectCode.condition0IsTrue_0 = {val:false};
@@ -122,7 +125,253 @@ gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariab
 }
 
 
-};gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects1Objects = Hashtable.newFrom({"P1Marker": gdjs.CharacterSelectCode.GDP1MarkerObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects = Hashtable.newFrom({"P2Marker": gdjs.CharacterSelectCode.GDP2MarkerObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDbigtimerushObjects1Objects = Hashtable.newFrom({"bigtimerush": gdjs.CharacterSelectCode.GDbigtimerushObjects1});gdjs.CharacterSelectCode.eventsList2 = function(runtimeScene) {
+};gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects1Objects = Hashtable.newFrom({"P1Marker": gdjs.CharacterSelectCode.GDP1MarkerObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects = Hashtable.newFrom({"P2Marker": gdjs.CharacterSelectCode.GDP2MarkerObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDbigtimerushObjects1Objects = Hashtable.newFrom({"bigtimerush": gdjs.CharacterSelectCode.GDbigtimerushObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects2Objects = Hashtable.newFrom({"P1Marker": gdjs.CharacterSelectCode.GDP1MarkerObjects2});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects2Objects = Hashtable.newFrom({"PleaseWorkPortraits": gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects = Hashtable.newFrom({"P2Marker": gdjs.CharacterSelectCode.GDP2MarkerObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects1Objects = Hashtable.newFrom({"PleaseWorkPortraits": gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1});gdjs.CharacterSelectCode.eventsList2 = function(runtimeScene) {
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("mariocharacter")) == 0;
+}if (gdjs.CharacterSelectCode.condition0IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.createFrom(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1);
+
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].setAnimationName("pMarioLocked");
+}
+}}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDP1MarkerObjects2.createFrom(runtimeScene.getObjects("P1Marker"));
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.createFrom(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1);
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition2IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("mariocharacter")) == 1;
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects2Objects, gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects2Objects, false, runtimeScene, false);
+}if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].getVariables().get("who")) == "pMario" ) {
+        gdjs.CharacterSelectCode.condition2IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length = k;}}
+}
+if (gdjs.CharacterSelectCode.condition2IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name").setString("Mario");
+}}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDP2MarkerObjects1.createFrom(runtimeScene.getObjects("P2Marker"));
+/* Reuse gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1 */
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition2IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("mariocharacter")) == 1;
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects, gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects1Objects, false, runtimeScene, false);
+}if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariables().get("who")) == "pMario" ) {
+        gdjs.CharacterSelectCode.condition2IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length = k;}}
+}
+if (gdjs.CharacterSelectCode.condition2IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name").setString("Mario");
+}}
+
+}
+
+
+};gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects2Objects = Hashtable.newFrom({"P1Marker": gdjs.CharacterSelectCode.GDP1MarkerObjects2});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects2Objects = Hashtable.newFrom({"PleaseWorkPortraits": gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects = Hashtable.newFrom({"P2Marker": gdjs.CharacterSelectCode.GDP2MarkerObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects1Objects = Hashtable.newFrom({"PleaseWorkPortraits": gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1});gdjs.CharacterSelectCode.eventsList3 = function(runtimeScene) {
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("creffycharacter")) == 0;
+}if (gdjs.CharacterSelectCode.condition0IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.createFrom(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1);
+
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].setAnimationName("pCreffyLocked");
+}
+}}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDP1MarkerObjects2.createFrom(runtimeScene.getObjects("P1Marker"));
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.createFrom(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1);
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition2IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("creffycharacter")) == 1;
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects2Objects, gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects2Objects, false, runtimeScene, false);
+}if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].getVariables().get("who")) == "pCreffy" ) {
+        gdjs.CharacterSelectCode.condition2IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length = k;}}
+}
+if (gdjs.CharacterSelectCode.condition2IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name").setString("Creffy");
+}}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDP2MarkerObjects1.createFrom(runtimeScene.getObjects("P2Marker"));
+/* Reuse gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1 */
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition2IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("creffycharacter")) == 1;
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects, gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects1Objects, false, runtimeScene, false);
+}if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariables().get("who")) == "pCreffy" ) {
+        gdjs.CharacterSelectCode.condition2IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length = k;}}
+}
+if (gdjs.CharacterSelectCode.condition2IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name").setString("Creffy");
+}}
+
+}
+
+
+};gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects2Objects = Hashtable.newFrom({"P1Marker": gdjs.CharacterSelectCode.GDP1MarkerObjects2});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects2Objects = Hashtable.newFrom({"PleaseWorkPortraits": gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects = Hashtable.newFrom({"P2Marker": gdjs.CharacterSelectCode.GDP2MarkerObjects1});gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects1Objects = Hashtable.newFrom({"PleaseWorkPortraits": gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1});gdjs.CharacterSelectCode.eventsList4 = function(runtimeScene) {
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("gobacharacter")) == 0;
+}if (gdjs.CharacterSelectCode.condition0IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.createFrom(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1);
+
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].setAnimationName("pGobaLocked");
+}
+}}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDP1MarkerObjects2.createFrom(runtimeScene.getObjects("P1Marker"));
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.createFrom(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1);
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition2IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("gobacharacter")) == 1;
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP1MarkerObjects2Objects, gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects2Objects, false, runtimeScene, false);
+}if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i].getVariables().get("who")) == "pGoba" ) {
+        gdjs.CharacterSelectCode.condition2IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length = k;}}
+}
+if (gdjs.CharacterSelectCode.condition2IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(0).getChild("name").setString("Goba");
+}}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDP2MarkerObjects1.createFrom(runtimeScene.getObjects("P2Marker"));
+/* Reuse gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1 */
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition2IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(4).getChild("gobacharacter")) == 1;
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDP2MarkerObjects1Objects, gdjs.CharacterSelectCode.mapOfGDgdjs_46CharacterSelectCode_46GDPleaseWorkPortraitsObjects1Objects, false, runtimeScene, false);
+}if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariables().get("who")) == "pGoba" ) {
+        gdjs.CharacterSelectCode.condition2IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length = k;}}
+}
+if (gdjs.CharacterSelectCode.condition2IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(1).getChild("name").setString("Goba");
+}}
+
+}
+
+
+};gdjs.CharacterSelectCode.eventsList5 = function(runtimeScene) {
 
 {
 
@@ -171,10 +420,10 @@ gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseBut
 if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
 /* Reuse gdjs.CharacterSelectCode.GDP1MarkerObjects1 */
 {for(var i = 0, len = gdjs.CharacterSelectCode.GDP1MarkerObjects1.length ;i < len;++i) {
-    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setY(gdjs.evtTools.input.getMouseY(runtimeScene, "", 0) - 32);
+    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setY(gdjs.evtTools.input.getMouseY(runtimeScene, "", 0) - 10);
 }
 }{for(var i = 0, len = gdjs.CharacterSelectCode.GDP1MarkerObjects1.length ;i < len;++i) {
-    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setX(gdjs.evtTools.input.getMouseX(runtimeScene, "", 0) - 32);
+    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setX(gdjs.evtTools.input.getMouseX(runtimeScene, "", 0) - 10);
 }
 }}
 
@@ -196,10 +445,10 @@ gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseBut
 if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
 /* Reuse gdjs.CharacterSelectCode.GDP2MarkerObjects1 */
 {for(var i = 0, len = gdjs.CharacterSelectCode.GDP2MarkerObjects1.length ;i < len;++i) {
-    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setY(gdjs.evtTools.input.getMouseY(runtimeScene, "", 0) - 32);
+    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setY(gdjs.evtTools.input.getMouseY(runtimeScene, "", 0) - 10);
 }
 }{for(var i = 0, len = gdjs.CharacterSelectCode.GDP2MarkerObjects1.length ;i < len;++i) {
-    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setX(gdjs.evtTools.input.getMouseX(runtimeScene, "", 0) - 32);
+    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setX(gdjs.evtTools.input.getMouseX(runtimeScene, "", 0) - 10);
 }
 }}
 
@@ -240,7 +489,7 @@ gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseBut
 }if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
 {
 {gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition2IsTrue_0;
-gdjs.CharacterSelectCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9215964);
+gdjs.CharacterSelectCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(10637484);
 }
 }}
 }
@@ -268,7 +517,7 @@ gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseBut
 }if ( gdjs.CharacterSelectCode.condition1IsTrue_0.val ) {
 {
 {gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition2IsTrue_0;
-gdjs.CharacterSelectCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9218276);
+gdjs.CharacterSelectCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(10639796);
 }
 }}
 }
@@ -317,6 +566,268 @@ gdjs.CharacterSelectCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseBut
 }}
 if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "StageSelect", false);
+}}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.createFrom(runtimeScene.getObjects("PleaseWorkPortraits"));
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariables().get("who")) == "pMario" ) {
+        gdjs.CharacterSelectCode.condition0IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length = k;}if (gdjs.CharacterSelectCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1 */
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].setAnimationName("pMario");
+}
+}
+{ //Subevents
+gdjs.CharacterSelectCode.eventsList2(runtimeScene);} //End of subevents
+}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.createFrom(runtimeScene.getObjects("PleaseWorkPortraits"));
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariables().get("who")) == "pCreffy" ) {
+        gdjs.CharacterSelectCode.condition0IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length = k;}if (gdjs.CharacterSelectCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1 */
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].setAnimationName("pCreffy");
+}
+}
+{ //Subevents
+gdjs.CharacterSelectCode.eventsList3(runtimeScene);} //End of subevents
+}
+
+}
+
+
+{
+
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.createFrom(runtimeScene.getObjects("PleaseWorkPortraits"));
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+{
+for(var i = 0, k = 0, l = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length;i<l;++i) {
+    if ( gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariableString(gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].getVariables().get("who")) == "pGoba" ) {
+        gdjs.CharacterSelectCode.condition0IsTrue_0.val = true;
+        gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[k] = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i];
+        ++k;
+    }
+}
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length = k;}if (gdjs.CharacterSelectCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1 */
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1[i].setAnimationName("pGoba");
+}
+}
+{ //Subevents
+gdjs.CharacterSelectCode.eventsList4(runtimeScene);} //End of subevents
+}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 1, "LEFT", "UP", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP1MarkerObjects1.createFrom(runtimeScene.getObjects("P1Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP1MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setY(gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].getY() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * -(7)));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 1, "LEFT", "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP1MarkerObjects1.createFrom(runtimeScene.getObjects("P1Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP1MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setX(gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].getX() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * -(7)));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 1, "LEFT", "RIGHT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP1MarkerObjects1.createFrom(runtimeScene.getObjects("P1Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP1MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setX(gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].getX() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * 7));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 1, "LEFT", "DOWN", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP1MarkerObjects1.createFrom(runtimeScene.getObjects("P1Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP1MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].setY(gdjs.CharacterSelectCode.GDP1MarkerObjects1[i].getY() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * 7));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 2, "LEFT", "UP", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 2, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP2MarkerObjects1.createFrom(runtimeScene.getObjects("P2Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP2MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setY(gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].getY() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * -(7)));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 2, "LEFT", "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 2, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP2MarkerObjects1.createFrom(runtimeScene.getObjects("P2Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP2MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setX(gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].getX() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * -(7)));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 2, "LEFT", "RIGHT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 2, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP2MarkerObjects1.createFrom(runtimeScene.getObjects("P2Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP2MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setX(gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].getX() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * 7));
+}
+}}
+
+}
+
+
+{
+
+
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = false;
+gdjs.CharacterSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.CharacterSelectCode.condition0IsTrue_0.val = gdjs.evtsExt__Gamepads__C_Axis_pushed.func(runtimeScene, 2, "LEFT", "DOWN", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}if ( gdjs.CharacterSelectCode.condition0IsTrue_0.val ) {
+{
+{gdjs.CharacterSelectCode.conditionTrue_1 = gdjs.CharacterSelectCode.condition1IsTrue_0;
+gdjs.CharacterSelectCode.conditionTrue_1.val = (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 2, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) > 0.05);
+}
+}}
+if (gdjs.CharacterSelectCode.condition1IsTrue_0.val) {
+gdjs.CharacterSelectCode.GDP2MarkerObjects1.createFrom(runtimeScene.getObjects("P2Marker"));
+{for(var i = 0, len = gdjs.CharacterSelectCode.GDP2MarkerObjects1.length ;i < len;++i) {
+    gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].setY(gdjs.CharacterSelectCode.GDP2MarkerObjects1[i].getY() + (gdjs.evtsExt__Gamepads__StickForce.func(runtimeScene, 1, "LEFT", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) * 7));
+}
 }}
 
 }
@@ -381,8 +892,11 @@ gdjs.CharacterSelectCode.GDP1MarkerObjects3.length = 0;
 gdjs.CharacterSelectCode.GDbigtimerushObjects1.length = 0;
 gdjs.CharacterSelectCode.GDbigtimerushObjects2.length = 0;
 gdjs.CharacterSelectCode.GDbigtimerushObjects3.length = 0;
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects1.length = 0;
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects2.length = 0;
+gdjs.CharacterSelectCode.GDPleaseWorkPortraitsObjects3.length = 0;
 
-gdjs.CharacterSelectCode.eventsList2(runtimeScene);
+gdjs.CharacterSelectCode.eventsList5(runtimeScene);
 return;
 
 }

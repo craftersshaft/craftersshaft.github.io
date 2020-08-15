@@ -296,6 +296,37 @@ gdjs.StageSelectCode.GDStageSelectIconObjects1.length = k;}if (gdjs.StageSelectC
 
 {
 
+
+gdjs.StageSelectCode.condition0IsTrue_0.val = false;
+{
+gdjs.StageSelectCode.condition0IsTrue_0.val = gdjs.evtTools.storage.elementExistsInJSONFile("Save", "GobavilleUnlocked");
+}if (gdjs.StageSelectCode.condition0IsTrue_0.val) {
+{gdjs.evtTools.storage.readStringFromJSONFile("Save", "GobavilleUnlocked", runtimeScene, runtimeScene.getVariables().get("gobavilleunlocked"));
+}}
+
+}
+
+
+{
+
+
+gdjs.StageSelectCode.condition0IsTrue_0.val = false;
+gdjs.StageSelectCode.condition1IsTrue_0.val = false;
+{
+gdjs.StageSelectCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.sceneJustBegins(runtimeScene);
+}if ( gdjs.StageSelectCode.condition0IsTrue_0.val ) {
+{
+gdjs.StageSelectCode.condition1IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getVariables().get("gobavilleunlocked")) == 1;
+}}
+if (gdjs.StageSelectCode.condition1IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(4).getChild("gobavillestage").setNumber(1);
+}}
+
+}
+
+
+{
+
 gdjs.StageSelectCode.GDBackButtonObjects1.createFrom(runtimeScene.getObjects("BackButton"));
 
 gdjs.StageSelectCode.condition0IsTrue_0.val = false;
@@ -373,6 +404,32 @@ gdjs.StageSelectCode.GDStagePreviewObjects1.createFrom(runtimeScene.getObjects("
 
 
 gdjs.StageSelectCode.eventsList3(runtimeScene);
+}
+
+
+{
+
+
+gdjs.StageSelectCode.condition0IsTrue_0.val = false;
+{
+gdjs.StageSelectCode.condition0IsTrue_0.val = gdjs.evtTools.storage.elementExistsInJSONFile("Save", "GobavilleUnlocked");
+}if (gdjs.StageSelectCode.condition0IsTrue_0.val) {
+{gdjs.evtTools.storage.readNumberFromJSONFile("Save", "GobavilleUnlocked", runtimeScene, runtimeScene.getVariables().get("gobavilleunlocked"));
+}}
+
+}
+
+
+{
+
+
+gdjs.StageSelectCode.condition0IsTrue_0.val = false;
+{
+gdjs.StageSelectCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(runtimeScene.getVariables().get("gobavilleunlocked")) > 0;
+}if (gdjs.StageSelectCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(4).getChild("gobavillestage").setNumber(1);
+}}
+
 }
 
 

@@ -44,14 +44,20 @@ gdjs.TitleScreenCode.conditionTrue_0 = {val:false};
 gdjs.TitleScreenCode.condition0IsTrue_0 = {val:false};
 gdjs.TitleScreenCode.condition1IsTrue_0 = {val:false};
 gdjs.TitleScreenCode.condition2IsTrue_0 = {val:false};
+gdjs.TitleScreenCode.condition3IsTrue_0 = {val:false};
+gdjs.TitleScreenCode.condition4IsTrue_0 = {val:false};
 gdjs.TitleScreenCode.conditionTrue_1 = {val:false};
 gdjs.TitleScreenCode.condition0IsTrue_1 = {val:false};
 gdjs.TitleScreenCode.condition1IsTrue_1 = {val:false};
 gdjs.TitleScreenCode.condition2IsTrue_1 = {val:false};
+gdjs.TitleScreenCode.condition3IsTrue_1 = {val:false};
+gdjs.TitleScreenCode.condition4IsTrue_1 = {val:false};
 gdjs.TitleScreenCode.conditionTrue_2 = {val:false};
 gdjs.TitleScreenCode.condition0IsTrue_2 = {val:false};
 gdjs.TitleScreenCode.condition1IsTrue_2 = {val:false};
 gdjs.TitleScreenCode.condition2IsTrue_2 = {val:false};
+gdjs.TitleScreenCode.condition3IsTrue_2 = {val:false};
+gdjs.TitleScreenCode.condition4IsTrue_2 = {val:false};
 
 
 gdjs.TitleScreenCode.mapOfGDgdjs_46TitleScreenCode_46GDNewObjectObjects2Objects = Hashtable.newFrom({"NewObject": gdjs.TitleScreenCode.GDNewObjectObjects2});gdjs.TitleScreenCode.mapOfGDgdjs_46TitleScreenCode_46GDVersionObjects1Objects = Hashtable.newFrom({"Version": gdjs.TitleScreenCode.GDVersionObjects1});gdjs.TitleScreenCode.eventsList0 = function(runtimeScene) {
@@ -82,6 +88,8 @@ gdjs.TitleScreenCode.condition0IsTrue_0.val = false;
 {gdjs.TitleScreenCode.conditionTrue_1 = gdjs.TitleScreenCode.condition0IsTrue_0;
 gdjs.TitleScreenCode.GDNewObjectObjects1_1final.length = 0;gdjs.TitleScreenCode.condition0IsTrue_1.val = false;
 gdjs.TitleScreenCode.condition1IsTrue_1.val = false;
+gdjs.TitleScreenCode.condition2IsTrue_1.val = false;
+gdjs.TitleScreenCode.condition3IsTrue_1.val = false;
 {
 gdjs.TitleScreenCode.condition0IsTrue_1.val = gdjs.evtTools.input.anyKeyPressed(runtimeScene);
 if( gdjs.TitleScreenCode.condition0IsTrue_1.val ) {
@@ -89,8 +97,20 @@ if( gdjs.TitleScreenCode.condition0IsTrue_1.val ) {
 }
 }
 {
+gdjs.TitleScreenCode.condition1IsTrue_1.val = gdjs.evtsExt__Gamepads__C_Button_released.func(runtimeScene, 2, "A", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+if( gdjs.TitleScreenCode.condition1IsTrue_1.val ) {
+    gdjs.TitleScreenCode.conditionTrue_1.val = true;
+}
+}
+{
+gdjs.TitleScreenCode.condition2IsTrue_1.val = gdjs.evtsExt__Gamepads__C_Button_released.func(runtimeScene, 1, "A", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+if( gdjs.TitleScreenCode.condition2IsTrue_1.val ) {
+    gdjs.TitleScreenCode.conditionTrue_1.val = true;
+}
+}
+{
 gdjs.TitleScreenCode.GDNewObjectObjects2.createFrom(runtimeScene.getObjects("NewObject"));
-{gdjs.TitleScreenCode.conditionTrue_2 = gdjs.TitleScreenCode.condition1IsTrue_1;
+{gdjs.TitleScreenCode.conditionTrue_2 = gdjs.TitleScreenCode.condition3IsTrue_1;
 gdjs.TitleScreenCode.condition0IsTrue_2.val = false;
 gdjs.TitleScreenCode.condition1IsTrue_2.val = false;
 {
@@ -101,7 +121,7 @@ gdjs.TitleScreenCode.condition1IsTrue_2.val = gdjs.evtTools.input.cursorOnObject
 }}
 gdjs.TitleScreenCode.conditionTrue_2.val = true && gdjs.TitleScreenCode.condition0IsTrue_2.val && gdjs.TitleScreenCode.condition1IsTrue_2.val;
 }
-if( gdjs.TitleScreenCode.condition1IsTrue_1.val ) {
+if( gdjs.TitleScreenCode.condition3IsTrue_1.val ) {
     gdjs.TitleScreenCode.conditionTrue_1.val = true;
     for(var j = 0, jLen = gdjs.TitleScreenCode.GDNewObjectObjects2.length;j<jLen;++j) {
         if ( gdjs.TitleScreenCode.GDNewObjectObjects1_1final.indexOf(gdjs.TitleScreenCode.GDNewObjectObjects2[j]) === -1 )
