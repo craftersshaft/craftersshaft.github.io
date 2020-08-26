@@ -1,0 +1,14 @@
+{
+	"name": "Converter3",
+	"version": "1",
+	"description": "",
+	"main": "Electron.js",
+	"dependencies": {
+		"electron": "^4.0.8",
+		"scratch-audio": "0.1.0-prerelease.20190114210212",
+		"scratch-render": "0.1.0-prerelease.20190312125229",
+		"scratch-vm": "^0.2.0-prerelease.20190312212117",
+		"webpack": "^4.29.6",
+		"webpack-cli": "^3.2.3"
+	}
+}
