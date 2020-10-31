@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Prodigy</title>
+        <script src="load.min.js"></script>
+        <script>
+            SW.Load.sendLoadStart();
+        </script>
+        
+        <script>var prodigyServiceUrl = 'https://api.prodigygame.com/';</script>
+        
+        
+        
+        
+        <script>
+            SW.Load.getGameStatus();
+        </script>
+
+        <meta charset="UTF-8" />
+        <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/lodash.min.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/jquery.min.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/handlebars.min.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/backbone-async.min.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/public-game.min.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/templates-game.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/game-helpers.min.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/build/deviceatlas.min.js"></script>
+        <script src="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/scripts/app/entry/game.js"></script>
+
+        <script>
+            SW.Load.getEducationStatus();
+        </script>
+        <script>
+            SW.Load.getDeviceInformationFromAPI();
+        </script>
+
+
+        <link rel="stylesheet" href="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/Includes/Styles/Fonts/Font-Awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/styles/main.css">
+        <link rel="icon" type="image/png" href="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/favicon/favicon-32x32.png">
+
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,500,600,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Luckiest+Guy|Paytone+One|ABeeZee" rel="stylesheet">
+
+        <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/hndgjbjghbnahgfhcmhkkoibbgdemlia">
+        <link rel="manifest" href="https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7/assets/favicon/manifest.json">
+
+        <style>
+        	html{
+        		height:100%;
+        		overflow:hidden;
+        	}
+
+            body{
+                margin:0;
+                background-color:#55B9A7;
+                height:100%;
+                padding:0 !important;
+            }
+
+            #game-container {
+            	height:100%;
+                min-height: 100px;
+            }
+
+            @media screen and ( min-height: 320px )
+            {
+                #game-container {
+                    min-height: 200px;
+                }
+            }
+            @media screen and ( min-height: 720px )
+            {
+                #game-container {
+                    min-height: 500px;
+                }
+            }
+
+            #game-wrapper {
+                height:100%;
+                position:relative;
+            }
+
+            input.game-input{
+                margin:0;
+                position:absolute;
+                top:0;
+                left:0;
+                padding:0px 10px;
+                border-radius:10px;
+                border: 1px solid #363636;
+                background-color:#fff5eb;
+                color:#363636;
+                text-align:left;
+
+            }
+            .head-bar{
+                height:45px;
+                width:100%;
+                position:fixed;
+            }
+
+            .head-content{
+                width:100%;
+                position:relative;
+                height:100%;
+            }
+
+            .full-nav-button{
+                border:1px solid #596ED9;
+                border-top:none;
+
+                font-weight:bold;
+                color:#f89825;
+                margin-top:0;
+                font-size:1.3em;
+                padding:10px 10px;
+                height:100%;
+                width:100%;
+                background-color: #6579DC;
+                color:white;
+
+            }
+
+            .full-nav-button:hover {
+                background:none;
+                background-color:#596ED9;
+                border:none;
+                color:#f2f2f2;
+                box-shadow: none;
+            }
+
+            .announcement {
+                margin-bottom: 0;
+                position: absolute;
+                width: 100%;
+            }
+
+            .announcement-close {
+                position:absolute;
+                right:20px;
+                top:10px;
+                color:#a94442;
+            }
+            .announcement-close:hover {
+                color:#c94442;
+                cursor:pointer;
+            }
+
+            .announcement .alert {
+                padding-right:50px;
+            }
+
+            iframe {
+            	display:none;
+            }
+
+            .game-page-overlay {
+                display: none;
+                position: static;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: white;
+            }
+
+            .iframe-ios-fix {
+               /*iOS fix for scrolling issues with iframe*/
+                -webkit-overflow-scrolling: touch;
+                overflow-y: scroll;
+            }
+
+            #membership-flow.iframe-ios-fix iframe {
+                /*
+                    iOS 11/12 fix for scrolling issue
+                    Normally we can change the size of the iframe's width/height to be the same as
+                    the viewport, but with this issue, the size will match the content and prevent the
+                    user from scrolling down and sometimes create horizontal scrolling when it shouldn't.
+                    This was the only way found to make the iframe width/height match the viewport.
+                 */
+                width: 0;
+                height: 0;
+                min-width: 100%;
+                min-height: 100%;
+            }
+
+            .game-page-overlay iframe {
+                display: block;
+                height: 100%;
+                width: 100%;
+                border: none;
+            }
+
+            .gone {
+                display:none;
+            }
+
+            #first-loading-screen {
+                height:100%;
+                width:100%;
+                background-color:#55B9A7;
+            }
+
+            .alert{
+                margin-top:0;
+                border-radius:0;
+                text-align:center;
+            }
+
+            .alert-warning {
+                background-color:#FCF8E3;
+                color: #8A6D3B;
+            }
+
+            .login-progress-outline {
+                position:absolute;
+                background-color:#000000;
+                border-radius:4px;
+            }
+
+            .login-progress-container {
+                position:absolute;
+                background-color:#FFFFFF;
+                border-radius:4px;
+            }
+
+            .login-progress-bar {
+                position:absolute;
+                background-color:#1CE59D;
+                background-image: linear-gradient(#6DFE7A, #0AC3A2);
+                border-radius:4px;
+            }
+
+
+            /* IOS PROMPT STYLES */
+            .ios-install-prompt {
+                background-color:#F2F2F2;
+                width:100%;
+                height:70px;
+                position:absolute;
+                z-index:10;
+                padding:5px 10px;
+            }
+
+            .ios-install-prompt__wrapper {
+                margin: 0 auto;
+                height:100%;
+                width:50%;
+            }
+
+            .ios-install-prompt__close {
+                display:block;
+                position:relative;
+                float:left;
+                height:100%;
+                top:35%;
+                color:#848484;
+                padding-right:20px;
+                cursor:pointer;
+            }
+
+            .ios-install-prompt__icon {
+                display:block;
+                float:left;
+                height:63px;
+                margin-right:5px;
+            }
+
+            .ios-install-prompt__data {
+                display:block;
+                float:left;
+                line-height:1.3;
+                margin-top:3px;
+            }
+
+            .ios-install-prompt__title {
+                color:#444;
+                display:block;
+                font-size:12px;
+                font-weight:bold;
+            }
+
+            .ios-install-prompt__label {
+                color:#5e5e5e;
+                display:block;
+                font-size:10px;
+            }
+
+            .ios-install-prompt__star {
+                color:#FF9300;
+            }
+
+            .ios-install-prompt__link {
+                display:block;
+                position:relative;
+                float:right;
+                height:100%;
+                top:30%;
+                color:#1481FE;
+                padding-right:5px;
+                cursor:pointer;
+            }
+            /** END IOS STYLES **/
+
+        </style>
+	    <script>
+		     var _gaq = _gaq || [];
+		     _gaq.push(['_setAccount', 'UA-40390561-1']);
+		     _gaq.push(['_trackPageview']);
+
+		     (function() {
+		       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		     })();
+	    </script>
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 1008327338;
+			var google_conversion_label = "rgONCLa1jgQQqrXn4AM";
+			var google_custom_params = window.google_tag_params;
+			var google_remarketing_only = true;
+			/* ]]> */
+ 		</script>
+		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+    </head>
+
+
+<body>
+    <div id="web-templates" class="clearfix">
+    </div>
+
+    <div id='modals'>
+        <div id='overlay-mask' class='overlay-mask' style='display:none;'></div>
+    </div>
+    <div id='first-loading-screen'></div>
+
+    <div id="game-wrapper">
+        <div id='game-container'>
+
+        </div>
+
+        <div id='external-content'>
+
+        </div>
+
+        <div id='external-ui'>
+
+        </div>
+
+        <div id='notices'>
+        </div>
+
+        <div id='popups'>
+            <div id='dynamic-popups'></div>
+        </div>
+    </div>
+
+
+    <div id="membership-flow" class="game-page-overlay"></div>
+    <div id="game-page-overlay" class="game-page-overlay"></div>
+
+    <script type="text/javascript">
+        Handlebars.registerHelper('cdnUrl', function() {
+            return 'https://s3.amazonaws.com/play.prodigygame.com/assets/1.7.7';
+        });
+
+        SW.Load.loadGame();
+    </script>
+
+    </body>
+</html>
