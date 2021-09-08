@@ -1,0 +1,56 @@
+{
+    "song": {
+        "player1": "bf",
+        "sectionLengths": [],
+        "notes": [{
+                "typeOfSection": 0,
+                "lengthInSteps": 16,
+                "sectionNotes": [],
+                "mustHitSection": false
+            }, {
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "bpm": 160,
+                "changeBPM": false,
+                "mustHitSection": false
+            }, {
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "bpm": 160,
+                "changeBPM": false,
+                "mustHitSection": false
+            }, {
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "bpm": 160,
+                "changeBPM": false,
+                "mustHitSection": true
+            }, {
+                "lengthInSteps": 16,
+                "altAnim": false,
+                "typeOfSection": 0,
+                "sectionNotes": [],
+                "bpm": 160,
+                "changeBPM": false,
+                "mustHitSection": true
+            }
+        ],
+        "player2": "bf",
+        "song": "Warehouse-Jokes",
+        "stage": "stage",
+        "validScore": true,
+        "sections": 0,
+        "needsVoices": false,
+        "bpm": 160,
+        "speed": 2,
+		"waresongs":["Tankman Is Stuttering","Orange Approved","Get Milfy"],
+		"warechars":["dad","pico","mom"]
+		
+    }
+}
