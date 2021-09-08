@@ -1,0 +1,1 @@
+mod credits can be found at https://github.com/craftersshaft/FunkinWarehouse
