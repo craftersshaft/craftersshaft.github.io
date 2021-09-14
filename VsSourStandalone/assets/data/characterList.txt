@@ -3,3 +3,5 @@ gf
 sour
 sour-classic
 jokesour
+pico
+scampers
