@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="sourbg.png">
+	<!-- Created with Adobe Animate version 18.0.2.126 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="halloweem bg0000" x="2" y="2" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0001" x="2" y="1025" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0002" x="2" y="2048" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0003" x="2" y="3071" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0004" x="2" y="4094" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0005" x="2" y="4094" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0006" x="2" y="4094" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0007" x="2" y="4094" width="2107" height="1021"/>
+	<SubTexture name="halloweem bg0008" x="2" y="4094" width="2107" height="1021"/>
+</TextureAtlas>
