@@ -3086,7 +3086,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "5";
+	app.meta.h["build"] = "6";
 	app.meta.h["company"] = "craftersshaft";
 	app.meta.h["file"] = "VsSourStandalone";
 	app.meta.h["name"] = "Friday Night Funkin': Vs. Sour Standalone";
@@ -6872,7 +6872,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				ChartingState._song = Song.conversionChecks(Song.loadFromJson(poop,PlayState.SONG.song));
 			}
 		} else {
-			ChartingState._song = { chartVersion : ChartingState.latestChartVersion, song : "Test", notes : [], eventObjects : [], bpm : 150, needsVoices : true, player1 : "bf", player2 : "dad", gfVersion : "gf", noteStyle : "normal", stage : "stage", speed : 1, validScore : false};
+			ChartingState._song = { chartVersion : ChartingState.latestChartVersion, song : "Test", notes : [], eventObjects : [], bpm : 150, needsVoices : true, player1 : "bf", player2 : "dad", gfVersion : "gf", noteStyle : "normal", stage : "stage", forGuitar : false, speed : 1, validScore : false};
 		}
 		this.addGrid(1);
 		if(ChartingState._song.chartVersion == null) {
@@ -6897,7 +6897,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		if(ChartingState._song.eventObjects.length == 0) {
 			ChartingState._song.eventObjects = [new Event("Init BPM",0,ChartingState._song.bpm,"BPM Change")];
 		}
-		haxe_Log.trace("goin",{ fileName : "source/ChartingState.hx", lineNumber : 253, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("goin",{ fileName : "source/ChartingState.hx", lineNumber : 254, className : "ChartingState", methodName : "create"});
 		var currentIndex = 0;
 		var _g = 0;
 		var _g1 = ChartingState._song.eventObjects;
@@ -6933,10 +6933,10 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				lastSeg = seg;
 			}
 		}
-		haxe_Log.trace("STRUCTS: " + TimingStruct.AllTimings.length,{ fileName : "source/ChartingState.hx", lineNumber : 294, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("STRUCTS: " + TimingStruct.AllTimings.length,{ fileName : "source/ChartingState.hx", lineNumber : 295, className : "ChartingState", methodName : "create"});
 		this.recalculateAllSectionTimes();
 		this.poggers();
-		haxe_Log.trace("Song length in MS: " + flixel_FlxG.sound.music._length,{ fileName : "source/ChartingState.hx", lineNumber : 302, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("Song length in MS: " + flixel_FlxG.sound.music._length,{ fileName : "source/ChartingState.hx", lineNumber : 303, className : "ChartingState", methodName : "create"});
 		var _g = 0;
 		while(_g < 9000000) {
 			var i = _g++;
@@ -6949,10 +6949,10 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			ChartingState.lengthInBeats = i;
 		}
 		ChartingState.lengthInSteps = ChartingState.lengthInBeats * 4;
-		haxe_Log.trace("LENGTH IN STEPS " + ChartingState.lengthInSteps + " | LENGTH IN BEATS " + ChartingState.lengthInBeats + " | SECTIONS: " + Math.floor((ChartingState.lengthInSteps + 16) / 16),{ fileName : "source/ChartingState.hx", lineNumber : 321, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("LENGTH IN STEPS " + ChartingState.lengthInSteps + " | LENGTH IN BEATS " + ChartingState.lengthInBeats + " | SECTIONS: " + Math.floor((ChartingState.lengthInSteps + 16) / 16),{ fileName : "source/ChartingState.hx", lineNumber : 322, className : "ChartingState", methodName : "create"});
 		var sections = Math.floor((ChartingState.lengthInSteps + 16) / 16);
 		var targetY = this.getYfromStrum(flixel_FlxG.sound.music._length);
-		haxe_Log.trace("TARGET " + targetY,{ fileName : "source/ChartingState.hx", lineNumber : 327, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("TARGET " + targetY,{ fileName : "source/ChartingState.hx", lineNumber : 328, className : "ChartingState", methodName : "create"});
 		var _g = 0;
 		var _g1 = Math.round(targetY / 640) + 1920;
 		while(_g < _g1) {
@@ -6973,7 +6973,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			this.add(sectionicon);
 			this.height = Math.floor(renderer.y);
 		}
-		haxe_Log.trace(this.height,{ fileName : "source/ChartingState.hx", lineNumber : 354, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace(this.height,{ fileName : "source/ChartingState.hx", lineNumber : 355, className : "ChartingState", methodName : "create"});
 		this.gridBlackLine = new flixel_FlxSprite(this.gridBG.get_width() / 2).makeGraphic(2,this.height,-16777216);
 		ChartingState.leftIcon.setGraphicSize(0,45);
 		ChartingState.rightIcon.setGraphicSize(0,45);
@@ -7010,7 +7010,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		this.addEventsUI();
 		this.regenerateLines();
 		this.updateGrid();
-		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 420, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 421, className : "ChartingState", methodName : "create"});
 		this.add(this.sectionRenderes);
 		this.add(this.dummyArrow);
 		this.add(this.strumLine);
@@ -7021,10 +7021,10 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		this.add(this.curRenderedSustains);
 		this.selectedBoxes = new flixel_group_FlxTypedGroup();
 		this.add(this.selectedBoxes);
-		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 453, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 454, className : "ChartingState", methodName : "create"});
 		this.add(this.snapText);
-		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 458, className : "ChartingState", methodName : "create"});
-		haxe_Log.trace("create",{ fileName : "source/ChartingState.hx", lineNumber : 460, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 459, className : "ChartingState", methodName : "create"});
+		haxe_Log.trace("create",{ fileName : "source/ChartingState.hx", lineNumber : 461, className : "ChartingState", methodName : "create"});
 		MusicBeatState.prototype.create.call(this);
 	}
 	,regenerateLines: function() {
@@ -7036,7 +7036,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			this.texts.members[0].destroy();
 			HxOverrides.remove(this.texts.members,this.texts.members[0]);
 		}
-		haxe_Log.trace("removed lines and texts",{ fileName : "source/ChartingState.hx", lineNumber : 480, className : "ChartingState", methodName : "regenerateLines"});
+		haxe_Log.trace("removed lines and texts",{ fileName : "source/ChartingState.hx", lineNumber : 481, className : "ChartingState", methodName : "regenerateLines"});
 		if(ChartingState._song.eventObjects != null) {
 			var _g = 0;
 			var _g1 = ChartingState._song.eventObjects;
@@ -7083,8 +7083,8 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		}
 		this.remove(this.gridBG);
 		this.gridBG = flixel_addons_display_FlxGridOverlay.create(this.GRID_SIZE,h | 0,this.GRID_SIZE * 8,this.GRID_SIZE * 16);
-		haxe_Log.trace(this.gridBG.get_height(),{ fileName : "source/ChartingState.hx", lineNumber : 535, className : "ChartingState", methodName : "addGrid"});
-		haxe_Log.trace("height of " + Math.floor(ChartingState.lengthInSteps),{ fileName : "source/ChartingState.hx", lineNumber : 539, className : "ChartingState", methodName : "addGrid"});
+		haxe_Log.trace(this.gridBG.get_height(),{ fileName : "source/ChartingState.hx", lineNumber : 536, className : "ChartingState", methodName : "addGrid"});
+		haxe_Log.trace("height of " + Math.floor(ChartingState.lengthInSteps),{ fileName : "source/ChartingState.hx", lineNumber : 540, className : "ChartingState", methodName : "addGrid"});
 		var totalHeight = 0;
 		this.remove(this.gridBlackLine);
 		this.gridBlackLine = new flixel_FlxSprite(this.gridBG.get_width() / 2).makeGraphic(2,Math.floor(ChartingState.lengthInSteps) | 0,-16777216);
@@ -7120,17 +7120,17 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		var eventValue = new flixel_addons_ui_FlxUIInputText(150,60,80,"");
 		var eventSave = new flixel_ui_FlxButton(10,155,"Save Event",function() {
 			var pog = new Event(_gthis.currentSelectedEventName,_gthis.currentEventPosition,HelperFunctions.truncateFloat(parseFloat(_gthis.savedValue),3),_gthis.savedType);
-			haxe_Log.trace("trying to save " + _gthis.currentSelectedEventName,{ fileName : "source/ChartingState.hx", lineNumber : 609, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("trying to save " + _gthis.currentSelectedEventName,{ fileName : "source/ChartingState.hx", lineNumber : 610, className : "ChartingState", methodName : "addEventsUI"});
 			var obj = _gthis.containsName(pog.name,ChartingState._song.eventObjects);
 			if(pog.name == "") {
 				return;
 			}
-			haxe_Log.trace("yeah we can save it",{ fileName : "source/ChartingState.hx", lineNumber : 617, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("yeah we can save it",{ fileName : "source/ChartingState.hx", lineNumber : 618, className : "ChartingState", methodName : "addEventsUI"});
 			if(obj != null) {
 				HxOverrides.remove(ChartingState._song.eventObjects,obj);
 			}
 			ChartingState._song.eventObjects.push(pog);
-			haxe_Log.trace(ChartingState._song.eventObjects.length,{ fileName : "source/ChartingState.hx", lineNumber : 623, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace(ChartingState._song.eventObjects.length,{ fileName : "source/ChartingState.hx", lineNumber : 624, className : "ChartingState", methodName : "addEventsUI"});
 			TimingStruct.clearTimings();
 			var currentIndex = 0;
 			var _g = 0;
@@ -7142,7 +7142,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				var type = Reflect.field(i,"type");
 				var pos = Reflect.field(i,"position");
 				var value = Reflect.field(i,"value");
-				haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 635, className : "ChartingState", methodName : "addEventsUI"});
+				haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 636, className : "ChartingState", methodName : "addEventsUI"});
 				if(type == "BPM Change") {
 					var beat = pos;
 					var endBeat = Infinity;
@@ -7175,18 +7175,18 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			}
 			_gthis.listOfEvents.setData(flixel_addons_ui_FlxUIDropDownMenu.makeStrIdLabelArray(listofnames,true));
 			_gthis.listOfEvents.set_selectedLabel(pog.name);
-			haxe_Log.trace("end",{ fileName : "source/ChartingState.hx", lineNumber : 676, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("end",{ fileName : "source/ChartingState.hx", lineNumber : 677, className : "ChartingState", methodName : "addEventsUI"});
 		});
 		var posLabel = new flixel_text_FlxText(150,85,null,"Event Position");
 		var eventPos = new flixel_addons_ui_FlxUIInputText(150,100,80,"");
 		var eventAdd = new flixel_ui_FlxButton(95,155,"Add Event",function() {
 			var pog = new Event("New Event " + HelperFunctions.truncateFloat(_gthis.curDecimalBeat,3),HelperFunctions.truncateFloat(_gthis.curDecimalBeat,3),ChartingState._song.bpm,"BPM Change");
-			haxe_Log.trace("adding " + pog.name,{ fileName : "source/ChartingState.hx", lineNumber : 684, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("adding " + pog.name,{ fileName : "source/ChartingState.hx", lineNumber : 685, className : "ChartingState", methodName : "addEventsUI"});
 			var obj = _gthis.containsName(pog.name,ChartingState._song.eventObjects);
 			if(obj != null) {
 				return;
 			}
-			haxe_Log.trace("yeah we can add it",{ fileName : "source/ChartingState.hx", lineNumber : 691, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("yeah we can add it",{ fileName : "source/ChartingState.hx", lineNumber : 692, className : "ChartingState", methodName : "addEventsUI"});
 			ChartingState._song.eventObjects.push(pog);
 			eventName.set_text(pog.name);
 			eventType.set_selectedLabel(pog.type);
@@ -7219,7 +7219,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				var type = Reflect.field(i,"type");
 				var pos = Reflect.field(i,"position");
 				var value = Reflect.field(i,"value");
-				haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 725, className : "ChartingState", methodName : "addEventsUI"});
+				haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 726, className : "ChartingState", methodName : "addEventsUI"});
 				if(type == "BPM Change") {
 					var beat = pos;
 					var endBeat = Infinity;
@@ -7235,26 +7235,26 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 					++currentIndex;
 				}
 			}
-			haxe_Log.trace("BPM CHANGES:",{ fileName : "source/ChartingState.hx", lineNumber : 747, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("BPM CHANGES:",{ fileName : "source/ChartingState.hx", lineNumber : 748, className : "ChartingState", methodName : "addEventsUI"});
 			var _g = 0;
 			var _g1 = TimingStruct.AllTimings;
 			while(_g < _g1.length) {
 				var i = _g1[_g];
 				++_g;
-				haxe_Log.trace(i.bpm + " - START: " + i.startBeat + " - END: " + i.endBeat + " - START-TIME: " + i.startTime,{ fileName : "source/ChartingState.hx", lineNumber : 750, className : "ChartingState", methodName : "addEventsUI"});
+				haxe_Log.trace(i.bpm + " - START: " + i.startBeat + " - END: " + i.endBeat + " - START-TIME: " + i.startTime,{ fileName : "source/ChartingState.hx", lineNumber : 751, className : "ChartingState", methodName : "addEventsUI"});
 			}
 			_gthis.recalculateAllSectionTimes();
 			_gthis.poggers();
 			_gthis.regenerateLines();
 		});
 		var eventRemove = new flixel_ui_FlxButton(180,155,"Remove Event",function() {
-			haxe_Log.trace("lets see if we can remove " + _gthis.listOfEvents.get_selectedLabel(),{ fileName : "source/ChartingState.hx", lineNumber : 761, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("lets see if we can remove " + _gthis.listOfEvents.get_selectedLabel(),{ fileName : "source/ChartingState.hx", lineNumber : 762, className : "ChartingState", methodName : "addEventsUI"});
 			var obj = _gthis.containsName(_gthis.listOfEvents.get_selectedLabel(),ChartingState._song.eventObjects);
-			haxe_Log.trace(obj,{ fileName : "source/ChartingState.hx", lineNumber : 765, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace(obj,{ fileName : "source/ChartingState.hx", lineNumber : 766, className : "ChartingState", methodName : "addEventsUI"});
 			if(obj == null) {
 				return;
 			}
-			haxe_Log.trace("yeah we can remove it it",{ fileName : "source/ChartingState.hx", lineNumber : 770, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("yeah we can remove it it",{ fileName : "source/ChartingState.hx", lineNumber : 771, className : "ChartingState", methodName : "addEventsUI"});
 			HxOverrides.remove(ChartingState._song.eventObjects,obj);
 			var firstEvent = ChartingState._song.eventObjects[0];
 			if(firstEvent == null) {
@@ -7292,7 +7292,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				var type = Reflect.field(i,"type");
 				var pos = Reflect.field(i,"position");
 				var value = Reflect.field(i,"value");
-				haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 812, className : "ChartingState", methodName : "addEventsUI"});
+				haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 813, className : "ChartingState", methodName : "addEventsUI"});
 				if(type == "BPM Change") {
 					var beat = pos;
 					var endBeat = Infinity;
@@ -7332,7 +7332,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			var type = Reflect.field(event,"type");
 			var pos = Reflect.field(event,"position");
 			var value = Reflect.field(event,"value");
-			haxe_Log.trace(value,{ fileName : "source/ChartingState.hx", lineNumber : 863, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace(value,{ fileName : "source/ChartingState.hx", lineNumber : 864, className : "ChartingState", methodName : "addEventsUI"});
 			var eventt = new Event(name,pos,value,type);
 			this.chartEvents.push(eventt);
 			listofnames.push(name);
@@ -7344,28 +7344,28 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		if(ChartingState._song.eventObjects.length != 0) {
 			firstEventObject = ChartingState._song.eventObjects[0];
 		}
-		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 878, className : "ChartingState", methodName : "addEventsUI"});
+		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 879, className : "ChartingState", methodName : "addEventsUI"});
 		if(firstEvent != "") {
-			haxe_Log.trace(firstEventObject,{ fileName : "source/ChartingState.hx", lineNumber : 883, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace(firstEventObject,{ fileName : "source/ChartingState.hx", lineNumber : 884, className : "ChartingState", methodName : "addEventsUI"});
 			eventName.set_text(firstEventObject.name);
-			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 885, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 886, className : "ChartingState", methodName : "addEventsUI"});
 			eventType.set_selectedLabel(firstEventObject.type);
-			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 887, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 888, className : "ChartingState", methodName : "addEventsUI"});
 			eventValue.set_text(firstEventObject.value + "");
-			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 889, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 890, className : "ChartingState", methodName : "addEventsUI"});
 			this.currentSelectedEventName = firstEventObject.name;
-			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 891, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 892, className : "ChartingState", methodName : "addEventsUI"});
 			this.currentEventPosition = firstEventObject.position;
-			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 893, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 894, className : "ChartingState", methodName : "addEventsUI"});
 			eventPos.set_text(this.currentEventPosition + "");
-			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 895, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 896, className : "ChartingState", methodName : "addEventsUI"});
 		}
 		this.listOfEvents = new flixel_addons_ui_FlxUIDropDownMenu(10,20,flixel_addons_ui_FlxUIDropDownMenu.makeStrIdLabelArray(listofnames,true),function(name) {
 			var event = _gthis.containsName(_gthis.listOfEvents.get_selectedLabel(),ChartingState._song.eventObjects);
 			if(event == null) {
 				return;
 			}
-			haxe_Log.trace("selecting " + name + " found: " + Std.string(event),{ fileName : "source/ChartingState.hx", lineNumber : 905, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace("selecting " + name + " found: " + Std.string(event),{ fileName : "source/ChartingState.hx", lineNumber : 906, className : "ChartingState", methodName : "addEventsUI"});
 			eventName.set_text(event.name);
 			eventValue.set_text(event.value + "");
 			eventPos.set_text(event.position + "");
@@ -7374,7 +7374,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			_gthis.currentEventPosition = event.position;
 		});
 		eventValue.callback = function(string,string2) {
-			haxe_Log.trace(string + " - value",{ fileName : "source/ChartingState.hx", lineNumber : 917, className : "ChartingState", methodName : "addEventsUI"});
+			haxe_Log.trace(string + " - value",{ fileName : "source/ChartingState.hx", lineNumber : 918, className : "ChartingState", methodName : "addEventsUI"});
 			_gthis.savedValue = string;
 		};
 		eventType.callback = function(type) {
@@ -7394,7 +7394,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			obj.name = string;
 			_gthis.currentSelectedEventName = string;
 		};
-		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 941, className : "ChartingState", methodName : "addEventsUI"});
+		haxe_Log.trace("bruh",{ fileName : "source/ChartingState.hx", lineNumber : 942, className : "ChartingState", methodName : "addEventsUI"});
 		this.Typeables.push(eventPos);
 		this.Typeables.push(eventValue);
 		this.Typeables.push(eventName);
@@ -7436,7 +7436,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		this.check_snap.set_checked(this.defaultSnap);
 		this.check_snap.callback = function() {
 			_gthis.defaultSnap = _gthis.check_snap.checked;
-			haxe_Log.trace("CHECKED!",{ fileName : "source/ChartingState.hx", lineNumber : 995, className : "ChartingState", methodName : "addOptionsUI"});
+			haxe_Log.trace("CHECKED!",{ fileName : "source/ChartingState.hx", lineNumber : 996, className : "ChartingState", methodName : "addOptionsUI"});
 		};
 		var tab_options = new flixel_addons_ui_FlxUI(null,this.UI_options);
 		tab_options.name = "Options";
@@ -7452,7 +7452,14 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		check_voices.set_checked(ChartingState._song.needsVoices);
 		check_voices.callback = function() {
 			ChartingState._song.needsVoices = check_voices.checked;
-			haxe_Log.trace("CHECKED!",{ fileName : "source/ChartingState.hx", lineNumber : 1016, className : "ChartingState", methodName : "addSongUI"});
+			haxe_Log.trace("CHECKED!",{ fileName : "source/ChartingState.hx", lineNumber : 1017, className : "ChartingState", methodName : "addSongUI"});
+		};
+		var isitGuitar = new flixel_addons_ui_FlxUICheckBox(10,160,null,null,"For Guitar",100);
+		isitGuitar.name = "isitGuitar";
+		isitGuitar.set_checked(ChartingState._song.forGuitar);
+		isitGuitar.callback = function() {
+			ChartingState._song.forGuitar = isitGuitar.checked;
+			haxe_Log.trace("CHECK GUITARED!" + Std.string(ChartingState._song.forGuitar),{ fileName : "source/ChartingState.hx", lineNumber : 1027, className : "ChartingState", methodName : "addSongUI"});
 		};
 		var saveButton = new flixel_ui_FlxButton(110,8,"Save",function() {
 			_gthis.saveLevel();
@@ -7540,6 +7547,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		tab_group_song.add(UI_songTitle);
 		tab_group_song.add(restart);
 		tab_group_song.add(check_voices);
+		tab_group_song.add(isitGuitar);
 		tab_group_song.add(saveButton);
 		tab_group_song.add(reloadSong);
 		tab_group_song.add(reloadSongJson);
@@ -7591,7 +7599,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			var secit = ChartingState._song.notes[_gthis.curSection];
 			if(secit != null) {
 				var newSwaps = [];
-				haxe_Log.trace(ChartingState._song.notes[_gthis.curSection],{ fileName : "source/ChartingState.hx", lineNumber : 1221, className : "ChartingState", methodName : "addSectionUI"});
+				haxe_Log.trace(ChartingState._song.notes[_gthis.curSection],{ fileName : "source/ChartingState.hx", lineNumber : 1233, className : "ChartingState", methodName : "addSectionUI"});
 				var _g = 0;
 				var _g1 = secit.sectionNotes.length;
 				while(_g < _g1) {
@@ -7627,7 +7635,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		});
 		this.check_mustHitSection = new flixel_addons_ui_FlxUICheckBox(10,30,null,null,"Camera Points to Player?",100,null,function() {
 			var sect = _gthis.lastUpdatedSection;
-			haxe_Log.trace(sect,{ fileName : "source/ChartingState.hx", lineNumber : 1251, className : "ChartingState", methodName : "addSectionUI"});
+			haxe_Log.trace(sect,{ fileName : "source/ChartingState.hx", lineNumber : 1263, className : "ChartingState", methodName : "addSectionUI"});
 			if(sect == null) {
 				return;
 			}
@@ -7696,7 +7704,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			this.vocals.set_time(flixel_FlxG.sound.music._time);
 		}
 		this.curSection = section;
-		haxe_Log.trace("Going too " + flixel_FlxG.sound.music._time + " | " + section + " | Which is at " + beat,{ fileName : "source/ChartingState.hx", lineNumber : 1335, className : "ChartingState", methodName : "goToSection"});
+		haxe_Log.trace("Going too " + flixel_FlxG.sound.music._time + " | " + section + " | Which is at " + beat,{ fileName : "source/ChartingState.hx", lineNumber : 1347, className : "ChartingState", methodName : "goToSection"});
 		if(flixel_FlxG.sound.music._time < 0) {
 			flixel_FlxG.sound.music.set_time(0);
 		} else if(flixel_FlxG.sound.music._time > flixel_FlxG.sound.music._length) {
@@ -7764,7 +7772,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				var ii = _g2[_g1];
 				++_g1;
 				if(ii.startTime <= strum && ii.endTime > strum) {
-					haxe_Log.trace("new strum " + strum + " - at section " + section,{ fileName : "source/ChartingState.hx", lineNumber : 1413, className : "ChartingState", methodName : "pasteNotesFromArray"});
+					haxe_Log.trace("new strum " + strum + " - at section " + section,{ fileName : "source/ChartingState.hx", lineNumber : 1425, className : "ChartingState", methodName : "pasteNotesFromArray"});
 					var newData = [strum,i[1],i[2],i[3],i[4]];
 					ii.sectionNotes.push(newData);
 					var thing = ii.sectionNotes[ii.sectionNotes.length - 1];
@@ -7786,7 +7794,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 						note.noteCharterObject = sustainVis;
 						this.curRenderedSustains.add(sustainVis);
 					}
-					haxe_Log.trace("section new length: " + ii.sectionNotes.length,{ fileName : "source/ChartingState.hx", lineNumber : 1449, className : "ChartingState", methodName : "pasteNotesFromArray"});
+					haxe_Log.trace("section new length: " + ii.sectionNotes.length,{ fileName : "source/ChartingState.hx", lineNumber : 1461, className : "ChartingState", methodName : "pasteNotesFromArray"});
 					continue;
 				}
 				++section;
@@ -7811,7 +7819,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		}
 		tmp.playMusic("songs:assets/songs/" + songLowercase + "/Inst." + "mp3",0.6);
 		if(PlayState.isSM) {
-			haxe_Log.trace("smh my bread",{ fileName : "source/ChartingState.hx", lineNumber : 1482, className : "ChartingState", methodName : "loadSong"});
+			haxe_Log.trace("smh my bread",{ fileName : "source/ChartingState.hx", lineNumber : 1494, className : "ChartingState", methodName : "loadSong"});
 		} else {
 			var songFormat = StringTools.replace(PlayState.SONG.song," ","-");
 			switch(songFormat) {
@@ -7919,7 +7927,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 					var type = Reflect.field(i,"type");
 					var pos = Reflect.field(i,"position");
 					var value = Reflect.field(i,"value");
-					haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 1594, className : "ChartingState", methodName : "getEvent"});
+					haxe_Log.trace(i.type,{ fileName : "source/ChartingState.hx", lineNumber : 1606, className : "ChartingState", methodName : "getEvent"});
 					if(type == "BPM Change") {
 						var beat = pos;
 						var endBeat = Infinity;
@@ -7935,13 +7943,13 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 						++currentIndex;
 					}
 				}
-				haxe_Log.trace("BPM CHANGES:",{ fileName : "source/ChartingState.hx", lineNumber : 1616, className : "ChartingState", methodName : "getEvent"});
+				haxe_Log.trace("BPM CHANGES:",{ fileName : "source/ChartingState.hx", lineNumber : 1628, className : "ChartingState", methodName : "getEvent"});
 				var _g = 0;
 				var _g1 = TimingStruct.AllTimings;
 				while(_g < _g1.length) {
 					var i = _g1[_g];
 					++_g;
-					haxe_Log.trace(i.bpm + " - START: " + i.startBeat + " - END: " + i.endBeat + " - START-TIME: " + i.startTime,{ fileName : "source/ChartingState.hx", lineNumber : 1619, className : "ChartingState", methodName : "getEvent"});
+					haxe_Log.trace(i.bpm + " - START: " + i.startBeat + " - END: " + i.endBeat + " - START-TIME: " + i.startTime,{ fileName : "source/ChartingState.hx", lineNumber : 1631, className : "ChartingState", methodName : "getEvent"});
 				}
 				this.recalculateAllSectionTimes();
 				this.regenerateLines();
@@ -8035,7 +8043,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				i1.noteCharterObject.makeGraphic(8,Math.floor(this.getYfromStrum(i1.strumTime + i1.sustainLength) * this.zoomFactor - i1.y),-1);
 			}
 		}
-		haxe_Log.trace("FUCK YOU BITCH FUCKER CUCK SUCK BITCH " + ChartingState._song.notes.length,{ fileName : "source/ChartingState.hx", lineNumber : 1737, className : "ChartingState", methodName : "poggers"});
+		haxe_Log.trace("FUCK YOU BITCH FUCKER CUCK SUCK BITCH " + ChartingState._song.notes.length,{ fileName : "source/ChartingState.hx", lineNumber : 1749, className : "ChartingState", methodName : "poggers"});
 	}
 	,stepStartTime: function(step) {
 		return Conductor.bpm / (step / 4) / 60;
@@ -8159,7 +8167,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 							increase = -1 / this.deezNuts.h[this.snap];
 							beats = (Math.ceil(this.curDecimalBeat * this.deezNuts.h[this.snap]) - 0.001) / this.deezNuts.h[this.snap] + increase;
 						}
-						haxe_Log.trace("SNAP - " + this.snap + " INCREASE - " + increase + " - GO TO BEAT " + beats,{ fileName : "source/ChartingState.hx", lineNumber : 1942, className : "ChartingState", methodName : "update"});
+						haxe_Log.trace("SNAP - " + this.snap + " INCREASE - " + increase + " - GO TO BEAT " + beats,{ fileName : "source/ChartingState.hx", lineNumber : 1954, className : "ChartingState", methodName : "update"});
 						var data = TimingStruct.getTimingAtBeat(beats);
 						if(beats <= 0) {
 							flixel_FlxG.sound.music.set_time(0);
@@ -8232,7 +8240,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			}
 			if(tmp) {
 				if(!this.waitingForRelease) {
-					haxe_Log.trace("creating select box",{ fileName : "source/ChartingState.hx", lineNumber : 1992, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace("creating select box",{ fileName : "source/ChartingState.hx", lineNumber : 2004, className : "ChartingState", methodName : "update"});
 					this.waitingForRelease = true;
 					this.selectBox = new flixel_FlxSprite(flixel_FlxG.mouse.x,flixel_FlxG.mouse.y);
 					var tmp = this.selectBox;
@@ -8255,7 +8263,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 					this.selectInitialY = this.selectBox.y;
 					this.add(this.selectBox);
 				} else if(this.waitingForRelease) {
-					haxe_Log.trace(this.selectBox.get_width() + " | " + this.selectBox.get_height(),{ fileName : "source/ChartingState.hx", lineNumber : 2007, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace(this.selectBox.get_width() + " | " + this.selectBox.get_height(),{ fileName : "source/ChartingState.hx", lineNumber : 2019, className : "ChartingState", methodName : "update"});
 					this.selectBox.set_x(Math.min(flixel_FlxG.mouse.x,this.selectInitialX));
 					this.selectBox.set_y(Math.min(flixel_FlxG.mouse.y,this.selectInitialY));
 					var tmp = this.selectBox;
@@ -8278,7 +8286,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				}
 			}
 			if(flixel_FlxG.mouse._leftButton.current == -1 && this.waitingForRelease) {
-				haxe_Log.trace("released!",{ fileName : "source/ChartingState.hx", lineNumber : 2017, className : "ChartingState", methodName : "update"});
+				haxe_Log.trace("released!",{ fileName : "source/ChartingState.hx", lineNumber : 2029, className : "ChartingState", methodName : "update"});
 				this.waitingForRelease = false;
 				while(this.selectedBoxes.members.length != 0 && this.selectBox.get_width() > 10 && this.selectBox.get_height() > 10) {
 					this.selectedBoxes.members[0].connectedNote.charterSelected = false;
@@ -8289,7 +8297,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				while(i.hasNext()) {
 					var i1 = i.next();
 					if(i1.overlaps(this.selectBox) && !i1.charterSelected) {
-						haxe_Log.trace("seleting " + i1.strumTime,{ fileName : "source/ChartingState.hx", lineNumber : 2031, className : "ChartingState", methodName : "update"});
+						haxe_Log.trace("seleting " + i1.strumTime,{ fileName : "source/ChartingState.hx", lineNumber : 2043, className : "ChartingState", methodName : "update"});
 						this.selectNote(i1,false);
 					}
 				}
@@ -8365,9 +8373,9 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 					while(_g < _g1.length) {
 						var i = _g1[_g];
 						++_g;
-						haxe_Log.trace("Normalized time: " + Std.string(i[0] -= firstNote) + " | " + Std.string(i[1]),{ fileName : "source/ChartingState.hx", lineNumber : 2088, className : "ChartingState", methodName : "update"});
+						haxe_Log.trace("Normalized time: " + Std.string(i[0] -= firstNote) + " | " + Std.string(i[1]),{ fileName : "source/ChartingState.hx", lineNumber : 2100, className : "ChartingState", methodName : "update"});
 					}
-					haxe_Log.trace(this.copiedNotes.length,{ fileName : "source/ChartingState.hx", lineNumber : 2091, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace(this.copiedNotes.length,{ fileName : "source/ChartingState.hx", lineNumber : 2103, className : "ChartingState", methodName : "update"});
 				}
 			}
 			var tmp;
@@ -8385,7 +8393,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 						this.selectedBoxes.members[0].destroy();
 						HxOverrides.remove(this.selectedBoxes.members,this.selectedBoxes.members[0]);
 					}
-					haxe_Log.trace("Pasting " + this.copiedNotes.length,{ fileName : "source/ChartingState.hx", lineNumber : 2106, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace("Pasting " + this.copiedNotes.length,{ fileName : "source/ChartingState.hx", lineNumber : 2118, className : "ChartingState", methodName : "update"});
 					this.pasteNotesFromArray(this.copiedNotes);
 					this.lastAction = "paste";
 				}
@@ -8401,15 +8409,15 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			if(tmp) {
 				switch(this.lastAction) {
 				case "delete":
-					haxe_Log.trace("undoing delete",{ fileName : "source/ChartingState.hx", lineNumber : 2132, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace("undoing delete",{ fileName : "source/ChartingState.hx", lineNumber : 2144, className : "ChartingState", methodName : "update"});
 					if(this.deletedNotes.length != 0) {
-						haxe_Log.trace("undoing delete",{ fileName : "source/ChartingState.hx", lineNumber : 2135, className : "ChartingState", methodName : "update"});
+						haxe_Log.trace("undoing delete",{ fileName : "source/ChartingState.hx", lineNumber : 2147, className : "ChartingState", methodName : "update"});
 						this.pasteNotesFromArray(this.deletedNotes,false);
 						this.deletedNotes = [];
 					}
 					break;
 				case "paste":
-					haxe_Log.trace("undo paste",{ fileName : "source/ChartingState.hx", lineNumber : 2120, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace("undo paste",{ fileName : "source/ChartingState.hx", lineNumber : 2132, className : "ChartingState", methodName : "update"});
 					if(this.pastedNotes.length != 0) {
 						var _g = 0;
 						var _g1 = this.pastedNotes;
@@ -8476,14 +8484,14 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			var v = this.deezNuts.keys();
 			while(v.hasNext()) {
 				var v1 = v.next();
-				haxe_Log.trace(v1,{ fileName : "source/ChartingState.hx", lineNumber : 2192, className : "ChartingState", methodName : "update"});
+				haxe_Log.trace(v1,{ fileName : "source/ChartingState.hx", lineNumber : 2204, className : "ChartingState", methodName : "update"});
 				if(index == this.snapSelection) {
-					haxe_Log.trace("found " + v1 + " at " + index,{ fileName : "source/ChartingState.hx", lineNumber : 2195, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace("found " + v1 + " at " + index,{ fileName : "source/ChartingState.hx", lineNumber : 2207, className : "ChartingState", methodName : "update"});
 					this.snap = v1;
 				}
 				--index;
 			}
-			haxe_Log.trace("new snap " + this.snap + " | " + this.snapSelection,{ fileName : "source/ChartingState.hx", lineNumber : 2200, className : "ChartingState", methodName : "update"});
+			haxe_Log.trace("new snap " + this.snap + " | " + this.snapSelection,{ fileName : "source/ChartingState.hx", lineNumber : 2212, className : "ChartingState", methodName : "update"});
 		}
 		var tmp;
 		var _this = flixel_FlxG.keys.justPressed;
@@ -8505,14 +8513,14 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			var v = this.deezNuts.keys();
 			while(v.hasNext()) {
 				var v1 = v.next();
-				haxe_Log.trace(v1,{ fileName : "source/ChartingState.hx", lineNumber : 2211, className : "ChartingState", methodName : "update"});
+				haxe_Log.trace(v1,{ fileName : "source/ChartingState.hx", lineNumber : 2223, className : "ChartingState", methodName : "update"});
 				if(index == this.snapSelection) {
-					haxe_Log.trace("found " + v1 + " at " + index,{ fileName : "source/ChartingState.hx", lineNumber : 2214, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace("found " + v1 + " at " + index,{ fileName : "source/ChartingState.hx", lineNumber : 2226, className : "ChartingState", methodName : "update"});
 					this.snap = v1;
 				}
 				--index;
 			}
-			haxe_Log.trace("new snap " + this.snap + " | " + this.snapSelection,{ fileName : "source/ChartingState.hx", lineNumber : 2219, className : "ChartingState", methodName : "update"});
+			haxe_Log.trace("new snap " + this.snap + " | " + this.snapSelection,{ fileName : "source/ChartingState.hx", lineNumber : 2231, className : "ChartingState", methodName : "update"});
 		}
 		var _this = flixel_FlxG.keys.justPressed;
 		if(_this.keyManager.checkStatus(16,_this.status)) {
@@ -8532,7 +8540,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			var timingSegBpm = timingSeg.bpm;
 			this.currentBPM = timingSegBpm;
 			if(this.currentBPM != Conductor.bpm) {
-				haxe_Log.trace("BPM CHANGE to " + this.currentBPM,{ fileName : "source/ChartingState.hx", lineNumber : 2250, className : "ChartingState", methodName : "update"});
+				haxe_Log.trace("BPM CHANGE to " + this.currentBPM,{ fileName : "source/ChartingState.hx", lineNumber : 2262, className : "ChartingState", methodName : "update"});
 				Conductor.changeBPM(this.currentBPM,false);
 			}
 			var pog = (this.curDecimalBeat - timingSeg.startBeat) / (Conductor.bpm / 60);
@@ -8573,7 +8581,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				if(_gthis.strumLine.overlaps(note) && pressArray[Math.floor(Math.abs(note.rawNoteData))]) {
 					_gthis.deleteNote(note);
 					$delete = true;
-					haxe_Log.trace("deelte note",{ fileName : "source/ChartingState.hx", lineNumber : 2316, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace("deelte note",{ fileName : "source/ChartingState.hx", lineNumber : 2328, className : "ChartingState", methodName : "update"});
 				}
 			});
 			var _g = 0;
@@ -8633,6 +8641,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			if(_this.keyManager.checkStatus(13,_this.status)) {
 				ChartingState.lastSection = this.curSection;
 				PlayState.SONG = ChartingState._song;
+				haxe_Log.trace(ChartingState._song.forGuitar,{ fileName : "source/ChartingState.hx", lineNumber : 2495, className : "ChartingState", methodName : "update"});
 				var _this = flixel_FlxG.sound.music;
 				_this.cleanup(_this.autoDestroy,true);
 				if(!PlayState.isSM) {
@@ -8662,7 +8671,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			}
 			if(tmp) {
 				var sect = ChartingState._song.notes[this.curSection];
-				haxe_Log.trace(sect,{ fileName : "source/ChartingState.hx", lineNumber : 2502, className : "ChartingState", methodName : "update"});
+				haxe_Log.trace(sect,{ fileName : "source/ChartingState.hx", lineNumber : 2515, className : "ChartingState", methodName : "update"});
 				sect.mustHitSection = !sect.mustHitSection;
 				this.check_mustHitSection.set_checked(sect.mustHitSection);
 				var i = this.sectionRenderes.members[this.curSection];
@@ -8675,7 +8684,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				i.icon = sectionicon;
 				i.lastUpdated = sect.mustHitSection;
 				this.add(sectionicon);
-				haxe_Log.trace("must hit " + (sect.mustHitSection == null ? "null" : "" + sect.mustHitSection),{ fileName : "source/ChartingState.hx", lineNumber : 2518, className : "ChartingState", methodName : "update"});
+				haxe_Log.trace("must hit " + (sect.mustHitSection == null ? "null" : "" + sect.mustHitSection),{ fileName : "source/ChartingState.hx", lineNumber : 2531, className : "ChartingState", methodName : "update"});
 			}
 			var tmp;
 			var _this = flixel_FlxG.keys.justPressed;
@@ -8686,11 +8695,11 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				tmp = false;
 			}
 			if(tmp) {
-				haxe_Log.trace("swap",{ fileName : "source/ChartingState.hx", lineNumber : 2523, className : "ChartingState", methodName : "update"});
+				haxe_Log.trace("swap",{ fileName : "source/ChartingState.hx", lineNumber : 2536, className : "ChartingState", methodName : "update"});
 				var secit = ChartingState._song.notes[this.curSection];
 				if(secit != null) {
 					var newSwaps = [];
-					haxe_Log.trace(ChartingState._song.notes[this.curSection],{ fileName : "source/ChartingState.hx", lineNumber : 2529, className : "ChartingState", methodName : "update"});
+					haxe_Log.trace(ChartingState._song.notes[this.curSection],{ fileName : "source/ChartingState.hx", lineNumber : 2542, className : "ChartingState", methodName : "update"});
 					var _g = 0;
 					var _g1 = secit.sectionNotes.length;
 					while(_g < _g1) {
@@ -8837,7 +8846,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 				}
 				var sustainVis = new flixel_FlxSprite(this.curSelectedNoteObject.x + this.GRID_SIZE / 2,this.curSelectedNoteObject.y + this.GRID_SIZE).makeGraphic(8,Math.floor(this.getYfromStrum(this.curSelectedNoteObject.strumTime + this.curSelectedNote[2]) * this.zoomFactor - this.curSelectedNoteObject.y));
 				this.curSelectedNoteObject.sustainLength = this.curSelectedNote[2];
-				haxe_Log.trace("new sustain " + this.curSelectedNoteObject.sustainLength,{ fileName : "source/ChartingState.hx", lineNumber : 2670, className : "ChartingState", methodName : "changeNoteSustain"});
+				haxe_Log.trace("new sustain " + this.curSelectedNoteObject.sustainLength,{ fileName : "source/ChartingState.hx", lineNumber : 2683, className : "ChartingState", methodName : "changeNoteSustain"});
 				this.curSelectedNoteObject.noteCharterObject = sustainVis;
 				this.curRenderedSustains.add(sustainVis);
 			}
@@ -8868,9 +8877,9 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		if(sec == null) {
 			sec = 0;
 		}
-		haxe_Log.trace("changing section" + sec,{ fileName : "source/ChartingState.hx", lineNumber : 2701, className : "ChartingState", methodName : "changeSection"});
+		haxe_Log.trace("changing section" + sec,{ fileName : "source/ChartingState.hx", lineNumber : 2714, className : "ChartingState", methodName : "changeSection"});
 		if(ChartingState._song.notes[sec] != null) {
-			haxe_Log.trace("naw im not null",{ fileName : "source/ChartingState.hx", lineNumber : 2705, className : "ChartingState", methodName : "changeSection"});
+			haxe_Log.trace("naw im not null",{ fileName : "source/ChartingState.hx", lineNumber : 2718, className : "ChartingState", methodName : "changeSection"});
 			this.curSection = sec;
 			this.updateGrid();
 			if(updateMusic) {
@@ -8887,7 +8896,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 			this.updateGrid();
 			this.updateSectionUI();
 		} else {
-			haxe_Log.trace("bro wtf I AM NULL",{ fileName : "source/ChartingState.hx", lineNumber : 2734, className : "ChartingState", methodName : "changeSection"});
+			haxe_Log.trace("bro wtf I AM NULL",{ fileName : "source/ChartingState.hx", lineNumber : 2747, className : "ChartingState", methodName : "changeSection"});
 		}
 	}
 	,copySection: function(sectionNum) {
@@ -9144,7 +9153,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		return sec;
 	}
 	,recalculateAllSectionTimes: function() {
-		haxe_Log.trace("RECALCULATING SECTION TIMES",{ fileName : "source/ChartingState.hx", lineNumber : 3051, className : "ChartingState", methodName : "recalculateAllSectionTimes"});
+		haxe_Log.trace("RECALCULATING SECTION TIMES",{ fileName : "source/ChartingState.hx", lineNumber : 3064, className : "ChartingState", methodName : "recalculateAllSectionTimes"});
 		var _g = 0;
 		var _g1 = ChartingState._song.notes.length;
 		while(_g < _g1) {
@@ -9176,7 +9185,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		var newSong = [];
 		var millisecadd = (measure * 4 + step / 4) * (60000 / this.currentBPM) + ms;
 		var totaladdsection = millisecadd / (60000 / this.currentBPM) / 4 | 0;
-		haxe_Log.trace(millisecadd,{ fileName : "source/ChartingState.hx", lineNumber : 3084, className : "ChartingState", methodName : "shiftNotes", customParams : [totaladdsection]});
+		haxe_Log.trace(millisecadd,{ fileName : "source/ChartingState.hx", lineNumber : 3097, className : "ChartingState", methodName : "shiftNotes", customParams : [totaladdsection]});
 		if(millisecadd > 0) {
 			var _g = 0;
 			var _g1 = totaladdsection;
@@ -9261,8 +9270,8 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 	}
 	,addNote: function(n) {
 		var strum = this.getStrumTime(this.dummyArrow.y) / this.zoomFactor;
-		haxe_Log.trace(strum + " from " + this.dummyArrow.y,{ fileName : "source/ChartingState.hx", lineNumber : 3166, className : "ChartingState", methodName : "addNote"});
-		haxe_Log.trace("adding note with " + strum + " from dummyArrow",{ fileName : "source/ChartingState.hx", lineNumber : 3168, className : "ChartingState", methodName : "addNote"});
+		haxe_Log.trace(strum + " from " + this.dummyArrow.y,{ fileName : "source/ChartingState.hx", lineNumber : 3179, className : "ChartingState", methodName : "addNote"});
+		haxe_Log.trace("adding note with " + strum + " from dummyArrow",{ fileName : "source/ChartingState.hx", lineNumber : 3181, className : "ChartingState", methodName : "addNote"});
 		var section = this.getSectionByTime(strum);
 		if(section == null) {
 			return;
@@ -9334,7 +9343,7 @@ ChartingState.prototype = $extend(MusicBeatState.prototype,{
 		return flixel_math_FlxMath.remapToRange(strumTime,0,ChartingState.lengthInSteps,0,ChartingState.lengthInSteps);
 	}
 	,loadLevel: function() {
-		haxe_Log.trace(ChartingState._song.notes,{ fileName : "source/ChartingState.hx", lineNumber : 3294, className : "ChartingState", methodName : "loadLevel"});
+		haxe_Log.trace(ChartingState._song.notes,{ fileName : "source/ChartingState.hx", lineNumber : 3307, className : "ChartingState", methodName : "loadLevel"});
 	}
 	,getNotes: function() {
 		var noteData = [];
@@ -9444,7 +9453,7 @@ Conductor.changeBPM = function(newBpm,recalcLength) {
 	Conductor.crochet = 60 / Conductor.bpm * 1000;
 	Conductor.stepCrochet = Conductor.crochet / 4;
 };
-var Control = $hxEnums["Control"] = { __ename__ : "Control", __constructs__ : ["UP","LEFT","RIGHT","DOWN","RESET","ACCEPT","BACK","PAUSE","CHEAT"]
+var Control = $hxEnums["Control"] = { __ename__ : "Control", __constructs__ : ["UP","LEFT","RIGHT","DOWN","RESET","ACCEPT","BACK","PAUSE","CHEAT","STRUMUP","STRUMDOWN"]
 	,UP: {_hx_index:0,__enum__:"Control",toString:$estr}
 	,LEFT: {_hx_index:1,__enum__:"Control",toString:$estr}
 	,RIGHT: {_hx_index:2,__enum__:"Control",toString:$estr}
@@ -9454,6 +9463,8 @@ var Control = $hxEnums["Control"] = { __ename__ : "Control", __constructs__ : ["
 	,BACK: {_hx_index:6,__enum__:"Control",toString:$estr}
 	,PAUSE: {_hx_index:7,__enum__:"Control",toString:$estr}
 	,CHEAT: {_hx_index:8,__enum__:"Control",toString:$estr}
+	,STRUMUP: {_hx_index:9,__enum__:"Control",toString:$estr}
+	,STRUMDOWN: {_hx_index:10,__enum__:"Control",toString:$estr}
 };
 var KeyboardScheme = $hxEnums["KeyboardScheme"] = { __ename__ : "KeyboardScheme", __constructs__ : ["Solo","Duo","None","Custom"]
 	,Solo: {_hx_index:0,__enum__:"KeyboardScheme",toString:$estr}
@@ -9507,6 +9518,12 @@ var Controls = function(name,scheme) {
 	}
 	this.gamepadsAdded = [];
 	this.byName = new haxe_ds_StringMap();
+	this._strumdownR = new flixel_input_actions_FlxActionDigital("strumdown-release");
+	this._strumdownP = new flixel_input_actions_FlxActionDigital("strumdown-press");
+	this._strumdown = new flixel_input_actions_FlxActionDigital("strumdown");
+	this._strumupR = new flixel_input_actions_FlxActionDigital("strumup-release");
+	this._strumupP = new flixel_input_actions_FlxActionDigital("strumup-press");
+	this._strumup = new flixel_input_actions_FlxActionDigital("strumup");
 	this._cheat = new flixel_input_actions_FlxActionDigital("cheat");
 	this._reset = new flixel_input_actions_FlxActionDigital("reset");
 	this._pause = new flixel_input_actions_FlxActionDigital("pause");
@@ -9542,6 +9559,12 @@ var Controls = function(name,scheme) {
 	this.add(this._pause);
 	this.add(this._reset);
 	this.add(this._cheat);
+	this.add(this._strumup);
+	this.add(this._strumupP);
+	this.add(this._strumupR);
+	this.add(this._strumdown);
+	this.add(this._strumdownP);
+	this.add(this._strumdownR);
 	var _g = 0;
 	var _g1 = this.digitalActions;
 	while(_g < _g1.length) {
@@ -9583,6 +9606,12 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 		buttons.set(Control.ACCEPT,[0]);
 		buttons.set(Control.BACK,[1]);
 		buttons.set(Control.PAUSE,[7]);
+		var s = flixel_FlxG.save.data.gpstrumupBind;
+		s = s.toUpperCase();
+		buttons.set(Control.STRUMUP,[Object.prototype.hasOwnProperty.call(flixel_input_gamepad_FlxGamepadInputID.fromStringMap.h,s) ? flixel_input_gamepad_FlxGamepadInputID.fromStringMap.h[s] : -1]);
+		var s = flixel_FlxG.save.data.gpstrumdownBind;
+		s = s.toUpperCase();
+		buttons.set(Control.STRUMDOWN,[Object.prototype.hasOwnProperty.call(flixel_input_gamepad_FlxGamepadInputID.fromStringMap.h,s) ? flixel_input_gamepad_FlxGamepadInputID.fromStringMap.h[s] : -1]);
 		this.addGamepad(0,buttons);
 		var s = flixel_FlxG.save.data.upBind;
 		s = s.toUpperCase();
@@ -9735,6 +9764,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 		case 8:
 			var action = this._cheat;
 			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
 			var _g = 0;
 			while(_g < keys.length) {
 				var key = keys[_g];
@@ -9901,6 +9982,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 				action.addKey(key,state);
 			}
 			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
 		}
 		var s = flixel_FlxG.save.data.leftBind;
 		s = s.toUpperCase();
@@ -10053,6 +10186,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 		case 8:
 			var action = this._cheat;
 			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
 			var _g = 0;
 			while(_g < keys.length) {
 				var key = keys[_g];
@@ -10219,6 +10404,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 				action.addKey(key,state);
 			}
 			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
 		}
 		var keys = [90,32,13];
 		switch(Control.ACCEPT._hx_index) {
@@ -10369,6 +10606,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 		case 8:
 			var action = this._cheat;
 			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
 			var _g = 0;
 			while(_g < keys.length) {
 				var key = keys[_g];
@@ -10533,6 +10822,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 				action.addKey(key,state);
 			}
 			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
 		}
 		var keys = [13,27];
 		switch(Control.PAUSE._hx_index) {
@@ -10683,6 +11024,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 		case 8:
 			var action = this._cheat;
 			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
 			var _g = 0;
 			while(_g < keys.length) {
 				var key = keys[_g];
@@ -10842,6 +11235,480 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 		case 8:
 			var action = this._cheat;
 			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		}
+		var s = flixel_FlxG.save.data.strumupBind;
+		s = s.toUpperCase();
+		var keys = [Object.prototype.hasOwnProperty.call(flixel_input_keyboard_FlxKey.fromStringMap.h,s) ? flixel_input_keyboard_FlxKey.fromStringMap.h[s] : -1];
+		switch(Control.STRUMUP._hx_index) {
+		case 0:
+			var action = this._up;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._upP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._upR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 1:
+			var action = this._left;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._leftP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._leftR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 2:
+			var action = this._right;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._rightP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._rightR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 3:
+			var action = this._down;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._downP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._downR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 4:
+			var action = this._reset;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 5:
+			var action = this._accept;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 6:
+			var action = this._back;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 7:
+			var action = this._pause;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 8:
+			var action = this._cheat;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		}
+		var s = flixel_FlxG.save.data.strumdownBind;
+		s = s.toUpperCase();
+		var keys = [Object.prototype.hasOwnProperty.call(flixel_input_keyboard_FlxKey.fromStringMap.h,s) ? flixel_input_keyboard_FlxKey.fromStringMap.h[s] : -1];
+		switch(Control.STRUMDOWN._hx_index) {
+		case 0:
+			var action = this._up;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._upP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._upR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 1:
+			var action = this._left;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._leftP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._leftR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 2:
+			var action = this._right;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._rightP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._rightR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 3:
+			var action = this._down;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._downP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._downR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 4:
+			var action = this._reset;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 5:
+			var action = this._accept;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 6:
+			var action = this._back;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 7:
+			var action = this._pause;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 8:
+			var action = this._cheat;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 9:
+			var action = this._strumup;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumupR;
+			var state = -1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			break;
+		case 10:
+			var action = this._strumdown;
+			var state = 1;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownP;
+			var state = 2;
+			var _g = 0;
+			while(_g < keys.length) {
+				var key = keys[_g];
+				++_g;
+				action.addKey(key,state);
+			}
+			var action = this._strumdownR;
+			var state = -1;
 			var _g = 0;
 			while(_g < keys.length) {
 				var key = keys[_g];
@@ -11033,6 +11900,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 					action16.addGamepad(button16,state16,id1);
 				}
 				break;
+			case 9:
+				var action17 = this._strumup;
+				var state17 = 1;
+				var _g19 = 0;
+				while(_g19 < buttons1.length) {
+					var button17 = buttons1[_g19];
+					++_g19;
+					action17.addGamepad(button17,state17,id1);
+				}
+				var action18 = this._strumupP;
+				var state18 = 2;
+				var _g20 = 0;
+				while(_g20 < buttons1.length) {
+					var button18 = buttons1[_g20];
+					++_g20;
+					action18.addGamepad(button18,state18,id1);
+				}
+				var action19 = this._strumupR;
+				var state19 = -1;
+				var _g21 = 0;
+				while(_g21 < buttons1.length) {
+					var button19 = buttons1[_g21];
+					++_g21;
+					action19.addGamepad(button19,state19,id1);
+				}
+				break;
+			case 10:
+				var action20 = this._strumdown;
+				var state20 = 1;
+				var _g22 = 0;
+				while(_g22 < buttons1.length) {
+					var button20 = buttons1[_g22];
+					++_g22;
+					action20.addGamepad(button20,state20,id1);
+				}
+				var action21 = this._strumdownP;
+				var state21 = 2;
+				var _g23 = 0;
+				while(_g23 < buttons1.length) {
+					var button21 = buttons1[_g23];
+					++_g23;
+					action21.addGamepad(button21,state21,id1);
+				}
+				var action22 = this._strumdownR;
+				var state22 = -1;
+				var _g24 = 0;
+				while(_g24 < buttons1.length) {
+					var button22 = buttons1[_g24];
+					++_g24;
+					action22.addGamepad(button22,state22,id1);
+				}
+				break;
 			}
 		}
 	}
@@ -11065,6 +11984,8 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 		_g.set(Control.RIGHT,[14,35]);
 		_g.set(Control.PAUSE,[7]);
 		_g.set(Control.RESET,[3]);
+		_g.set(Control.STRUMUP,[11]);
+		_g.set(Control.STRUMDOWN,[12]);
 		this.gamepadsAdded.push(id);
 		var _g1 = new haxe_iterators_MapKeyValueIterator(_g);
 		while(_g1.hasNext()) {
@@ -11226,6 +12147,58 @@ Controls.prototype = $extend(flixel_input_actions_FlxActionSet.prototype,{
 					var button16 = buttons1[_g18];
 					++_g18;
 					action16.addGamepad(button16,state16,id1);
+				}
+				break;
+			case 9:
+				var action17 = this._strumup;
+				var state17 = 1;
+				var _g19 = 0;
+				while(_g19 < buttons1.length) {
+					var button17 = buttons1[_g19];
+					++_g19;
+					action17.addGamepad(button17,state17,id1);
+				}
+				var action18 = this._strumupP;
+				var state18 = 2;
+				var _g20 = 0;
+				while(_g20 < buttons1.length) {
+					var button18 = buttons1[_g20];
+					++_g20;
+					action18.addGamepad(button18,state18,id1);
+				}
+				var action19 = this._strumupR;
+				var state19 = -1;
+				var _g21 = 0;
+				while(_g21 < buttons1.length) {
+					var button19 = buttons1[_g21];
+					++_g21;
+					action19.addGamepad(button19,state19,id1);
+				}
+				break;
+			case 10:
+				var action20 = this._strumdown;
+				var state20 = 1;
+				var _g22 = 0;
+				while(_g22 < buttons1.length) {
+					var button20 = buttons1[_g22];
+					++_g22;
+					action20.addGamepad(button20,state20,id1);
+				}
+				var action21 = this._strumdownP;
+				var state21 = 2;
+				var _g23 = 0;
+				while(_g23 < buttons1.length) {
+					var button21 = buttons1[_g23];
+					++_g23;
+					action21.addGamepad(button21,state21,id1);
+				}
+				var action22 = this._strumdownR;
+				var state22 = -1;
+				var _g24 = 0;
+				while(_g24 < buttons1.length) {
+					var button22 = buttons1[_g24];
+					++_g24;
+					action22.addGamepad(button22,state22,id1);
 				}
 				break;
 			}
@@ -11780,6 +12753,49 @@ FreeplayState.prototype = $extend(MusicBeatState.prototype,{
 		var upP = PlayerSettings.player1.controls._upP.check();
 		var downP = PlayerSettings.player1.controls._downP.check();
 		var accepted = PlayerSettings.player1.controls._accept.check();
+		var gamepad = flixel_FlxG.gamepads.lastActive;
+		if(gamepad != null) {
+			var _this = gamepad.justPressed;
+			var id = 11;
+			var _this1 = _this.gamepad;
+			var Status = _this.status;
+			var tmp;
+			switch(id) {
+			case -2:
+				tmp = _this1.anyButton(Status);
+				break;
+			case -1:
+				tmp = !_this1.anyButton(Status);
+				break;
+			default:
+				var RawID = _this1.mapping.getRawID(id);
+				var button = _this1.buttons[RawID];
+				tmp = button != null && button.hasState(Status);
+			}
+			if(tmp) {
+				this.changeSelection(-1);
+			}
+			var _this = gamepad.justPressed;
+			var id = 12;
+			var _this1 = _this.gamepad;
+			var Status = _this.status;
+			var tmp;
+			switch(id) {
+			case -2:
+				tmp = _this1.anyButton(Status);
+				break;
+			case -1:
+				tmp = !_this1.anyButton(Status);
+				break;
+			default:
+				var RawID = _this1.mapping.getRawID(id);
+				var button = _this1.buttons[RawID];
+				tmp = button != null && button.hasState(Status);
+			}
+			if(tmp) {
+				this.changeSelection(1);
+			}
+		}
 		if(upP) {
 			this.changeSelection(-1);
 		}
@@ -11808,14 +12824,14 @@ FreeplayState.prototype = $extend(MusicBeatState.prototype,{
 				songFormat = "Philly";
 				break;
 			}
-			haxe_Log.trace(this.songs[this.curSelected].songName,{ fileName : "source/FreeplayState.hx", lineNumber : 219, className : "FreeplayState", methodName : "update"});
+			haxe_Log.trace(this.songs[this.curSelected].songName,{ fileName : "source/FreeplayState.hx", lineNumber : 233, className : "FreeplayState", methodName : "update"});
 			var poop = Highscore.formatSong(songFormat,this.curDifficulty);
-			haxe_Log.trace(poop,{ fileName : "source/FreeplayState.hx", lineNumber : 223, className : "FreeplayState", methodName : "update"});
+			haxe_Log.trace(poop,{ fileName : "source/FreeplayState.hx", lineNumber : 237, className : "FreeplayState", methodName : "update"});
 			PlayState.SONG = Song.loadFromJson(poop,this.songs[this.curSelected].songName);
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = this.curDifficulty;
 			PlayState.storyWeek = this.songs[this.curSelected].week;
-			haxe_Log.trace("CUR WEEK" + PlayState.storyWeek,{ fileName : "source/FreeplayState.hx", lineNumber : 229, className : "FreeplayState", methodName : "update"});
+			haxe_Log.trace("CUR WEEK" + PlayState.storyWeek,{ fileName : "source/FreeplayState.hx", lineNumber : 243, className : "FreeplayState", methodName : "update"});
 			var nextState = LoadingState.getNextState(new PlayState(),false);
 			if(flixel_FlxG.game._state.switchTo(nextState)) {
 				flixel_FlxG.game._requestedState = nextState;
@@ -13054,12 +14070,12 @@ var KeyBindMenu = function(BGColor) {
 	this.state = "select";
 	this.blacklist = ["ESCAPE","ENTER","BACKSPACE","SPACE","TAB"];
 	this.tempKey = "";
-	this.gpKeys = [flixel_FlxG.save.data.gpleftBind,flixel_FlxG.save.data.gpdownBind,flixel_FlxG.save.data.gpupBind,flixel_FlxG.save.data.gprightBind];
-	this.keys = [flixel_FlxG.save.data.leftBind,flixel_FlxG.save.data.downBind,flixel_FlxG.save.data.upBind,flixel_FlxG.save.data.rightBind];
+	this.gpKeys = [flixel_FlxG.save.data.gpleftBind,flixel_FlxG.save.data.gpdownBind,flixel_FlxG.save.data.gpupBind,flixel_FlxG.save.data.gprightBind,flixel_FlxG.save.data.gpstrumupBind,flixel_FlxG.save.data.gpstrumdownBind];
+	this.keys = [flixel_FlxG.save.data.leftBind,flixel_FlxG.save.data.downBind,flixel_FlxG.save.data.upBind,flixel_FlxG.save.data.rightBind,flixel_FlxG.save.data.strumupBind,flixel_FlxG.save.data.strumdownBind];
 	this.curSelected = 0;
-	this.defaultGpKeys = ["DPAD_LEFT","DPAD_DOWN","DPAD_UP","DPAD_RIGHT"];
-	this.defaultKeys = ["A","S","W","D","R"];
-	this.keyText = ["LEFT","DOWN","UP","RIGHT"];
+	this.defaultGpKeys = ["DPAD_LEFT","DPAD_DOWN","DPAD_UP","DPAD_RIGHT","DPAD_UP","DPAD_DOWN"];
+	this.defaultKeys = ["A","S","W","D","Y","H"];
+	this.keyText = ["LEFT","DOWN","UP","RIGHT","STRUMUP","STRUMDOWN"];
 	flixel_FlxSubState.call(this,BGColor);
 };
 $hxClasses["KeyBindMenu"] = KeyBindMenu;
@@ -13228,22 +14244,29 @@ KeyBindMenu.prototype = $extend(flixel_FlxSubState.prototype,{
 					flixel_FlxG.sound.play(Paths.sound("scrollMenu"));
 					this.state = "input";
 				} else {
+					var tmp;
 					var _this = gamepad.justPressed;
 					var id = 17;
 					var _this1 = _this.gamepad;
 					var Status = _this.status;
-					var tmp;
+					var tmp1;
 					switch(id) {
 					case -2:
-						tmp = _this1.anyButton(Status);
+						tmp1 = _this1.anyButton(Status);
 						break;
 					case -1:
-						tmp = !_this1.anyButton(Status);
+						tmp1 = !_this1.anyButton(Status);
 						break;
 					default:
 						var RawID = _this1.mapping.getRawID(id);
 						var button = _this1.buttons[RawID];
-						tmp = button != null && button.hasState(Status);
+						tmp1 = button != null && button.hasState(Status);
+					}
+					if(!tmp1) {
+						var _this = flixel_FlxG.keys.justPressed;
+						tmp = _this.keyManager.checkStatus(27,_this.status);
+					} else {
+						tmp = true;
 					}
 					if(tmp) {
 						this.quit();
@@ -13304,7 +14327,7 @@ KeyBindMenu.prototype = $extend(flixel_FlxSubState.prototype,{
 				}
 				if(gamepad.justPressed.get_ANY()) {
 					var tmp = gamepad.mapping.getID(gamepad.firstJustPressedRawID());
-					haxe_Log.trace(tmp == null ? "null" : flixel_input_gamepad_FlxGamepadInputID.toStringMap.h[tmp],{ fileName : "source/KeyBindMenu.hx", lineNumber : 211, className : "KeyBindMenu", methodName : "update"});
+					haxe_Log.trace(tmp == null ? "null" : flixel_input_gamepad_FlxGamepadInputID.toStringMap.h[tmp],{ fileName : "source/KeyBindMenu.hx", lineNumber : 215, className : "KeyBindMenu", methodName : "update"});
 					var this1 = gamepad.mapping.getID(gamepad.firstJustPressedRawID());
 					this.addKeyGamepad(flixel_input_gamepad_FlxGamepadInputID.toStringMap.h[this1]);
 					this.save();
@@ -13344,34 +14367,42 @@ KeyBindMenu.prototype = $extend(flixel_FlxSubState.prototype,{
 		this.keyTextDisplay.set_text("\n\n");
 		if(KeyBinds.gamepad) {
 			var textStart = 0 == this.curSelected ? "> " : "  ";
-			haxe_Log.trace(this.gpKeys[0],{ fileName : "source/KeyBindMenu.hx", lineNumber : 263, className : "KeyBindMenu", methodName : "textUpdate"});
+			haxe_Log.trace(this.gpKeys[0],{ fileName : "source/KeyBindMenu.hx", lineNumber : 267, className : "KeyBindMenu", methodName : "textUpdate"});
 			var _g = this.keyTextDisplay;
 			_g.set_text(_g.text + (textStart + this.keyText[0] + ": " + this.gpKeys[0] + "\n"));
 			var textStart = 1 == this.curSelected ? "> " : "  ";
-			haxe_Log.trace(this.gpKeys[1],{ fileName : "source/KeyBindMenu.hx", lineNumber : 263, className : "KeyBindMenu", methodName : "textUpdate"});
+			haxe_Log.trace(this.gpKeys[1],{ fileName : "source/KeyBindMenu.hx", lineNumber : 267, className : "KeyBindMenu", methodName : "textUpdate"});
 			var _g = this.keyTextDisplay;
 			_g.set_text(_g.text + (textStart + this.keyText[1] + ": " + this.gpKeys[1] + "\n"));
 			var textStart = 2 == this.curSelected ? "> " : "  ";
-			haxe_Log.trace(this.gpKeys[2],{ fileName : "source/KeyBindMenu.hx", lineNumber : 263, className : "KeyBindMenu", methodName : "textUpdate"});
+			haxe_Log.trace(this.gpKeys[2],{ fileName : "source/KeyBindMenu.hx", lineNumber : 267, className : "KeyBindMenu", methodName : "textUpdate"});
 			var _g = this.keyTextDisplay;
 			_g.set_text(_g.text + (textStart + this.keyText[2] + ": " + this.gpKeys[2] + "\n"));
 			var textStart = 3 == this.curSelected ? "> " : "  ";
-			haxe_Log.trace(this.gpKeys[3],{ fileName : "source/KeyBindMenu.hx", lineNumber : 263, className : "KeyBindMenu", methodName : "textUpdate"});
+			haxe_Log.trace(this.gpKeys[3],{ fileName : "source/KeyBindMenu.hx", lineNumber : 267, className : "KeyBindMenu", methodName : "textUpdate"});
 			var _g = this.keyTextDisplay;
 			_g.set_text(_g.text + (textStart + this.keyText[3] + ": " + this.gpKeys[3] + "\n"));
+			var textStart = 4 == this.curSelected ? "> " : "  ";
+			haxe_Log.trace(this.gpKeys[4],{ fileName : "source/KeyBindMenu.hx", lineNumber : 267, className : "KeyBindMenu", methodName : "textUpdate"});
+			var _g = this.keyTextDisplay;
+			_g.set_text(_g.text + (textStart + this.keyText[4] + ": " + this.gpKeys[4] + "\n"));
+			var textStart = 5 == this.curSelected ? "> " : "  ";
+			haxe_Log.trace(this.gpKeys[5],{ fileName : "source/KeyBindMenu.hx", lineNumber : 267, className : "KeyBindMenu", methodName : "textUpdate"});
+			var _g = this.keyTextDisplay;
+			_g.set_text(_g.text + (textStart + this.keyText[5] + ": " + this.gpKeys[5] + "\n"));
 		} else {
-			var textStart = 0 == this.curSelected ? "> " : "  ";
-			var _g = this.keyTextDisplay;
-			_g.set_text(_g.text + (textStart + this.keyText[0] + ": " + (this.keys[0] != this.keyText[0] ? this.keys[0] + " / " : "") + this.keyText[0] + " ARROW\n"));
-			var textStart = 1 == this.curSelected ? "> " : "  ";
-			var _g = this.keyTextDisplay;
-			_g.set_text(_g.text + (textStart + this.keyText[1] + ": " + (this.keys[1] != this.keyText[1] ? this.keys[1] + " / " : "") + this.keyText[1] + " ARROW\n"));
-			var textStart = 2 == this.curSelected ? "> " : "  ";
-			var _g = this.keyTextDisplay;
-			_g.set_text(_g.text + (textStart + this.keyText[2] + ": " + (this.keys[2] != this.keyText[2] ? this.keys[2] + " / " : "") + this.keyText[2] + " ARROW\n"));
-			var textStart = 3 == this.curSelected ? "> " : "  ";
-			var _g = this.keyTextDisplay;
-			_g.set_text(_g.text + (textStart + this.keyText[3] + ": " + (this.keys[3] != this.keyText[3] ? this.keys[3] + " / " : "") + this.keyText[3] + " ARROW\n"));
+			var _g = 0;
+			while(_g < 6) {
+				var i = _g++;
+				var textStart = i == this.curSelected ? "> " : "  ";
+				if(i < 4) {
+					var _g1 = this.keyTextDisplay;
+					_g1.set_text(_g1.text + (textStart + this.keyText[i] + ": " + (this.keys[i] != this.keyText[i] ? this.keys[i] + " / " : "") + this.keyText[i] + " ARROW\n"));
+				} else {
+					var _g2 = this.keyTextDisplay;
+					_g2.set_text(_g2.text + (textStart + this.keyText[i] + ": " + (this.keys[i] != this.keyText[i] ? this.keys[i] + " / " : "") + this.keyText[i] + "\n"));
+				}
+			}
 		}
 		this.keyTextDisplay.screenCenter();
 	}
@@ -13380,10 +14411,14 @@ KeyBindMenu.prototype = $extend(flixel_FlxSubState.prototype,{
 		flixel_FlxG.save.data.downBind = this.keys[1];
 		flixel_FlxG.save.data.leftBind = this.keys[0];
 		flixel_FlxG.save.data.rightBind = this.keys[3];
+		flixel_FlxG.save.data.strumupBind = this.keys[4];
+		flixel_FlxG.save.data.strumdownBind = this.keys[5];
 		flixel_FlxG.save.data.gpupBind = this.gpKeys[2];
 		flixel_FlxG.save.data.gpdownBind = this.gpKeys[1];
 		flixel_FlxG.save.data.gpleftBind = this.gpKeys[0];
 		flixel_FlxG.save.data.gprightBind = this.gpKeys[3];
+		flixel_FlxG.save.data.gpstrumupBind = this.gpKeys[4];
+		flixel_FlxG.save.data.gpstrumdownBind = this.gpKeys[5];
 		flixel_FlxG.save.flush();
 		PlayerSettings.player1.controls.loadKeyBinds();
 	}
@@ -13452,7 +14487,7 @@ KeyBindMenu.prototype = $extend(flixel_FlxSubState.prototype,{
 			++_g;
 			notAllowed.push(x);
 		}
-		haxe_Log.trace(notAllowed,{ fileName : "source/KeyBindMenu.hx", lineNumber : 377, className : "KeyBindMenu", methodName : "addKey"});
+		haxe_Log.trace(notAllowed,{ fileName : "source/KeyBindMenu.hx", lineNumber : 389, className : "KeyBindMenu", methodName : "addKey"});
 		var _g = 0;
 		var _g1 = this.keys.length;
 		while(_g < _g1) {
@@ -13490,11 +14525,11 @@ KeyBindMenu.prototype = $extend(flixel_FlxSubState.prototype,{
 			_amount = 0;
 		}
 		this.curSelected += _amount;
-		if(this.curSelected > 3) {
+		if(this.curSelected > 5) {
 			this.curSelected = 0;
 		}
 		if(this.curSelected < 0) {
-			this.curSelected = 3;
+			this.curSelected = 5;
 		}
 	}
 	,__class__: KeyBindMenu
@@ -13505,41 +14540,57 @@ KeyBinds.__name__ = "KeyBinds";
 KeyBinds.keyCheck = function() {
 	if(flixel_FlxG.save.data.upBind == null) {
 		flixel_FlxG.save.data.upBind = "W";
-		haxe_Log.trace("No UP",{ fileName : "source/KeyBinds.hx", lineNumber : 36, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No UP",{ fileName : "source/KeyBinds.hx", lineNumber : 40, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.downBind == null) {
 		flixel_FlxG.save.data.downBind = "S";
-		haxe_Log.trace("No DOWN",{ fileName : "source/KeyBinds.hx", lineNumber : 40, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No DOWN",{ fileName : "source/KeyBinds.hx", lineNumber : 44, className : "KeyBinds", methodName : "keyCheck"});
+	}
+	if(flixel_FlxG.save.data.strumupBind == null) {
+		flixel_FlxG.save.data.strumupBind = "Y";
+		haxe_Log.trace("No STRUMUP",{ fileName : "source/KeyBinds.hx", lineNumber : 48, className : "KeyBinds", methodName : "keyCheck"});
+	}
+	if(flixel_FlxG.save.data.strumdownBind == null) {
+		flixel_FlxG.save.data.strumdownBind = "H";
+		haxe_Log.trace("No STRUMDOWN",{ fileName : "source/KeyBinds.hx", lineNumber : 52, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.leftBind == null) {
 		flixel_FlxG.save.data.leftBind = "A";
-		haxe_Log.trace("No LEFT",{ fileName : "source/KeyBinds.hx", lineNumber : 44, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No LEFT",{ fileName : "source/KeyBinds.hx", lineNumber : 56, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.rightBind == null) {
 		flixel_FlxG.save.data.rightBind = "D";
-		haxe_Log.trace("No RIGHT",{ fileName : "source/KeyBinds.hx", lineNumber : 48, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No RIGHT",{ fileName : "source/KeyBinds.hx", lineNumber : 60, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.gpupBind == null) {
 		flixel_FlxG.save.data.gpupBind = "DPAD_UP";
-		haxe_Log.trace("No GUP",{ fileName : "source/KeyBinds.hx", lineNumber : 53, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No GUP",{ fileName : "source/KeyBinds.hx", lineNumber : 65, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.gpdownBind == null) {
 		flixel_FlxG.save.data.gpdownBind = "DPAD_DOWN";
-		haxe_Log.trace("No GDOWN",{ fileName : "source/KeyBinds.hx", lineNumber : 57, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No GDOWN",{ fileName : "source/KeyBinds.hx", lineNumber : 69, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.gpleftBind == null) {
 		flixel_FlxG.save.data.gpleftBind = "DPAD_LEFT";
-		haxe_Log.trace("No GLEFT",{ fileName : "source/KeyBinds.hx", lineNumber : 61, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No GLEFT",{ fileName : "source/KeyBinds.hx", lineNumber : 73, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.gprightBind == null) {
 		flixel_FlxG.save.data.gprightBind = "DPAD_RIGHT";
-		haxe_Log.trace("No GRIGHT",{ fileName : "source/KeyBinds.hx", lineNumber : 65, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No GRIGHT",{ fileName : "source/KeyBinds.hx", lineNumber : 77, className : "KeyBinds", methodName : "keyCheck"});
 	}
 	if(flixel_FlxG.save.data.killBind == null) {
 		flixel_FlxG.save.data.killBind = "R";
-		haxe_Log.trace("No KILL",{ fileName : "source/KeyBinds.hx", lineNumber : 69, className : "KeyBinds", methodName : "keyCheck"});
+		haxe_Log.trace("No KILL",{ fileName : "source/KeyBinds.hx", lineNumber : 81, className : "KeyBinds", methodName : "keyCheck"});
 	}
-	haxe_Log.trace("" + Std.string(flixel_FlxG.save.data.leftBind) + "-" + Std.string(flixel_FlxG.save.data.downBind) + "-" + Std.string(flixel_FlxG.save.data.upBind) + "-" + Std.string(flixel_FlxG.save.data.rightBind),{ fileName : "source/KeyBinds.hx", lineNumber : 72, className : "KeyBinds", methodName : "keyCheck"});
+	if(flixel_FlxG.save.data.gpstrumupBind == null) {
+		flixel_FlxG.save.data.gpstrumupBind = "DPAD_UP";
+		haxe_Log.trace("No GSTRUMUP",{ fileName : "source/KeyBinds.hx", lineNumber : 85, className : "KeyBinds", methodName : "keyCheck"});
+	}
+	if(flixel_FlxG.save.data.gpstrumdownBind == null) {
+		flixel_FlxG.save.data.gpstrumdownBind = "DPAD_DOWN";
+		haxe_Log.trace("No GSTRUMDOWN",{ fileName : "source/KeyBinds.hx", lineNumber : 89, className : "KeyBinds", methodName : "keyCheck"});
+	}
+	haxe_Log.trace("" + Std.string(flixel_FlxG.save.data.leftBind) + "-" + Std.string(flixel_FlxG.save.data.downBind) + "-" + Std.string(flixel_FlxG.save.data.upBind) + "-" + Std.string(flixel_FlxG.save.data.rightBind) + "-" + Std.string(flixel_FlxG.save.data.strumupBind) + "-" + Std.string(flixel_FlxG.save.data.strumdownBind),{ fileName : "source/KeyBinds.hx", lineNumber : 91, className : "KeyBinds", methodName : "keyCheck"});
 };
 var Lambda = function() { };
 $hxClasses["Lambda"] = Lambda;
@@ -14313,7 +15364,7 @@ ManifestResources.init = function(config) {
 	lime_utils_Assets.libraryPaths.h["tutorial"] = v;
 	var v = ManifestResources.rootPath + "manifest/week1.json";
 	lime_utils_Assets.libraryPaths.h["week1"] = v;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy33:assets%2Fdata%2FcharacterList.txty4:sizei46y4:typey4:TEXTy2:idR1y7:preloadtgoR0y28:assets%2Fdata%2Fcontrols.txtR2i324R3R4R5R7R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R8R6tgoR0y36:assets%2Fdata%2FfreeplaySonglist.txtR2i44R3R4R5R9R6tgoR0y33:assets%2Fdata%2FgfVersionList.txtR2i31R3R4R5R10R6tgoR0y29:assets%2Fdata%2FintroText.txtR2i1260R3R4R5R11R6tgoR0y29:assets%2Fdata%2Fmain-view.xmlR2i123R3R4R5R12R6tgoR0y37:assets%2Fdata%2Fmiddle%2Fdialogue.txtR2i213R3R4R5R13R6tgoR0y36:assets%2Fdata%2Fmiddle%2Fmiddle.jsonR2i24266R3R4R5R14R6tgoR0y33:assets%2Fdata%2FnoteStyleList.txtR2i13R3R4R5R15R6tgoR0y33:assets%2Fdata%2FspecialThanks.txtR2i300R3R4R5R16R6tgoR0y29:assets%2Fdata%2FstageList.txtR2i59R3R4R5R17R6tgoR0y40:assets%2Fdata%2Ftastetest%2Fdialogue.txtR2i164R3R4R5R18R6tgoR0y42:assets%2Fdata%2Ftastetest%2Ftastetest.jsonR2i17448R3R4R5R19R6tgoR0y29:assets%2Fdata%2FweekNames.txtR2i13R3R4R5R20R6tgoR0y37:assets%2Fdata%2Fworkit%2Fdialogue.txtR2i142R3R4R5R21R6tgoR0y36:assets%2Fdata%2Fworkit%2Fworkit.jsonR2i13505R3R4R5R22R6tgoR0y30:assets%2Fimages%2Falphabet.pngR2i133325R3y5:IMAGER5R23R6tgoR0y30:assets%2Fimages%2Falphabet.xmlR2i42116R3R4R5R25R6tgoR0y45:assets%2Fimages%2Fcampaign_menu_UI_assets.pngR2i27171R3R24R5R26R6tgoR0y45:assets%2Fimages%2Fcampaign_menu_UI_assets.xmlR2i1893R3R4R5R27R6tgoR0y49:assets%2Fimages%2Fcampaign_menu_UI_characters.pngR2i2285826R3R24R5R28R6tgoR0y49:assets%2Fimages%2Fcampaign_menu_UI_characters.xmlR2i22475R3R4R5R29R6tgoR0y42:assets%2Fimages%2FFNF_main_menu_assets.pngR2i281298R3R24R5R30R6tgoR0y42:assets%2Fimages%2FFNF_main_menu_assets.xmlR2i4755R3R4R5R31R6tgoR0y34:assets%2Fimages%2FgfDanceTitle.pngR2i1221436R3R24R5R32R6tgoR0y34:assets%2Fimages%2FgfDanceTitle.xmlR2i4259R3R4R5R33R6tgoR0y41:assets%2Fimages%2Ficons%2Ficon-bf-old.pngR2i5826R3R24R5R34R6tgoR0y43:assets%2Fimages%2Ficons%2Ficon-bf-pixel.pngR2i1159R3R24R5R35R6tgoR0y37:assets%2Fimages%2Ficons%2Ficon-bf.pngR2i14707R3R24R5R36R6tgoR0y39:assets%2Fimages%2Ficons%2Ficon-face.pngR2i3634R3R24R5R37R6tgoR0y37:assets%2Fimages%2Ficons%2Ficon-gf.pngR2i10552R3R24R5R38R6tgoR0y43:assets%2Fimages%2Ficons%2Ficon-jokesour.pngR2i16081R3R24R5R39R6tgoR0y39:assets%2Fimages%2Ficons%2Ficon-pico.pngR2i14427R3R24R5R40R6tgoR0y43:assets%2Fimages%2Ficons%2Ficon-scampers.pngR2i12066R3R24R5R41R6tgoR0y37:assets%2Fimages%2Ficons%2Ficon-sm.pngR2i7534R3R24R5R42R6tgoR0y39:assets%2Fimages%2Ficons%2Ficon-sour.pngR2i16081R3R24R5R43R6tgoR0y36:assets%2Fimages%2FKadeEngineLogo.pngR2i259663R3R24R5R44R6tgoR0y42:assets%2Fimages%2FKadeEngineLogoBumpin.pngR2i1131603R3R24R5R45R6tgoR0y42:assets%2Fimages%2FKadeEngineLogoBumpin.xmlR2i2187R3R4R5R46R6tgoR0y39:assets%2Fimages%2FKadeEngineLogoOld.pngR2i118097R3R24R5R47R6tgoR0y26:assets%2Fimages%2Flogo.pngR2i86924R3R24R5R48R6tgoR0y32:assets%2Fimages%2FlogoBumpin.pngR2i191765R3R24R5R49R6tgoR0y32:assets%2Fimages%2FlogoBumpin.xmlR2i349R3R4R5R50R6tgoR0y28:assets%2Fimages%2FmenuBG.pngR2i620342R3R24R5R51R6tgoR0y32:assets%2Fimages%2FmenuBGBlue.pngR2i614586R3R24R5R52R6tgoR0y35:assets%2Fimages%2FmenuBGMagenta.pngR2i553468R3R24R5R53R6tgoR0y31:assets%2Fimages%2FmenuDesat.pngR2i357911R3R24R5R54R6tgoR0y37:assets%2Fimages%2Fnewgrounds_logo.pngR2i57747R3R24R5R55R6tgoR0y26:assets%2Fimages%2Fnum0.pngR2i3738R3R24R5R56R6tgoR0y26:assets%2Fimages%2Fnum1.pngR2i3390R3R24R5R57R6tgoR0y26:assets%2Fimages%2Fnum2.pngR2i3990R3R24R5R58R6tgoR0y26:assets%2Fimages%2Fnum3.pngR2i4022R3R24R5R59R6tgoR0y26:assets%2Fimages%2Fnum4.pngR2i3989R3R24R5R60R6tgoR0y26:assets%2Fimages%2Fnum5.pngR2i4113R3R24R5R61R6tgoR0y26:assets%2Fimages%2Fnum6.pngR2i4181R3R24R5R62R6tgoR0y26:assets%2Fimages%2Fnum7.pngR2i3692R3R24R5R63R6tgoR0y26:assets%2Fimages%2Fnum8.pngR2i3914R3R24R5R64R6tgoR0y26:assets%2Fimages%2Fnum9.pngR2i3687R3R24R5R65R6tgoR0y37:assets%2Fimages%2Fstopwaitaminute.pngR2i3952R3R24R5R66R6tgoR0y39:assets%2Fimages%2Fstorymenu%2Fweek0.pngR2i12531R3R24R5R67R6tgoR0y32:assets%2Fimages%2FtitleEnter.pngR2i1449202R3R24R5R68R6tgoR0y32:assets%2Fimages%2FtitleEnter.xmlR2i4875R3R4R5R69R6tgoR2i3685843R3y5:MUSICR5y31:assets%2Fmusic%2FfreakyMenu.mp3y9:pathGroupaR71hR6tgoR2i17762R3R70R5y32:assets%2Fsounds%2FcancelMenu.mp3R72aR73hR6tgoR2i91950R3R70R5y33:assets%2Fsounds%2FconfirmMenu.mp3R72aR74hR6tgoR2i17762R3R70R5y32:assets%2Fsounds%2FscrollMenu.mp3R72aR75hR6tgoR0y46:assets%2Fvideos%2FdaWeirdVid%2FdontDelete.webmR2i10965R3y6:BINARYR5R76R6tgoR0y48:mods%2FintroMod%2F_append%2Fdata%2FintroText.txtR2i20R3R4R5R78goR0y18:mods%2FmodList.txtR2i8R3R4R5R79goR0y17:mods%2Freadme.txtR2i90R3R4R5R80goR0y21:do%20NOT%20readme.txtR2i4662R3R4R5R81R6tgoR0y11:LICENSE.txtR2i58R3R77R5R82R6tgoR2i57248R3y4:FONTy9:classNamey43:__ASSET__assets_fonts_comicneue_regular_ttfR5y38:assets%2Ffonts%2FComicNeue-Regular.ttfR6tgoR0y34:assets%2Ffonts%2Ffonts-go-here.txtR2zR3R4R5R87R6tgoR2i14656R3R83R84y31:__ASSET__assets_fonts_pixel_otfR5y26:assets%2Ffonts%2Fpixel.otfR6tgoR2i75864R3R83R84y29:__ASSET__assets_fonts_vcr_ttfR5y24:assets%2Ffonts%2Fvcr.ttfR6tgoR2i2114R3R70R5y26:flixel%2Fsounds%2Fbeep.mp3R72aR92y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R70R5y28:flixel%2Fsounds%2Fflixel.mp3R72aR94y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3y5:SOUNDR5R93R72aR92R93hgoR2i33629R3R96R5R95R72aR94R95hgoR2i15744R3R83R84y35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R83R84y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R24R5R101R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R24R5R102R6tgoR0y34:flixel%2Fflixel-ui%2Fimg%2Fbox.pngR2i912R3R24R5R103R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fbutton.pngR2i433R3R24R5R104R6tgoR0y48:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_down.pngR2i446R3R24R5R105R6tgoR0y48:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_left.pngR2i459R3R24R5R106R6tgoR0y49:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_right.pngR2i511R3R24R5R107R6tgoR0y46:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_up.pngR2i493R3R24R5R108R6tgoR0y42:flixel%2Fflixel-ui%2Fimg%2Fbutton_thin.pngR2i247R3R24R5R109R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Fbutton_toggle.pngR2i534R3R24R5R110R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fcheck_box.pngR2i922R3R24R5R111R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Fcheck_mark.pngR2i946R3R24R5R112R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fchrome.pngR2i253R3R24R5R113R6tgoR0y42:flixel%2Fflixel-ui%2Fimg%2Fchrome_flat.pngR2i212R3R24R5R114R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Fchrome_inset.pngR2i192R3R24R5R115R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Fchrome_light.pngR2i214R3R24R5R116R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Fdropdown_mark.pngR2i156R3R24R5R117R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Ffinger_big.pngR2i1724R3R24R5R118R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Ffinger_small.pngR2i294R3R24R5R119R6tgoR0y38:flixel%2Fflixel-ui%2Fimg%2Fhilight.pngR2i129R3R24R5R120R6tgoR0y36:flixel%2Fflixel-ui%2Fimg%2Finvis.pngR2i128R3R24R5R121R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Fminus_mark.pngR2i136R3R24R5R122R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fplus_mark.pngR2i147R3R24R5R123R6tgoR0y36:flixel%2Fflixel-ui%2Fimg%2Fradio.pngR2i191R3R24R5R124R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fradio_dot.pngR2i153R3R24R5R125R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fswatch.pngR2i185R3R24R5R126R6tgoR0y34:flixel%2Fflixel-ui%2Fimg%2Ftab.pngR2i201R3R24R5R127R6tgoR0y39:flixel%2Fflixel-ui%2Fimg%2Ftab_back.pngR2i210R3R24R5R128R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Ftooltip_arrow.pngR2i18509R3R24R5R129R6tgoR0y39:flixel%2Fflixel-ui%2Fxml%2Fdefaults.xmlR2i1263R3R4R5R130R6tgoR0y53:flixel%2Fflixel-ui%2Fxml%2Fdefault_loading_screen.xmlR2i1953R3R4R5R131R6tgoR0y44:flixel%2Fflixel-ui%2Fxml%2Fdefault_popup.xmlR2i1848R3R4R5R132R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy33:assets%2Fdata%2FcharacterList.txty4:sizei46y4:typey4:TEXTy2:idR1y7:preloadtgoR0y28:assets%2Fdata%2Fcontrols.txtR2i324R3R4R5R7R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R8R6tgoR0y36:assets%2Fdata%2FfreeplaySonglist.txtR2i44R3R4R5R9R6tgoR0y33:assets%2Fdata%2FgfVersionList.txtR2i31R3R4R5R10R6tgoR0y29:assets%2Fdata%2FintroText.txtR2i304R3R4R5R11R6tgoR0y29:assets%2Fdata%2Fmain-view.xmlR2i123R3R4R5R12R6tgoR0y37:assets%2Fdata%2Fmiddle%2Fdialogue.txtR2i213R3R4R5R13R6tgoR0y36:assets%2Fdata%2Fmiddle%2Fmiddle.jsonR2i24266R3R4R5R14R6tgoR0y33:assets%2Fdata%2FnoteStyleList.txtR2i13R3R4R5R15R6tgoR0y33:assets%2Fdata%2FspecialThanks.txtR2i300R3R4R5R16R6tgoR0y29:assets%2Fdata%2FstageList.txtR2i59R3R4R5R17R6tgoR0y40:assets%2Fdata%2Ftastetest%2Fdialogue.txtR2i164R3R4R5R18R6tgoR0y42:assets%2Fdata%2Ftastetest%2Ftastetest.jsonR2i17448R3R4R5R19R6tgoR0y29:assets%2Fdata%2FweekNames.txtR2i13R3R4R5R20R6tgoR0y37:assets%2Fdata%2Fworkit%2Fdialogue.txtR2i142R3R4R5R21R6tgoR0y36:assets%2Fdata%2Fworkit%2Fworkit.jsonR2i13505R3R4R5R22R6tgoR0y30:assets%2Fimages%2Falphabet.pngR2i133325R3y5:IMAGER5R23R6tgoR0y30:assets%2Fimages%2Falphabet.xmlR2i42116R3R4R5R25R6tgoR0y45:assets%2Fimages%2Fcampaign_menu_UI_assets.pngR2i27171R3R24R5R26R6tgoR0y45:assets%2Fimages%2Fcampaign_menu_UI_assets.xmlR2i1893R3R4R5R27R6tgoR0y49:assets%2Fimages%2Fcampaign_menu_UI_characters.pngR2i2285826R3R24R5R28R6tgoR0y49:assets%2Fimages%2Fcampaign_menu_UI_characters.xmlR2i22475R3R4R5R29R6tgoR0y42:assets%2Fimages%2FFNF_main_menu_assets.pngR2i281298R3R24R5R30R6tgoR0y42:assets%2Fimages%2FFNF_main_menu_assets.xmlR2i4755R3R4R5R31R6tgoR0y34:assets%2Fimages%2FgfDanceTitle.pngR2i1221436R3R24R5R32R6tgoR0y34:assets%2Fimages%2FgfDanceTitle.xmlR2i4259R3R4R5R33R6tgoR0y41:assets%2Fimages%2Ficons%2Ficon-bf-old.pngR2i5826R3R24R5R34R6tgoR0y43:assets%2Fimages%2Ficons%2Ficon-bf-pixel.pngR2i1159R3R24R5R35R6tgoR0y37:assets%2Fimages%2Ficons%2Ficon-bf.pngR2i14707R3R24R5R36R6tgoR0y39:assets%2Fimages%2Ficons%2Ficon-face.pngR2i3634R3R24R5R37R6tgoR0y37:assets%2Fimages%2Ficons%2Ficon-gf.pngR2i10552R3R24R5R38R6tgoR0y43:assets%2Fimages%2Ficons%2Ficon-jokesour.pngR2i16081R3R24R5R39R6tgoR0y39:assets%2Fimages%2Ficons%2Ficon-pico.pngR2i14427R3R24R5R40R6tgoR0y43:assets%2Fimages%2Ficons%2Ficon-scampers.pngR2i12066R3R24R5R41R6tgoR0y37:assets%2Fimages%2Ficons%2Ficon-sm.pngR2i7534R3R24R5R42R6tgoR0y39:assets%2Fimages%2Ficons%2Ficon-sour.pngR2i16081R3R24R5R43R6tgoR0y36:assets%2Fimages%2FKadeEngineLogo.pngR2i259663R3R24R5R44R6tgoR0y42:assets%2Fimages%2FKadeEngineLogoBumpin.pngR2i1131603R3R24R5R45R6tgoR0y42:assets%2Fimages%2FKadeEngineLogoBumpin.xmlR2i2187R3R4R5R46R6tgoR0y39:assets%2Fimages%2FKadeEngineLogoOld.pngR2i118097R3R24R5R47R6tgoR0y26:assets%2Fimages%2Flogo.pngR2i86924R3R24R5R48R6tgoR0y32:assets%2Fimages%2FlogoBumpin.pngR2i191765R3R24R5R49R6tgoR0y32:assets%2Fimages%2FlogoBumpin.xmlR2i349R3R4R5R50R6tgoR0y28:assets%2Fimages%2FmenuBG.pngR2i620342R3R24R5R51R6tgoR0y32:assets%2Fimages%2FmenuBGBlue.pngR2i614586R3R24R5R52R6tgoR0y35:assets%2Fimages%2FmenuBGMagenta.pngR2i553468R3R24R5R53R6tgoR0y31:assets%2Fimages%2FmenuDesat.pngR2i357911R3R24R5R54R6tgoR0y37:assets%2Fimages%2Fnewgrounds_logo.pngR2i57747R3R24R5R55R6tgoR0y26:assets%2Fimages%2Fnum0.pngR2i3738R3R24R5R56R6tgoR0y26:assets%2Fimages%2Fnum1.pngR2i3390R3R24R5R57R6tgoR0y26:assets%2Fimages%2Fnum2.pngR2i3990R3R24R5R58R6tgoR0y26:assets%2Fimages%2Fnum3.pngR2i4022R3R24R5R59R6tgoR0y26:assets%2Fimages%2Fnum4.pngR2i3989R3R24R5R60R6tgoR0y26:assets%2Fimages%2Fnum5.pngR2i4113R3R24R5R61R6tgoR0y26:assets%2Fimages%2Fnum6.pngR2i4181R3R24R5R62R6tgoR0y26:assets%2Fimages%2Fnum7.pngR2i3692R3R24R5R63R6tgoR0y26:assets%2Fimages%2Fnum8.pngR2i3914R3R24R5R64R6tgoR0y26:assets%2Fimages%2Fnum9.pngR2i3687R3R24R5R65R6tgoR0y37:assets%2Fimages%2Fstopwaitaminute.pngR2i3952R3R24R5R66R6tgoR0y39:assets%2Fimages%2Fstorymenu%2Fweek0.pngR2i12531R3R24R5R67R6tgoR0y32:assets%2Fimages%2FtitleEnter.pngR2i1449202R3R24R5R68R6tgoR0y32:assets%2Fimages%2FtitleEnter.xmlR2i4875R3R4R5R69R6tgoR2i3685843R3y5:MUSICR5y31:assets%2Fmusic%2FfreakyMenu.mp3y9:pathGroupaR71hR6tgoR2i17762R3R70R5y32:assets%2Fsounds%2FcancelMenu.mp3R72aR73hR6tgoR2i91950R3R70R5y33:assets%2Fsounds%2FconfirmMenu.mp3R72aR74hR6tgoR2i17762R3R70R5y32:assets%2Fsounds%2FscrollMenu.mp3R72aR75hR6tgoR0y46:assets%2Fvideos%2FdaWeirdVid%2FdontDelete.webmR2i10965R3y6:BINARYR5R76R6tgoR0y48:mods%2FintroMod%2F_append%2Fdata%2FintroText.txtR2i20R3R4R5R78goR0y18:mods%2FmodList.txtR2i8R3R4R5R79goR0y17:mods%2Freadme.txtR2i90R3R4R5R80goR0y21:do%20NOT%20readme.txtR2i4662R3R4R5R81R6tgoR0y11:LICENSE.txtR2i58R3R77R5R82R6tgoR2i57248R3y4:FONTy9:classNamey43:__ASSET__assets_fonts_comicneue_regular_ttfR5y38:assets%2Ffonts%2FComicNeue-Regular.ttfR6tgoR0y34:assets%2Ffonts%2Ffonts-go-here.txtR2zR3R4R5R87R6tgoR2i14656R3R83R84y31:__ASSET__assets_fonts_pixel_otfR5y26:assets%2Ffonts%2Fpixel.otfR6tgoR2i75864R3R83R84y29:__ASSET__assets_fonts_vcr_ttfR5y24:assets%2Ffonts%2Fvcr.ttfR6tgoR2i2114R3R70R5y26:flixel%2Fsounds%2Fbeep.mp3R72aR92y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R70R5y28:flixel%2Fsounds%2Fflixel.mp3R72aR94y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3y5:SOUNDR5R93R72aR92R93hgoR2i33629R3R96R5R95R72aR94R95hgoR2i15744R3R83R84y35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R83R84y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R24R5R101R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R24R5R102R6tgoR0y34:flixel%2Fflixel-ui%2Fimg%2Fbox.pngR2i912R3R24R5R103R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fbutton.pngR2i433R3R24R5R104R6tgoR0y48:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_down.pngR2i446R3R24R5R105R6tgoR0y48:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_left.pngR2i459R3R24R5R106R6tgoR0y49:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_right.pngR2i511R3R24R5R107R6tgoR0y46:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_up.pngR2i493R3R24R5R108R6tgoR0y42:flixel%2Fflixel-ui%2Fimg%2Fbutton_thin.pngR2i247R3R24R5R109R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Fbutton_toggle.pngR2i534R3R24R5R110R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fcheck_box.pngR2i922R3R24R5R111R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Fcheck_mark.pngR2i946R3R24R5R112R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fchrome.pngR2i253R3R24R5R113R6tgoR0y42:flixel%2Fflixel-ui%2Fimg%2Fchrome_flat.pngR2i212R3R24R5R114R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Fchrome_inset.pngR2i192R3R24R5R115R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Fchrome_light.pngR2i214R3R24R5R116R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Fdropdown_mark.pngR2i156R3R24R5R117R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Ffinger_big.pngR2i1724R3R24R5R118R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Ffinger_small.pngR2i294R3R24R5R119R6tgoR0y38:flixel%2Fflixel-ui%2Fimg%2Fhilight.pngR2i129R3R24R5R120R6tgoR0y36:flixel%2Fflixel-ui%2Fimg%2Finvis.pngR2i128R3R24R5R121R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Fminus_mark.pngR2i136R3R24R5R122R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fplus_mark.pngR2i147R3R24R5R123R6tgoR0y36:flixel%2Fflixel-ui%2Fimg%2Fradio.pngR2i191R3R24R5R124R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fradio_dot.pngR2i153R3R24R5R125R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fswatch.pngR2i185R3R24R5R126R6tgoR0y34:flixel%2Fflixel-ui%2Fimg%2Ftab.pngR2i201R3R24R5R127R6tgoR0y39:flixel%2Fflixel-ui%2Fimg%2Ftab_back.pngR2i210R3R24R5R128R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Ftooltip_arrow.pngR2i18509R3R24R5R129R6tgoR0y39:flixel%2Fflixel-ui%2Fxml%2Fdefaults.xmlR2i1263R3R4R5R130R6tgoR0y53:flixel%2Fflixel-ui%2Fxml%2Fdefault_loading_screen.xmlR2i1953R3R4R5R131R6tgoR0y44:flixel%2Fflixel-ui%2Fxml%2Fdefault_popup.xmlR2i1848R3R4R5R132R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -14876,7 +15927,31 @@ var Note = function(strumTime,noteData,prevNote,sustainNote,inCharter,isAlt,bet)
 		} else {
 			noteTypeCheck = PlayState.SONG.noteStyle;
 		}
+		if(PlayState.SONG.noteStyle == "normal" && PlayState.SONG.forGuitar) {
+			noteTypeCheck = "guitar";
+		}
 		switch(noteTypeCheck) {
+		case "guitar":
+			var library = null;
+			var usecahce = flixel_FlxG.save.data.cacheImages;
+			usecahce = false;
+			this.set_frames(flixel_graphics_frames_FlxAtlasFrames.fromSparrow(Paths.getPath("images/" + "GUITARNOTE_assets" + ".png","IMAGE",library),Paths.getPath("images/" + "GUITARNOTE_assets" + ".xml","TEXT",library)));
+			this.animation.addByPrefix(this.dataColor[0] + "Scroll",this.dataColor[0] + " alone");
+			this.animation.addByPrefix(this.dataColor[0] + "hold",this.dataColor[0] + " hold");
+			this.animation.addByPrefix(this.dataColor[0] + "holdend",this.dataColor[0] + " tail");
+			this.animation.addByPrefix(this.dataColor[1] + "Scroll",this.dataColor[1] + " alone");
+			this.animation.addByPrefix(this.dataColor[1] + "hold",this.dataColor[1] + " hold");
+			this.animation.addByPrefix(this.dataColor[1] + "holdend",this.dataColor[1] + " tail");
+			this.animation.addByPrefix(this.dataColor[2] + "Scroll",this.dataColor[2] + " alone");
+			this.animation.addByPrefix(this.dataColor[2] + "hold",this.dataColor[2] + " hold");
+			this.animation.addByPrefix(this.dataColor[2] + "holdend",this.dataColor[2] + " tail");
+			this.animation.addByPrefix(this.dataColor[3] + "Scroll",this.dataColor[3] + " alone");
+			this.animation.addByPrefix(this.dataColor[3] + "hold",this.dataColor[3] + " hold");
+			this.animation.addByPrefix(this.dataColor[3] + "holdend",this.dataColor[3] + " tail");
+			this.setGraphicSize(this.get_width() * 0.7 | 0);
+			this.updateHitbox();
+			this.set_antialiasing(flixel_FlxG.save.data.antialiasing);
+			break;
 		case "paint":
 			this.loadGraphic(Paths.getPath("images/" + "arrows-paint" + ".png","IMAGE",null),true,128,128);
 			this.animation.add("greenScroll",[2]);
@@ -16439,6 +17514,8 @@ var PlayState = function(TransIn,TransOut) {
 	this.playingDathing = false;
 	this.useVideo = false;
 	this.fuckingVolume = 1;
+	this.strumdownHold = false;
+	this.strumupHold = false;
 	this.leftHold = false;
 	this.rightHold = false;
 	this.downHold = false;
@@ -16464,7 +17541,7 @@ var PlayState = function(TransIn,TransOut) {
 	this.doAnything = false;
 	this.songStarted = false;
 	this.closestNotes = [];
-	this.keys = [false,false,false,false];
+	this.keys = [false,false,false,false,false,false];
 	this.songTime = 0;
 	this.lastReportedPlayheadPosition = 0;
 	this.previousFrameTime = 0;
@@ -17147,6 +18224,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 		}
 		haxe_Log.trace("deef dish pizza " + Std.string(flixel_FlxG.keys.preventDefaultKeys),{ fileName : "source/PlayState.hx", lineNumber : 1035, className : "PlayState", methodName : "create"});
 		flixel_FlxG.keys.preventDefaultKeys = [];
+		haxe_Log.trace("guitar hehe" + Std.string(PlayState.SONG.forGuitar),{ fileName : "source/PlayState.hx", lineNumber : 1037, className : "PlayState", methodName : "create"});
 		openfl_Lib.get_current().stage.addEventListener("keyDown",$bind(this,this.handleInput));
 		openfl_Lib.get_current().stage.addEventListener("keyUp",$bind(this,this.releaseInput));
 		MusicBeatState.prototype.create.call(this);
@@ -17306,8 +18384,11 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 	}
 	,releaseInput: function(evt) {
 		var key = flixel_input_keyboard_FlxKey.toStringMap.h[evt.keyCode];
-		var binds = [flixel_FlxG.save.data.leftBind,flixel_FlxG.save.data.downBind,flixel_FlxG.save.data.upBind,flixel_FlxG.save.data.rightBind];
-		var altbinds = ["LEFT","DOWN","UP","RIGHT"];
+		var binds = [flixel_FlxG.save.data.leftBind,flixel_FlxG.save.data.downBind,flixel_FlxG.save.data.upBind,flixel_FlxG.save.data.rightBind,flixel_FlxG.save.data.strumupBind,flixel_FlxG.save.data.strumdownBind];
+		var altbinds_0 = "LEFT";
+		var altbinds_1 = "DOWN";
+		var altbinds_2 = "UP";
+		var altbinds_3 = "RIGHT";
 		var data = -1;
 		switch(evt.keyCode) {
 		case 37:
@@ -17331,14 +18412,6 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 				data = i;
 			}
 		}
-		var _g = 0;
-		var _g1 = altbinds.length;
-		while(_g < _g1) {
-			var i = _g++;
-			if(altbinds[i].toLowerCase() == key.toLowerCase()) {
-				data = i;
-			}
-		}
 		if(data == -1) {
 			return;
 		}
@@ -17349,7 +18422,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 			return;
 		}
 		var key = flixel_input_keyboard_FlxKey.toStringMap.h[evt.keyCode];
-		var binds = [flixel_FlxG.save.data.leftBind,flixel_FlxG.save.data.downBind,flixel_FlxG.save.data.upBind,flixel_FlxG.save.data.rightBind];
+		var binds = [flixel_FlxG.save.data.leftBind,flixel_FlxG.save.data.downBind,flixel_FlxG.save.data.upBind,flixel_FlxG.save.data.rightBind,flixel_FlxG.save.data.strumupBind,flixel_FlxG.save.data.strumdownBind];
 		var altbinds = ["LEFT","DOWN","UP","RIGHT"];
 		var data = -1;
 		switch(evt.keyCode) {
@@ -17398,11 +18471,19 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 		while(_g < _g1.length) {
 			var i = _g1[_g];
 			++_g;
-			if(i.noteData == data) {
-				dataNotes.push(i);
+			if(!PlayState.SONG.forGuitar && i.noteData == data || PlayState.SONG.forGuitar && i.noteData < 4 && data > 3) {
+				if(this.keys[0] == true) {
+					dataNotes.push(i);
+				}
+				if(this.keys[1] == true) {
+					dataNotes.push(i);
+				}
+				if(this.keys[2] == true) {
+					dataNotes.push(i);
+				}
 			}
 		}
-		haxe_Log.trace("notes able to hit for " + key.toString() + " " + dataNotes.length,{ fileName : "source/PlayState.hx", lineNumber : 1378, className : "PlayState", methodName : "handleInput"});
+		haxe_Log.trace("notes able to hit for " + key.toString() + " " + dataNotes.length,{ fileName : "source/PlayState.hx", lineNumber : 1384, className : "PlayState", methodName : "handleInput"});
 		if(dataNotes.length != 0) {
 			var coolNote = null;
 			var _g = 0;
@@ -17427,7 +18508,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					}
 					var note = dataNotes[i];
 					if(!note.isSustainNote && note.strumTime / PlayState.songMultiplier - coolNote.strumTime / PlayState.songMultiplier < 2) {
-						haxe_Log.trace("found a stacked/really close note " + (note.strumTime / PlayState.songMultiplier - coolNote.strumTime / PlayState.songMultiplier),{ fileName : "source/PlayState.hx", lineNumber : 1407, className : "PlayState", methodName : "handleInput"});
+						haxe_Log.trace("found a stacked/really close note " + (note.strumTime / PlayState.songMultiplier - coolNote.strumTime / PlayState.songMultiplier),{ fileName : "source/PlayState.hx", lineNumber : 1413, className : "PlayState", methodName : "handleInput"});
 						note.kill();
 						this.notes.remove(note,true);
 						note.destroy();
@@ -17512,7 +18593,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 		} else {
 			this.vocals = new flixel_system_FlxSound();
 		}
-		haxe_Log.trace("loaded vocals",{ fileName : "source/PlayState.hx", lineNumber : 1562, className : "PlayState", methodName : "generateSong"});
+		haxe_Log.trace("loaded vocals",{ fileName : "source/PlayState.hx", lineNumber : 1568, className : "PlayState", methodName : "generateSong"});
 		flixel_FlxG.sound.list.add(this.vocals);
 		if(!this.paused) {
 			var tmp = flixel_FlxG.sound;
@@ -17877,7 +18958,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 			if(timingSeg != null) {
 				var timingSegBpm = timingSeg.bpm;
 				if(timingSegBpm != Conductor.bpm) {
-					haxe_Log.trace("BPM CHANGE to " + timingSegBpm,{ fileName : "source/PlayState.hx", lineNumber : 2144, className : "PlayState", methodName : "update"});
+					haxe_Log.trace("BPM CHANGE to " + timingSegBpm,{ fileName : "source/PlayState.hx", lineNumber : 2152, className : "PlayState", methodName : "update"});
 					Conductor.changeBPM(timingSegBpm,false);
 					Conductor.crochet = 60 / timingSegBpm * 1000 / PlayState.songMultiplier;
 					Conductor.stepCrochet = Conductor.crochet / 4;
@@ -17892,7 +18973,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 				if(i.type == "Scroll Speed Change") {
 					if(i.position <= this.curDecimalBeat && this.pastScrollChanges.indexOf(i) == -1) {
 						this.pastScrollChanges.push(i);
-						haxe_Log.trace("SCROLL SPEED CHANGE to " + i.value,{ fileName : "source/PlayState.hx", lineNumber : 2162, className : "PlayState", methodName : "update"});
+						haxe_Log.trace("SCROLL SPEED CHANGE to " + i.value,{ fileName : "source/PlayState.hx", lineNumber : 2170, className : "PlayState", methodName : "update"});
 						newScroll = i.value;
 					}
 				}
@@ -17957,7 +19038,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 				Chance = 50;
 			}
 			if(flixel_FlxG.random.float(0,100) < Chance) {
-				haxe_Log.trace("GITAROO MAN EASTER EGG",{ fileName : "source/PlayState.hx", lineNumber : 2306, className : "PlayState", methodName : "update"});
+				haxe_Log.trace("GITAROO MAN EASTER EGG",{ fileName : "source/PlayState.hx", lineNumber : 2314, className : "PlayState", methodName : "update"});
 				var nextState = new GitarooPause();
 				if(flixel_FlxG.game._state.switchTo(nextState)) {
 					flixel_FlxG.game._requestedState = nextState;
@@ -18300,7 +19381,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					}
 					if(daNote.isAlt) {
 						altAnim = "-alt";
-						haxe_Log.trace("YOO WTF THIS IS AN ALT NOTE????",{ fileName : "source/PlayState.hx", lineNumber : 2980, className : "PlayState", methodName : "update"});
+						haxe_Log.trace("YOO WTF THIS IS AN ALT NOTE????",{ fileName : "source/PlayState.hx", lineNumber : 2988, className : "PlayState", methodName : "update"});
 					}
 					if(!daNote.isParent && daNote.parent != null) {
 						if(daNote.spotInLine != daNote.parent.children.length - 1) {
@@ -18385,7 +19466,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 							}
 							if(daNote.isParent) {
 								_gthis.health -= 0.15;
-								haxe_Log.trace("hold fell over at the start",{ fileName : "source/PlayState.hx", lineNumber : 3130, className : "PlayState", methodName : "update"});
+								haxe_Log.trace("hold fell over at the start",{ fileName : "source/PlayState.hx", lineNumber : 3138, className : "PlayState", methodName : "update"});
 								var _g = 0;
 								var _g1 = daNote.children;
 								while(_g < _g1.length) {
@@ -18395,7 +19476,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 									i.sustainActive = false;
 								}
 							} else if(!daNote.wasGoodHit && daNote.isSustainNote && daNote.sustainActive && daNote.spotInLine != daNote.parent.children.length) {
-								haxe_Log.trace("hold fell over at " + daNote.spotInLine,{ fileName : "source/PlayState.hx", lineNumber : 3145, className : "PlayState", methodName : "update"});
+								haxe_Log.trace("hold fell over at " + daNote.spotInLine,{ fileName : "source/PlayState.hx", lineNumber : 3153, className : "PlayState", methodName : "update"});
 								var _g = 0;
 								var _g1 = daNote.parent.children;
 								while(_g < _g1.length) {
@@ -18424,7 +19505,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 						}
 						if(daNote.isParent && daNote.visible) {
 							_gthis.health -= 0.15;
-							haxe_Log.trace("hold fell over at the start",{ fileName : "source/PlayState.hx", lineNumber : 3180, className : "PlayState", methodName : "update"});
+							haxe_Log.trace("hold fell over at the start",{ fileName : "source/PlayState.hx", lineNumber : 3188, className : "PlayState", methodName : "update"});
 							var _g = 0;
 							var _g1 = daNote.children;
 							while(_g < _g1.length) {
@@ -18434,7 +19515,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 								i.sustainActive = false;
 							}
 						} else if(!daNote.wasGoodHit && daNote.isSustainNote && daNote.sustainActive && daNote.spotInLine != daNote.parent.children.length) {
-							haxe_Log.trace("hold fell over at " + daNote.spotInLine,{ fileName : "source/PlayState.hx", lineNumber : 3195, className : "PlayState", methodName : "update"});
+							haxe_Log.trace("hold fell over at " + daNote.spotInLine,{ fileName : "source/PlayState.hx", lineNumber : 3203, className : "PlayState", methodName : "update"});
 							var _g = 0;
 							var _g1 = daNote.parent.children;
 							while(_g < _g1.length) {
@@ -18492,7 +19573,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 		return null;
 	}
 	,recalculateAllSectionTimes: function() {
-		haxe_Log.trace("RECALCULATING SECTION TIMES",{ fileName : "source/PlayState.hx", lineNumber : 3277, className : "PlayState", methodName : "recalculateAllSectionTimes"});
+		haxe_Log.trace("RECALCULATING SECTION TIMES",{ fileName : "source/PlayState.hx", lineNumber : 3285, className : "PlayState", methodName : "recalculateAllSectionTimes"});
 		var _g = 0;
 		var _g1 = PlayState.SONG.notes.length;
 		while(_g < _g1) {
@@ -18609,8 +19690,8 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					break;
 				}
 				var poop = Highscore.formatSong(songFormat,PlayState.storyDifficulty);
-				haxe_Log.trace("LOADING NEXT SONG",{ fileName : "source/PlayState.hx", lineNumber : 3435, className : "PlayState", methodName : "endSong"});
-				haxe_Log.trace(poop,{ fileName : "source/PlayState.hx", lineNumber : 3436, className : "PlayState", methodName : "endSong"});
+				haxe_Log.trace("LOADING NEXT SONG",{ fileName : "source/PlayState.hx", lineNumber : 3443, className : "PlayState", methodName : "endSong"});
+				haxe_Log.trace(poop,{ fileName : "source/PlayState.hx", lineNumber : 3444, className : "PlayState", methodName : "endSong"});
 				if(StringTools.replace(PlayState.storyPlaylist[0]," ","-").toLowerCase() == "eggnog") {
 					var blackShit = new flixel_FlxSprite(-flixel_FlxG.width * flixel_FlxG.camera.zoom,-flixel_FlxG.height * flixel_FlxG.camera.zoom).makeGraphic(flixel_FlxG.width * 3,flixel_FlxG.height * 3,-16777216);
 					blackShit.scrollFactor.set();
@@ -18631,7 +19712,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 				this.clean();
 			}
 		} else {
-			haxe_Log.trace("WENT BACK TO FREEPLAY??",{ fileName : "source/PlayState.hx", lineNumber : 3462, className : "PlayState", methodName : "endSong"});
+			haxe_Log.trace("WENT BACK TO FREEPLAY??",{ fileName : "source/PlayState.hx", lineNumber : 3470, className : "PlayState", methodName : "endSong"});
 			this.paused = true;
 			var _this = flixel_FlxG.sound.music;
 			_this.cleanup(_this.autoDestroy,true);
@@ -18690,7 +19771,11 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 		case "bad":
 			daRating = "bad";
 			score = 0;
-			this.health -= 0.06;
+			if(PlayState.SONG.forGuitar) {
+				this.health -= 0.04;
+			} else {
+				this.health -= 0.06;
+			}
 			this.ss = false;
 			PlayState.bads++;
 			if(flixel_FlxG.save.data.accuracyMod == 0) {
@@ -18701,6 +19786,9 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 			daRating = "good";
 			score = 200;
 			this.ss = false;
+			if(PlayState.SONG.forGuitar) {
+				this.health += 0.04;
+			}
 			PlayState.goods++;
 			if(flixel_FlxG.save.data.accuracyMod == 0) {
 				this.totalNotesHit += 0.75;
@@ -18710,7 +19798,11 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 			score = -300;
 			this.combo = 0;
 			PlayState.misses++;
-			this.health -= 0.1;
+			if(PlayState.SONG.forGuitar) {
+				this.health -= 0.08;
+			} else {
+				this.health -= 0.1;
+			}
 			this.ss = false;
 			PlayState.shits++;
 			if(flixel_FlxG.save.data.accuracyMod == 0) {
@@ -18720,6 +19812,9 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 		case "sick":
 			if(this.health < 2) {
 				this.health += 0.04;
+			}
+			if(PlayState.SONG.forGuitar) {
+				this.health += 0.1;
 			}
 			if(flixel_FlxG.save.data.accuracyMod == 0) {
 				this.totalNotesHit += 1;
@@ -18935,21 +20030,37 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 	}
 	,keyShit: function() {
 		var _gthis = this;
-		var holdArray = [PlayerSettings.player1.controls._left.check(),PlayerSettings.player1.controls._down.check(),PlayerSettings.player1.controls._up.check(),PlayerSettings.player1.controls._right.check()];
-		var pressArray = [PlayerSettings.player1.controls._leftP.check(),PlayerSettings.player1.controls._downP.check(),PlayerSettings.player1.controls._upP.check(),PlayerSettings.player1.controls._rightP.check()];
-		var releaseArray = [PlayerSettings.player1.controls._leftR.check(),PlayerSettings.player1.controls._downR.check(),PlayerSettings.player1.controls._upR.check(),PlayerSettings.player1.controls._rightR.check()];
+		var holdArray = [PlayerSettings.player1.controls._left.check(),PlayerSettings.player1.controls._down.check(),PlayerSettings.player1.controls._up.check(),PlayerSettings.player1.controls._right.check(),PlayerSettings.player1.controls._strumup.check(),PlayerSettings.player1.controls._strumdown.check()];
+		var pressArray = [PlayerSettings.player1.controls._leftP.check(),PlayerSettings.player1.controls._downP.check(),PlayerSettings.player1.controls._upP.check(),PlayerSettings.player1.controls._rightP.check(),PlayerSettings.player1.controls._strumupP.check(),PlayerSettings.player1.controls._strumdownP.check()];
+		var releaseArray = [PlayerSettings.player1.controls._leftR.check(),PlayerSettings.player1.controls._downR.check(),PlayerSettings.player1.controls._upR.check(),PlayerSettings.player1.controls._rightR.check(),PlayerSettings.player1.controls._strumupR.check(),PlayerSettings.player1.controls._strumdownR.check()];
+		if(!PlayState.SONG.forGuitar) {
+			var holdArray_0 = PlayerSettings.player1.controls._left.check();
+			var holdArray_1 = PlayerSettings.player1.controls._down.check();
+			var holdArray_2 = PlayerSettings.player1.controls._up.check();
+			var holdArray_3 = PlayerSettings.player1.controls._right.check();
+			var pressArray_0 = PlayerSettings.player1.controls._leftP.check();
+			var pressArray_1 = PlayerSettings.player1.controls._downP.check();
+			var pressArray_2 = PlayerSettings.player1.controls._upP.check();
+			var pressArray_3 = PlayerSettings.player1.controls._rightP.check();
+			var releaseArray_0 = PlayerSettings.player1.controls._leftR.check();
+			var releaseArray_1 = PlayerSettings.player1.controls._downR.check();
+			var releaseArray_2 = PlayerSettings.player1.controls._upR.check();
+			var releaseArray_3 = PlayerSettings.player1.controls._rightR.check();
+		}
 		var keynameArray_0 = "left";
 		var keynameArray_1 = "down";
 		var keynameArray_2 = "up";
 		var keynameArray_3 = "right";
+		var keynameArray_4 = "strumup";
+		var keynameArray_5 = "strumdown";
 		if(PlayStateChangeables.botPlay) {
-			holdArray = [false,false,false,false];
-			pressArray = [false,false,false,false];
-			releaseArray = [false,false,false,false];
+			holdArray = [false,false,false,false,false,false];
+			pressArray = [false,false,false,false,false,false];
+			releaseArray = [false,false,false,false,false,false];
 		}
-		var anas = [null,null,null,null];
+		var anas = [null,null,null,null,null,null];
 		var _g = 0;
-		var _g1 = pressArray.length;
+		var _g1 = anas.length;
 		while(_g < _g1) {
 			var i = _g++;
 			if(pressArray[i]) {
@@ -18958,7 +20069,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 		}
 		if(holdArray.indexOf(true) != -1 && this.generatedMusic) {
 			this.notes.forEachAlive(function(daNote) {
-				if(daNote.isSustainNote && daNote.canBeHit && daNote.mustPress && holdArray[daNote.noteData] && daNote.sustainActive) {
+				if(daNote.isSustainNote && daNote.canBeHit && daNote.mustPress && (!PlayState.SONG.forGuitar && holdArray[daNote.noteData] || PlayState.SONG.forGuitar && (holdArray[4] || holdArray[5]) && holdArray[daNote.noteData]) && daNote.sustainActive) {
 					_gthis.goodNoteHit(daNote);
 				}
 			});
@@ -18971,7 +20082,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 				var dumbNotes = [];
 				var directionsAccounted = [false,false,false,false];
 				this.notes.forEachAlive(function(daNote) {
-					if(daNote.canBeHit && daNote.mustPress && !daNote.wasGoodHit && !directionsAccounted[daNote.noteData]) {
+					if(daNote.canBeHit && daNote.mustPress && !daNote.wasGoodHit && (!PlayState.SONG.forGuitar && !directionsAccounted[daNote.noteData] || PlayState.SONG.forGuitar && !directionsAccounted[daNote.noteData] && !directionsAccounted[4] && !directionsAccounted[5])) {
 						if(directionList.indexOf(daNote.noteData) != -1) {
 							directionsAccounted[daNote.noteData] = true;
 							var _g = 0;
@@ -19014,7 +20125,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 						var _g1 = pressArray.length;
 						while(_g < _g1) {
 							var shit = _g++;
-							if(pressArray[shit] && directionList.indexOf(shit) == -1) {
+							if(!PlayState.SONG.forGuitar && pressArray[shit] && directionList.indexOf(shit) == -1 || PlayState.SONG.forGuitar && (pressArray[4] || pressArray[5]) && directionList == []) {
 								this.noteMiss(shit,null);
 							}
 						}
@@ -19023,21 +20134,22 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					while(_g < possibleNotes.length) {
 						var coolNote = possibleNotes[_g];
 						++_g;
-						if(pressArray[coolNote.noteData] && !hit[coolNote.noteData]) {
+						if(!PlayState.SONG.forGuitar && pressArray[coolNote.noteData] || PlayState.SONG.forGuitar && holdArray[coolNote.noteData] && (pressArray[4] || pressArray[5]) && !hit[coolNote.noteData]) {
 							if(this.mashViolations != 0) {
 								this.mashViolations--;
 							}
 							hit[coolNote.noteData] = true;
 							this.scoreTxt.set_color(-1);
 							var noteDiff = -(coolNote.strumTime - Conductor.songPosition);
-							anas[coolNote.noteData].hit = true;
-							anas[coolNote.noteData].hitJudge = Ratings.judgeNote(coolNote);
-							anas[coolNote.noteData].nearestNote = [coolNote.strumTime,coolNote.noteData,coolNote.sustainLength];
+							haxe_Log.trace("cool note data is " + coolNote.noteData,{ fileName : "source/PlayState.hx", lineNumber : 4016, className : "PlayState", methodName : "keyShit"});
+							haxe_Log.trace("ana looks like " + Std.string(anas),{ fileName : "source/PlayState.hx", lineNumber : 4017, className : "PlayState", methodName : "keyShit"});
+							anas[coolNote.noteData] = new Ana(Conductor.songPosition,[coolNote.strumTime,coolNote.noteData,coolNote.sustainLength],true,Ratings.judgeNote(coolNote),coolNote.noteData);
 							this.goodNoteHit(coolNote);
 						}
 					}
 				}
-				if(PlayState.boyfriend.holdTimer > Conductor.stepCrochet * 4 * 0.001 && (holdArray.indexOf(true) == -1 || PlayStateChangeables.botPlay)) {
+				var holdGuitarless = holdArray.slice(0,3);
+				if(PlayState.boyfriend.holdTimer > Conductor.stepCrochet * 4 * 0.001 && (holdGuitarless.indexOf(true) == -1 || PlayStateChangeables.botPlay)) {
 					if(StringTools.startsWith(PlayState.boyfriend.animation._curAnim.name,"sing") && !StringTools.endsWith(PlayState.boyfriend.animation._curAnim.name,"miss") && (PlayState.boyfriend.animation._curAnim.curFrame >= 10 || PlayState.boyfriend.animation._curAnim.finished)) {
 						PlayState.boyfriend.playAnim("idle");
 					}
@@ -19046,7 +20158,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					var _g1 = pressArray.length;
 					while(_g < _g1) {
 						var shit = _g++;
-						if(pressArray[shit]) {
+						if(!PlayState.SONG.forGuitar && pressArray[shit] || PlayState.SONG.forGuitar && holdArray[shit] && (pressArray[4] || pressArray[5])) {
 							this.noteMiss(shit,null);
 						}
 					}
@@ -19070,7 +20182,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 				if(daNote.mustPress && daNote.rating == "sick" || diff > 0 && daNote.mustPress) {
 					if(PlayState.loadRep) {
 						var n = _gthis.findByTime(daNote.strumTime);
-						haxe_Log.trace(n,{ fileName : "source/PlayState.hx", lineNumber : 4010, className : "PlayState", methodName : "keyShit"});
+						haxe_Log.trace(n,{ fileName : "source/PlayState.hx", lineNumber : 4055, className : "PlayState", methodName : "keyShit"});
 						if(n != null) {
 							_gthis.goodNoteHit(daNote);
 							PlayState.boyfriend.holdTimer = 0;
@@ -19249,7 +20361,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 			var altAnim = "";
 			if(note.isAlt) {
 				altAnim = "-alt";
-				haxe_Log.trace("Alt note on BF",{ fileName : "source/PlayState.hx", lineNumber : 4398, className : "PlayState", methodName : "goodNoteHit"});
+				haxe_Log.trace("Alt note on BF",{ fileName : "source/PlayState.hx", lineNumber : 4443, className : "PlayState", methodName : "goodNoteHit"});
 			}
 			PlayState.boyfriend.playAnim("sing" + this.dataSuffix[note.noteData] + altAnim,true);
 			if(!PlayState.loadRep && note.mustPress) {
@@ -19600,7 +20712,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					HxOverrides.remove(notes,i1);
 				}
 			}
-			haxe_Log.trace("FUCK YOU BITCH FUCKER CUCK SUCK BITCH " + this.cleanedSong.notes.length,{ fileName : "source/PlayState.hx", lineNumber : 4837, className : "PlayState", methodName : "poggers"});
+			haxe_Log.trace("FUCK YOU BITCH FUCKER CUCK SUCK BITCH " + this.cleanedSong.notes.length,{ fileName : "source/PlayState.hx", lineNumber : 4882, className : "PlayState", methodName : "poggers"});
 			PlayState.SONG = this.cleanedSong;
 		} else {
 			var _g = 0;
@@ -19653,7 +20765,7 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					HxOverrides.remove(notes,i1);
 				}
 			}
-			haxe_Log.trace("FUCK YOU BITCH FUCKER CUCK SUCK BITCH " + this.cleanedSong.notes.length,{ fileName : "source/PlayState.hx", lineNumber : 4892, className : "PlayState", methodName : "poggers"});
+			haxe_Log.trace("FUCK YOU BITCH FUCKER CUCK SUCK BITCH " + this.cleanedSong.notes.length,{ fileName : "source/PlayState.hx", lineNumber : 4937, className : "PlayState", methodName : "poggers"});
 			PlayState.SONG = this.cleanedSong;
 		}
 	}
@@ -20271,7 +21383,7 @@ Song.loadFromJson = function(jsonInput,folder) {
 		folderLowercase = "philly";
 		break;
 	}
-	haxe_Log.trace("loading " + folderLowercase + "/" + jsonInput.toLowerCase(),{ fileName : "source/Song.hx", lineNumber : 90, className : "Song", methodName : "loadFromJson"});
+	haxe_Log.trace("loading " + folderLowercase + "/" + jsonInput.toLowerCase(),{ fileName : "source/Song.hx", lineNumber : 92, className : "Song", methodName : "loadFromJson"});
 	var rawJson = StringTools.trim(lime_utils_Assets.getText(Paths.getPath("data/" + (folderLowercase + "/" + jsonInput.toLowerCase()) + ".json","TEXT",null)));
 	while(!StringTools.endsWith(rawJson,"}")) rawJson = HxOverrides.substr(rawJson,0,rawJson.length - 1);
 	return Song.parseJSONshit(rawJson);
@@ -20279,7 +21391,7 @@ Song.loadFromJson = function(jsonInput,folder) {
 Song.conversionChecks = function(song) {
 	var ba = song.bpm;
 	var index = 0;
-	haxe_Log.trace("conversion stuff " + song.song + " " + song.notes.length,{ fileName : "source/Song.hx", lineNumber : 124, className : "Song", methodName : "conversionChecks"});
+	haxe_Log.trace("conversion stuff " + song.song + " " + song.notes.length,{ fileName : "source/Song.hx", lineNumber : 126, className : "Song", methodName : "conversionChecks"});
 	var convertedStuff = [];
 	if(song.eventObjects == null) {
 		song.eventObjects = [new Event("Init BPM",0,song.bpm,"BPM Change")];
@@ -20336,7 +21448,7 @@ Song.conversionChecks = function(song) {
 		}
 		var beat = currentSeg.startBeat + (currentBeat - currentSeg.startBeat);
 		if(i.changeBPM && i.bpm != ba) {
-			haxe_Log.trace("converting changebpm for section " + index,{ fileName : "source/Song.hx", lineNumber : 191, className : "Song", methodName : "conversionChecks"});
+			haxe_Log.trace("converting changebpm for section " + index,{ fileName : "source/Song.hx", lineNumber : 192, className : "Song", methodName : "conversionChecks"});
 			ba = i.bpm;
 			song.eventObjects.push(new Event("FNF BPM Change " + index,beat,i.bpm,"BPM Change"));
 		}
@@ -66758,7 +67870,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 816559;
+	this.version = 290404;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
