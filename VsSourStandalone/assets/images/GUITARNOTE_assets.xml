@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="GUITARNOTE_assets.png">
+	<!-- Created with Adobe Animate version 18.0.2.126 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrowGUITAR0000" x="4" y="4" width="170" height="162"/>
+	<SubTexture name="blue alone0000" x="179" y="332" width="170" height="159"/>
+	<SubTexture name="blue hold0000" x="4" y="334" width="50" height="44"/>
+	<SubTexture name="blue tail0000" x="353" y="72" width="50" height="64"/>
+	<SubTexture name="green alone0000" x="4" y="170" width="171" height="160"/>
+	<SubTexture name="green hold0000" x="4" y="382" width="50" height="44"/>
+	<SubTexture name="green tail0000" x="353" y="4" width="50" height="64"/>
+	<SubTexture name="purple alone0000" x="178" y="4" width="171" height="160"/>
+	<SubTexture name="purple hold0000" x="4" y="430" width="50" height="44"/>
+	<SubTexture name="purple tail0000" x="353" y="400" width="50" height="64"/>
+	<SubTexture name="red alone0000" x="179" y="168" width="171" height="160"/>
+	<SubTexture name="red hold0000" x="58" y="334" width="50" height="44"/>
+	<SubTexture name="red tail0000" x="353" y="332" width="50" height="64"/>
+</TextureAtlas>
