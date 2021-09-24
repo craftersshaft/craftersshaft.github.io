@@ -3086,7 +3086,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "6";
+	app.meta.h["build"] = "7";
 	app.meta.h["company"] = "craftersshaft";
 	app.meta.h["file"] = "VsSourStandalone";
 	app.meta.h["name"] = "Friday Night Funkin': Vs. Sour Standalone";
@@ -18479,6 +18479,9 @@ PlayState.prototype = $extend(MusicBeatState.prototype,{
 					dataNotes.push(i);
 				}
 				if(this.keys[2] == true) {
+					dataNotes.push(i);
+				}
+				if(this.keys[3] == true) {
 					dataNotes.push(i);
 				}
 			}
@@ -67870,7 +67873,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 290404;
+	this.version = 72004;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
