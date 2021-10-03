@@ -3086,7 +3086,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "7";
+	app.meta.h["build"] = "9";
 	app.meta.h["company"] = "craftersshaft";
 	app.meta.h["file"] = "VsSourStandalone";
 	app.meta.h["name"] = "Friday Night Funkin': Vs. Sour Standalone";
@@ -5598,7 +5598,7 @@ var Character = function(x,y,character,isPlayer) {
 	this.dance();
 	if(isPlayer && this.frames != null) {
 		this.set_flipX(!this.flipX);
-		if(!StringTools.startsWith(this.curCharacter,"bf")) {
+		if(!StringTools.startsWith(this.curCharacter,"bf") && !StringTools.startsWith(this.curCharacter,"pico") && !StringTools.startsWith(this.curCharacter,"scampers")) {
 			var oldRight = this.animation._animations.h["singRIGHT"].frames;
 			this.animation._animations.h["singRIGHT"].frames = this.animation._animations.h["singLEFT"].frames;
 			this.animation._animations.h["singLEFT"].frames = oldRight;
@@ -67873,7 +67873,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 72004;
+	this.version = 123453;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
