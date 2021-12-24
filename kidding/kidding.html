@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>You've Got to be Meming!</title>
+</head>
+<style>
+/*============ YOU'VE GOT TO BE KIDDING ==============*/
+/*#mainFeature table { margin:0 auto; background-color:#fff;}*/
+#content #mainFeature #sticker_form { display:inline-block; margin:0 auto; }
+#sticker_table { margin:0 auto; }
+#sticker_table h2 { color:#000; }
+#kidding_table img { float:left; }
+#kiddingWrapper { background-color:#fff; padding:0px; border:2px solid #000; margin:0 auto; }
+#kiddingWrapper.kidding-home { width:622px; }
+#kiddingWrapper.kidding-problem { width:643px; } 
+#kiddingWrapper.kidding-score { width:637px; }
+</style>
+<body>
+
+			
+			<center><canvas id="myCanvas" width="643" height="310" style="border:2px solid #000000; font-smooth: never; -webkit-font-smoothing: none;">
+			Your browser does not support the HTML5 canvas tag.
+			</canvas></center>
+			
+			<p>Problem Text:</p>
+			<input type="text" id="problemText" value="I accidentally cloned myself, thrice." style="width:400px;">  <select name="Character" id="problemChar">
+		<option value="problemArthur">Arthur</option>
+		<option value="problemBuster">Buster</option>
+		<option value="problemDW">DW</option>
+		<option value="problemBinky">Binky</option>
+		<option value="problemFern">Fern</option>
+		<option value="problemBrain">Brain</option>
+		</select>
+			<p>Tip Text:</p>
+			<input type="text" id="tipText" value="I am so freaking mad" style="width:400px;"><select name="Tip Character" id="tipChar">
+		<option value="tipDad">Dad</option>
+		<option value="tipMom">Mom</option>
+		</select>
+		
+			<p>Choice 1:</p>
+		<input type="text" id="choiceOneText" value="What" style="width:400px;"><select name="Choice 1 Character" id="choiceOneChar">
+		<option value="choiceArthur">Arthur</option>
+		<option value="choiceBuster">Buster</option>
+		<option value="choiceBinky">Binky</option>
+		<option value="choiceBrain">Brain</option>	
+		<option value="choiceDW">DW</option>	
+		<option value="choiceMuffy">Muffy</option>	
+		<option value="choiceFrancine">Francine</option>	
+		<option value="choiceSueEllen">Sue Ellen</option>	
+		<option value="choiceFern">Fern</option>	
+		<option value="choiceMrRatburn">Mr. Ratburn</option>
+		<option value="choicePaigeTurner">Paige Turner</option>	
+		<option value="choiceTibbleTwins">Tibble Twins</option>		
+		<option value="choiceMom">Mom</option>
+		<option value="choiceDad">Dad</option>
+		</select>	
+		
+		
+			<p>Choice 2:</p>
+			<input type="text" id="choiceTwoText" value="There is no problem. Get over it." style="width:400px;"><select name="Choice 2 Character" id="choiceTwoChar">
+		<option value="choiceArthur">Arthur</option>
+		<option value="choiceBuster">Buster</option>
+		<option value="choiceBinky">Binky</option>
+		<option value="choiceBrain">Brain</option>	
+		<option value="choiceDW">DW</option>	
+		<option value="choiceMuffy">Muffy</option>	
+		<option value="choiceFrancine">Francine</option>	
+		<option value="choiceSueEllen">Sue Ellen</option>	
+		<option value="choiceFern">Fern</option>	
+		<option value="choiceMrRatburn">Mr. Ratburn</option>
+		<option value="choicePaigeTurner">Paige Turner</option>	
+		<option value="choiceTibbleTwins">Tibble Twins</option>		
+		<option value="choiceMom">Mom</option>
+		<option value="choiceDad">Dad</option>
+		</select>		
+			
+			<p>Choice 3:</p>
+			<input type="text" id="choiceThreeText" value="You have to get out of here." style="width:400px;"><select name="Choice 3 Character" id="choiceThreeChar">
+		<option value="choiceArthur">Arthur</option>
+		<option value="choiceBuster">Buster</option>
+		<option value="choiceBinky">Binky</option>
+		<option value="choiceBrain">Brain</option>	
+		<option value="choiceDW">DW</option>	
+		<option value="choiceMuffy">Muffy</option>	
+		<option value="choiceFrancine">Francine</option>	
+		<option value="choiceSueEllen">Sue Ellen</option>	
+		<option value="choiceFern">Fern</option>	
+		<option value="choiceMrRatburn">Mr. Ratburn</option>
+		<option value="choicePaigeTurner">Paige Turner</option>	
+		<option value="choiceTibbleTwins">Tibble Twins</option>		
+		<option value="choiceMom">Mom</option>
+		<option value="choiceDad">Dad</option>
+		</select>		
+			
+			<button type="button" id="myBtn" onclick="reloadCanvas();">Regenerate Image</button>
+			
+			
+			<p>Arthur is owned by PBS Kids. This generator is not affiliated with any official Arthur or PBS Kids media, however uses assets from the "You've Got to be Kidding!" game.</p>
+			
+			<script>
+			function temploadimage(theUrl){
+                var src = theUrl,
+                img = document.createElement('img');
+				img.src = src;
+				return img;
+}
+
+    // http: //www.html5canvastutorials.com/tutorials/html5-canvas-wrap-text-tutorial/
+     function wrapText(context, text, x, y, maxWidth, lineHeight) {
+        var cars = text.split("\n");
+
+        for (var ii = 0; ii < cars.length; ii++) {
+
+            var line = "";
+            var words = cars[ii].split(" ");
+
+            for (var n = 0; n < words.length; n++) {
+                var testLine = line + words[n] + " ";
+                var metrics = context.measureText(testLine);
+                var testWidth = metrics.width;
+
+                if (testWidth > maxWidth) {
+                    context.fillText(line, x, y);
+                    line = words[n] + " ";
+                    y += lineHeight;
+                }
+                else {
+                    line = testLine;
+                }
+            }
+
+            context.fillText(line, x, y);
+            y += lineHeight;
+        }
+     }
+
+var possibleimages = {
+//PROBLEMS
+"problemArthur":temploadimage("problemArthur.gif"),
+"problemBuster":temploadimage("problemBuster.gif"),
+"problemDW":temploadimage("problemDW.gif"),
+"problemBinky":temploadimage("problemBinky.gif"),
+"problemFern":temploadimage("problemFern.gif"),
+"problemBrain":temploadimage("problemBrain.gif"),
+
+//TIPS
+"tipDad":temploadimage("tipDad.gif"),
+"tipMom":temploadimage("tipMom.gif"),
+
+//CHOICES
+"choiceArthur":temploadimage("choiceArthur.gif"),
+"choiceBuster":temploadimage("choiceBuster.gif"),
+"choiceBinky":temploadimage("choiceBinky.gif"),
+"choiceBrain":temploadimage("choiceBrain.gif"),
+"choiceDW":temploadimage("choiceDW.gif"),
+"choiceMuffy":temploadimage("choiceMuffy.gif"),
+"choiceFrancine":temploadimage("choiceFrancine.gif"),
+"choiceSueEllen":temploadimage("choiceSueEllen.gif"),
+"choiceFern":temploadimage("choiceFern.gif"),
+"choiceMrRatburn":temploadimage("choiceMrRatburn.gif"),
+"choiceMom":temploadimage("choiceMom.gif"),
+"choiceDad":temploadimage("choiceDad.gif"),
+"choicePaigeTurner":temploadimage("choicePaigeTurner.gif"),
+"choiceTibbleTwins":temploadimage("choiceTibbleTwins.gif"),
+
+
+
+"123fix":temploadimage("123fixer.png")
+
+};
+
+
+function reloadCanvas(){
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  ctx.clearRect(0, 0, 643, 310);
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, 643, 310);
+  //THE PROBLEM
+  ctx.drawImage(possibleimages[document.getElementById("problemChar").value], 0, 0);
+  ctx.font = "13px Comic Sans MS";
+  ctx.fillStyle = "black";
+  wrapText(ctx, document.getElementById("problemText").value, 110, 90, 155, 16);  
+	
+  //THE TIPS
+  ctx.drawImage(possibleimages[document.getElementById("tipChar").value], 0, 245);
+  wrapText(ctx, ("							" + document.getElementById("tipText").value), 20, 270, 175, 16); 
+
+  //THE CHOICES
+  ctx.drawImage(possibleimages[document.getElementById("choiceOneChar").value], 283, 19);
+  wrapText(ctx, document.getElementById("choiceOneText").value, 390, 43, 225, 16);   
+  ctx.drawImage(possibleimages[document.getElementById("choiceTwoChar").value], 283, 116);
+  wrapText(ctx, document.getElementById("choiceTwoText").value, 390, 140, 225, 16);    
+  ctx.drawImage(possibleimages[document.getElementById("choiceThreeChar").value], 283, 213);
+  wrapText(ctx, document.getElementById("choiceThreeText").value, 390, 237, 225, 16);  
+  
+  ctx.drawImage(possibleimages["123fix"], 614, 0);
+
+}
+
+			</script>
+
+
+</body>
+</html>
